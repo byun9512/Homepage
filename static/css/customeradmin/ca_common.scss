@@ -1,0 +1,637 @@
+﻿@charset "utf-8";
+@import "../customeradmin/_ca_global.scss";
+
+/* --- 네비게이션 바 --- */
+#navbar {
+    width: $navbar_width; min-height: 100vh;
+    position: fixed;
+    @include flex_box(column, space-between, flex-start);
+    background: $sub;
+    border: {
+        top-right-radius: $g16;
+        bottom-right-radius: $g16;
+    }
+    font-size: $f18;
+    @include padding_setting($g16);
+    z-index: 100;
+
+    #navbar_top {
+        width: 100%;
+        @include flex_box(column, center, flex-start);
+        gap: $g16;
+
+        &>div:nth-of-type(1) {
+            width: 100%;
+            @include flex_box(row, center, center);
+            @include padding_setting($g8 $g4);
+
+            &>a svg {
+                fill: $main;
+                transition: $transition;
+            }
+            &:hover a svg {fill: #329EFF;}
+        }
+        &>div:nth-of-type(2) {
+            width: 100%;
+            text-align: center;
+            @include bg_setting($white, $g8);
+            @include padding_setting($g4);
+        }
+
+        #navbar_list {
+            width: 100%;
+            @include flex_box(column, center, center);
+            gap: $g16;
+
+            & li {width: 100%;
+                & h3 {
+                    @include flex_box(row, flex-start, center);
+                    gap: $g12;
+                    border-bottom: 1px solid $default3;
+                    padding-bottom: $g4;
+                    margin-bottom: $g4;
+                }
+                & ul {
+                    & li {
+                        width: 100%;
+                        @include flex_box(row, center, center);
+                        @include padding_setting($g4);
+                        border-radius: $g4;
+                        margin: $g4 - 2 0;
+                        cursor: pointer;
+                        transition: $transition;
+
+                        &.on {
+                            background: $white;
+                            color: $main;
+                        }
+                        &:hover {background: $white;}
+                        & a {width: 100%;}
+                    }
+                }
+            }
+        }
+    }
+
+    #navbar_bottom {
+        & a {
+            @include flex_box(row, flex-start, center);
+            gap: $g8;
+            transition: $transition;
+
+            &:hover {color: $red;}
+        }
+    }
+}
+
+/* --- 메인 --- */
+#main {
+    width: 100%;
+    @include padding_setting($g24);
+}
+
+/* --- 상단으로 버튼 --- */
+#top {
+    display: none;
+    position: fixed; bottom: 0; right: 40px;
+    z-index: 10000;
+
+    &>div {
+        width: 60px; height: 60px;
+        position: relative;
+        @include flex_box(row, center, center);
+        font-size: 24px;
+        background: $sub;
+        border: {
+            top-left-radius: $g16;
+            top-right-radius: $g16;
+        }
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: $transition;
+    }
+}
+
+
+
+/* --- 컨테이너 모듈 --- */
+// 공통 컨테이너
+.section_container {
+    @include flex_box(column, center, center);
+    margin-left: $navbar_width;
+
+    & article {
+        width: 100%;
+        margin-bottom: $g24;
+
+        &:nth-of-type(1) {
+            &>ul {
+                @include flex_box(row, flex-start, center);
+                gap: $g8;
+
+                &>li i {margin-right: $g8;}
+                &>li a {
+                    text-decoration: underline;
+                    transition: $transition;
+
+                    &:hover {font-weight: 700;}
+                }
+            }
+        }
+
+        &:nth-of-type(2) {@include grid_box(1fr 1fr, $g12);
+            &>ul {
+                width: 100%; height: 100%;
+                @include bg_setting($sub, $g12);
+                @include flex_box(row, flex-start, flex-start);
+                @include padding_setting($g16);
+
+                & h2 {
+                    @include flex_box(column, center, center);
+                    @include padding_setting($g4 0);
+                    white-space: nowrap;
+                    margin-right: $g12;
+
+                    & i {
+                        font-size: 32px;
+                        margin-bottom: $g8;
+                    }
+                }
+
+                &>li {
+                    &>div {
+                        @include bg_setting($white, $g12);
+                        @include padding_setting($g8 $g12);
+                        display: inline-flex;
+                        border: 2px solid transparent;
+                        cursor: pointer;
+                        margin: $g4 - 2;
+                        transition: $transition;
+
+                        &:hover {border-color: $main};
+                        &.selected_checker {
+                            background: $main;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 선택 컨테이너
+.select_container {
+    width: 100%;
+    @include flex_box(row, space-between, center);
+    margin-bottom: $g16;
+
+    &>li {
+        width: 100%;
+        @include flex_box(row, flex-start, center);
+        gap: $g8;
+
+        & button {
+            &.on {
+                background: $main;
+                color: $white;
+            }
+        }
+        &:not(:first-of-type) {justify-content: flex-end;}
+    }
+}
+
+// 테이블 컨테이너
+.table_container {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    vertical-align: middle;
+
+    thead, tbody, tr, th, td {vertical-align: middle;}
+    tr {
+        width: 100%;
+        @include flex_box(row, center, center);
+        white-space: nowrap;
+    }
+    th, td {text-align: center;}
+
+    & thead {border-bottom: 2px solid $default3;
+        & tr {
+            position: relative;
+            @include padding_setting($g8 0);
+
+            & th {
+                width: 100%;
+                font-weight: 700;
+
+                & select {
+                    font-size: $f14;
+                    font-weight: 700;
+                    @include bg_setting($sub, $g12);
+                    @include padding_setting($g4 $g8);
+                    margin-left: $g8;
+                }
+            }
+        }
+    }
+
+    & tbody {
+        & tr {
+            border-bottom: 1px solid $default3;
+            @include padding_setting($g4 0);
+            transition: $transition;
+
+            & td {width: 100%;}
+            &:last-child {border-bottom: none;}
+        }
+    }
+}
+
+// 그래프 컨테이너
+.graph_container {
+    @include grid_box(1fr 1fr 1fr, $g16);
+    place-items: center center;
+
+    & li {
+        width: 100%;
+        min-width: 400px;
+        @include flex_box(column, center, center);
+        text-align: center;
+    }
+}
+
+// 디폴트 컨테이너
+.default_container {
+    width: 100%; min-height: 600px;
+    @include flex_box(column, center, center);
+    gap: $g32;
+    background: transparent;
+    font-size: $f24;
+    color: rgba(13, 25, 43, 0.3);
+    border: none;
+
+    & i {
+        font-size: 1000%;
+        opacity: 0.2;
+    }
+}
+
+
+
+/* --- 모달 모듈 --- */
+// 공통 모달
+.modal {
+    width: 100%; height: 100%;
+    position: fixed; top: 0; left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    &::before {
+        @include pseudo(100%, 100%);
+        background: $blur;
+    }
+
+    &>div {
+        width: $large_modal_width;
+        @include flex_box(column, flex-start, flex-start);
+        @include bg_setting($white, $g12);
+        @include padding_setting($g24);
+        position: relative;
+
+        &>div {width: 100%;
+            &:nth-of-type(1) {@include flex_box(row, space-between, center);
+                & h2 {
+                    width: 100%;
+                    @include padding_setting(0 0 $g8);
+
+                    & i {
+                        font-size: $f22;
+                        margin-right: $g12;
+                    }
+                }
+            }
+            &:nth-of-type(2) {@include flex_box(column, center, center);
+                & ul {
+                    width: 100%;
+                    @include padding_setting($g16);
+                }
+            }
+        }
+
+        .modal_close {
+            cursor: pointer;
+            transform: scale(1.5);
+        }
+
+        .date_checker, .filter_checker {
+            @include bg_setting($sub, $g16);
+            @include padding_setting($g4 $g12);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .selected_checker {
+            background: $main;
+            color: $white;
+        }
+    }
+}
+.modal_close {
+    position: absolute; top: 28px; right: 28px;
+    color: $red;
+}
+
+// 기간 검색 모달
+.date_modal {
+    &>div {width: $date_modal_width;
+        &>div {
+            &:nth-of-type(2) {
+                & ul {
+                    & li {
+                        width: 100%;
+                        @include flex_box(row, space-between, center);
+                        gap: $g8;
+                        text-align: center;
+
+                        &:nth-child(1) {margin-bottom: $g16;
+                            & label {
+                                width: 100%;
+                                font-weight: 700;
+                                @include padding_setting($g8);
+                                @include bg_setting($sub, $g12);
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            & div {width: 100%;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 필터링 모달
+.filter_modal {
+    &>div {width: $filter_modal_width;
+        &>div {
+            &:nth-of-type(2) {
+                & ul {
+                    &:nth-child(1) {
+                        @include flex_box(row, flex-start, flex-start);
+                        @include bg_setting($sub, $g12);
+                        gap: $g8;
+                        flex-wrap: wrap;
+                    }
+    
+                    &:nth-child(2) {@include grid_box(repeat(5, auto), 0);
+                        & li {
+                            @include flex_box(column, flex-start, flex-start);
+                            gap: $g4;
+
+                            & h3 {margin-bottom: $g8;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/* --- 에셋 모듈 --- */
+// input, select, textarea 클래스
+.insert {
+    width: 100%;
+    @include flex_box(column, flex-start, flex-start);
+    gap: $g4;
+
+    & span {
+        display: block;
+        margin-bottom: $g4;
+    }
+
+    &>input, &>select, &>textarea {
+        width: 100%;
+        font-size: $f16;
+        @include bg_setting($sub, $g12);
+        @include padding_setting($g8 $g12);
+        transition: $transition;
+    }
+    & textarea:disabled {
+        background: $disabledBackground;
+        cursor: not-allowed;
+
+        &::placeholder {color: rgba(16, 16, 16, 0.3);}
+    }
+
+    & p {
+        @include flex_box(row, center, center);
+        gap: $g4;
+
+        &.error {
+            display: none;
+            color: $red;
+        }
+    }
+}
+
+// 선택 컨테이너 전용
+.asset {
+    @include flex_box(row, center, center);
+    @include bg_setting($sub, $g12);
+    @include padding_setting($g4 $g8);
+    gap: $g8;
+    border: 2px solid transparent;
+    font-weight: 700;
+    white-space: nowrap;
+
+    & select {
+        @include bg_setting($white, $g12);
+        @include padding_setting($g4 $g8);
+    }
+
+    & input[type="text"] {
+        @include bg_setting($white, $g12);
+        @include padding_setting($g4 $g12);
+    }
+}
+
+// checkbox 클래스
+.checkbox {
+    & input {display: none;
+        &:checked {
+            +label {
+                span {
+                    background-color: $main;
+                    transform: scale(1.1);
+    
+                    &:after {
+                        width: 10px;
+                        background: $white;
+                        transition: width 150ms ease 100ms;
+                    }
+    
+                    &::before {
+                        width: 4px;
+                        background: $white;
+                        transition: width 150ms ease 100ms;
+                    }
+                }
+    
+                &:hover {
+                    span {
+                        background-color: $main;
+                        transform: scale(1.1);
+    
+                        &:after {
+                            width: 10px;
+                            background: $white;
+                            transition: width 150ms ease 100ms;
+                        }
+    
+                        &::before {
+                            width: 5px;
+                            background: $white;
+                            transition: width 150ms ease 100ms;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    &>label {
+        width: 100%;
+        @include flex_box(row, center, center);
+        gap: $g8;
+        cursor: pointer;
+    
+        &>div {width: 20px;
+            &>span {
+                width: 20px;
+                height: 20px;
+                position: relative;
+                display: block;
+                background-color: $sub;
+                border-radius: 4px;
+                transform-origin: center;
+                transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78, -1.22, .17, 1.89);
+    
+                &::before,
+                &::after {
+                    @include pseudo(0, 2px);
+                    background: $main;
+                    border-radius: 2px;
+                    transform-origin: 0% 0%;
+                }
+    
+                &::before {
+                    top: 10px;
+                    left: 6px;
+                    transform: rotate(45deg);
+                    transition: width 50ms ease 50ms;
+                }
+    
+                &::after {
+                    top: 14px;
+                    left: 7px;
+                    transform: rotate(305deg);
+                    transition: width 50ms ease;
+                }
+            }
+        }
+
+        &:hover {
+            span {
+                &::before {
+                    width: 4px;
+                    transition: width 100ms ease;
+                }
+
+                &:after {
+                    width: 10px;
+                    transition: width 150ms ease 100ms;
+                }
+            }
+        }
+    }
+}
+
+// dropdown 클래스 (현재 미사용)
+.dropdown {
+    position: relative;
+    @include flex_box(column, center, center);
+    gap: $g4;
+
+    & button {
+        @include flex_box(row, center, flex-start);
+        gap: $g8;
+        @include bg_setting($white, $g12);
+        @include padding_setting($g4 $g8);
+    }
+
+    &>li {
+        width: 100%;
+        position: absolute; top: 26px;
+        // display: flex;
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: $g4;
+        @include bg_setting($white, $g12);
+        border: 3px solid $sub;
+        z-index: 100;
+
+        &>div {
+            width: 100%;
+            @include bg_setting($white, $g8);
+            @include padding_setting($g4 $g8);
+            cursor: pointer;
+
+            &:hover {
+                background: $main;
+                color: $white;
+            }
+        }
+    }
+}
+
+// button 클래스
+.button {
+    @include flex_box(row, center, center);
+    @include bg_setting($sub, $g12);
+    @include padding_setting($g8 $g12);
+    gap: $g8;
+    font-weight: 700;
+    border: 2px solid $sub;
+    white-space: nowrap;
+    transition: $transition;
+    
+    &:hover {border: 2px solid $main;}
+    &:focus {border: 2px solid $sub;}
+    &:disabled {
+        background: $disabledBackground;
+        color: $disabledColor;
+
+        &:hover, &:focus {border: 2px solid $disabledBackground;}
+    }
+}
+.main {
+    background: $main;
+    color: $white;
+
+    &:hover {border: 2px solid $main;}
+}
+.red {
+    background: $red;
+    color: $white;
+
+    &:hover {border: 2px solid $red;}
+}

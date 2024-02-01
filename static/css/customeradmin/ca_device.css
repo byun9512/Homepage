@@ -1,0 +1,240 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- 기기 (개요) --- */
+#device_statistics_contents > li {
+  position: relative;
+}
+#device_statistics_contents > li > div {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+#device_statistics_contents > li > div select {
+  background: rgb(240, 241, 243);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 4px 8px;
+}
+
+/* --- 기기 (이용 현황) --- */
+#device_user_list thead tr th:nth-child(1) {
+  width: 3%;
+}
+#device_user_list thead tr th:nth-child(2) {
+  width: 10%;
+}
+#device_user_list thead tr th:nth-child(3) {
+  width: 10%;
+}
+#device_user_list thead tr th:nth-child(4) {
+  width: 77%;
+}
+#device_user_list thead tr #user_result_print {
+  width: 80px;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  gap: 8px;
+  padding: 4px 0;
+  transition: all 0.3s;
+}
+#device_user_list tbody tr {
+  justify-content: space-evenly;
+  padding: 0;
+}
+#device_user_list tbody tr td > ul {
+  height: 44px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  place-content: center center;
+}
+#device_user_list tbody tr td > ul.kiosk_data {
+  background: rgba(50, 158, 255, 0.2);
+  margin: 4px 0;
+}
+#device_user_list tbody tr td > ul.mobile_data {
+  background: rgba(236, 127, 0, 0.2);
+  margin: 4px 0;
+}
+#device_user_list tbody tr td > ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+#device_user_list tbody tr td > ul li:first-child {
+  font-weight: 700;
+}
+#device_user_list tbody tr td > ul li.score_data {
+  display: none;
+}
+#device_user_list tbody tr td > ul li.rate_data {
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+#device_user_list tbody tr td > ul li > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#device_user_list tbody tr td.data_first ul {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+#device_user_list tbody tr td.data_last ul {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+#device_user_list tbody tr td:nth-child(1) {
+  width: 3%;
+}
+#device_user_list tbody tr td:nth-child(2) {
+  width: 10%;
+}
+#device_user_list tbody tr td:nth-child(3) {
+  width: 10%;
+}
+#device_user_list tbody tr td:nth-child(4) {
+  width: 7%;
+}
+#device_user_list tbody tr td:nth-child(4) ul {
+  justify-content: center;
+  align-items: center;
+}
+#device_user_list tbody tr td:nth-child(5) {
+  width: 10%;
+}
+#device_user_list tbody tr td:nth-child(6) {
+  width: 10%;
+}
+#device_user_list tbody tr td:nth-child(7) {
+  width: 10%;
+}
+#device_user_list tbody tr td:nth-child(8) {
+  width: 10%;
+}
+#device_user_list tbody tr td:nth-child(9) {
+  width: 10%;
+}
+#device_user_list tbody tr td:nth-child(10) {
+  width: 10%;
+}
+#device_user_list tbody tr td:nth-child(11) {
+  width: 10%;
+}
+#device_user_list tbody tr td:nth-child(6) ul:first-child li.rate_data, #device_user_list tbody tr td:nth-child(8) ul:first-child li.rate_data {
+  grid-template-columns: 1fr 1fr;
+}
+#device_user_list tbody tr:hover {
+  background: rgba(24, 49, 83, 0.1);
+  cursor: pointer;
+}
+
+/* --- 기기 (분석표) --- */
+#analysis_mobile_data_type {
+  display: none;
+}
+
+#device_analysis_list {
+  display: none;
+  font-size: 14px;
+}
+#device_analysis_list tbody tr {
+  padding: 0;
+}
+#device_analysis_list tbody tr td {
+  padding: 4px 0;
+}
+#device_analysis_list tbody tr td:first-child {
+  background: rgba(24, 49, 83, 0.1);
+  border-right: 1px solid rgba(24, 49, 83, 0.2);
+}
+
+/* --- 회원 상세 팝업 --- */
+#user_detail_view {
+  display: none;
+}
+#user_detail_view > div > ul {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  box-sizing: border-box;
+  padding: 16px;
+}
+#user_detail_view > div > ul > li {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+#user_detail_view > div > ul > li h2 {
+  width: 100%;
+  border-bottom: 1px solid rgba(24, 49, 83, 0.2);
+  box-sizing: border-box;
+  padding: 8px 0;
+}
+#user_detail_view > div > ul > li > ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+#user_detail_view > div > ul > li > ul > li {
+  width: 100%;
+}
+#user_detail_view > div > ul > li > ul > li > div #user_purpose_metabolic,
+#user_detail_view > div > ul > li > ul > li > div #user_purpose_etc,
+#user_detail_view > div > ul > li > ul > li > div #user_record_mobile_contents {
+  display: none;
+}
+#user_detail_view > div > ul > li > ul > li #user_name_view,
+#user_detail_view > div > ul > li > ul > li #user_belong_company_view {
+  width: 65%;
+}
+#user_detail_view > div > ul > li > ul > li #user_gender_view,
+#user_detail_view > div > ul > li > ul > li #user_belong_company_code_view {
+  width: 35%;
+}
+#user_detail_view > div > ul #user_info_basic ul li:first-child, #user_detail_view > div > ul #user_info_extra ul li:first-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+}
+#user_detail_view > div > ul #user_record_delete ul li:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 4px;
+}
+#user_detail_view > div > div:last-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 16px;
+}
+#user_detail_view > div > div:last-of-type > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}/*# sourceMappingURL=ca_device.css.map */

@@ -1,0 +1,139 @@
+@charset "utf-8";
+@import "../global/_global.scss";
+
+/* --- border 세팅 --- */
+$border: 1px solid $default1;
+$background: rgba(50, 158, 255, 0.1);
+
+/* --- 헤더 --- */
+#header {background: $bg1;
+    & article {
+        #header_menu li a,
+        .header_login>div a {color: $text;}
+    }
+}
+
+/* --- 전광판 --- */
+#displayboard {
+    & article {
+        @include flex_box(column, center, center);
+        @include padding_setting(100px 20px);
+
+        & aside {
+            &::-webkit-scrollbar { // 스크롤바 전체 영역
+                width: 10px; height: 10px;
+            }
+            &::-webkit-scrollbar-thumb {  // 스크롤
+                background: $default1;
+                border-radius: 10px;
+            }
+            &::-webkit-scrollbar-track { // 스크롤이 움직이는 영역
+                background: $default4;
+                box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.05) inset;
+                border-radius: 10px;
+            }
+            &::-webkit-scrollbar-button:start:decrement, 
+            &::-webkit-scrollbar-button:end:increment {display: none;}
+            
+            &>ul {
+                @include flex_box(row, space-between, flex-end);
+                margin-bottom: 10px;
+
+                &>li {@include flex_box(row, flex-start, flex-start);
+                    &:first-child {
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+                    &>div {margin-right: 5px;}
+                }
+            }
+
+            & table {
+                width: 100%;
+                border-collapse: collapse;
+                border-spacing: 0;
+
+                // 공톹 설정
+                tr {@include grid_box(160px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px, 0);}
+                th, td {
+                    text-align: center;
+                    word-break: keep-all;
+                }
+                ul {@include grid_box(repeat(3, 1fr), 0);}
+
+                // 세부 설정
+                & thead {
+                    background: $default4;
+                    border-bottom: $border;
+
+                    & tr {
+                        & th {border-right: $border;
+                            & div {
+                                height: 60px;
+                                @include flex_box(row, center, center);
+                                @include padding_setting(3px 0px);
+                            }
+                            & ul {border-top: $border;
+                                & li {
+                                    font-size: 12px;
+                                    border-right: $border;
+                                    @include padding_setting(3px 0px);
+
+                                    &:last-child {border: none;}
+                                }
+                            }
+                            &.first {
+                                @include flex_box(row, flex-start, center);
+                                border: none;
+                                padding-left: 10px;
+                            }
+                            &:nth-child(2) {border-left: $border;}
+                            &:last-child {border: none;}
+                        }
+                    }
+                }
+
+                & tbody {
+                    & tr {
+                        & td {
+                            font-size: 14px;
+                            border-right: $border;
+
+                            & div {
+                                cursor: pointer;
+                                border-bottom: $border;
+                                @include padding_setting(3px 0px);
+                            }
+                            & ul {border-bottom: $border;
+                                & li {
+                                    border-right: $border;
+                                    @include padding_setting(3px 0px);
+
+                                    &:last-child {border: none;}
+                                }
+                                &:last-child {background:$background;}
+                            }
+                            &.first {
+                                text-align: left;
+                                border: none;
+
+                                & div:last-child {background: $background;}
+                            }
+                            &.last {background: $background;}
+                            &:nth-child(2) {border-left: $border;}
+                            &:last-child {border: none;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1920px) {
+    #displayboard article aside {
+        width: 100%;
+        overflow-x: scroll;
+    }
+}

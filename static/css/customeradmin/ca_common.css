@@ -1,0 +1,715 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- 네비게이션 바 --- */
+#navbar {
+  width: 220px;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: rgb(240, 241, 243);
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding: 16px;
+  z-index: 100;
+}
+#navbar #navbar_top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+}
+#navbar #navbar_top > div:nth-of-type(1) {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px 4px;
+}
+#navbar #navbar_top > div:nth-of-type(1) > a svg {
+  fill: rgb(24, 49, 83);
+  transition: all 0.3s;
+}
+#navbar #navbar_top > div:nth-of-type(1):hover a svg {
+  fill: #329EFF;
+}
+#navbar #navbar_top > div:nth-of-type(2) {
+  width: 100%;
+  text-align: center;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 4px;
+}
+#navbar #navbar_top #navbar_list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+#navbar #navbar_top #navbar_list li {
+  width: 100%;
+}
+#navbar #navbar_top #navbar_list li h3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(24, 49, 83, 0.2);
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+}
+#navbar #navbar_top #navbar_list li ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 4px;
+  border-radius: 4px;
+  margin: 2px 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#navbar #navbar_top #navbar_list li ul li.on {
+  background: rgb(255, 255, 255);
+  color: rgb(24, 49, 83);
+}
+#navbar #navbar_top #navbar_list li ul li:hover {
+  background: rgb(255, 255, 255);
+}
+#navbar #navbar_top #navbar_list li ul li a {
+  width: 100%;
+}
+#navbar #navbar_bottom a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+#navbar #navbar_bottom a:hover {
+  color: rgb(232, 84, 85);
+}
+
+/* --- 메인 --- */
+#main {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px;
+}
+
+/* --- 상단으로 버튼 --- */
+#top {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 40px;
+  z-index: 10000;
+}
+#top > div {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background: rgb(240, 241, 243);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/* --- 컨테이너 모듈 --- */
+.section_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 220px;
+}
+.section_container article {
+  width: 100%;
+  margin-bottom: 24px;
+}
+.section_container article:nth-of-type(1) > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+.section_container article:nth-of-type(1) > ul > li i {
+  margin-right: 8px;
+}
+.section_container article:nth-of-type(1) > ul > li a {
+  text-decoration: underline;
+  transition: all 0.3s;
+}
+.section_container article:nth-of-type(1) > ul > li a:hover {
+  font-weight: 700;
+}
+.section_container article:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.section_container article:nth-of-type(2) > ul {
+  width: 100%;
+  height: 100%;
+  background: rgb(240, 241, 243);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 16px;
+}
+.section_container article:nth-of-type(2) > ul h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 4px 0;
+  white-space: nowrap;
+  margin-right: 12px;
+}
+.section_container article:nth-of-type(2) > ul h2 i {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+.section_container article:nth-of-type(2) > ul > li > div {
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  display: inline-flex;
+  border: 2px solid transparent;
+  cursor: pointer;
+  margin: 2px;
+  transition: all 0.3s;
+}
+.section_container article:nth-of-type(2) > ul > li > div:hover {
+  border-color: rgb(24, 49, 83);
+}
+.section_container article:nth-of-type(2) > ul > li > div.selected_checker {
+  background: rgb(24, 49, 83);
+  color: rgb(255, 255, 255);
+}
+
+.select_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.select_container > li {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+.select_container > li button.on {
+  background: rgb(24, 49, 83);
+  color: rgb(255, 255, 255);
+}
+.select_container > li:not(:first-of-type) {
+  justify-content: flex-end;
+}
+
+.table_container {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+.table_container thead, .table_container tbody, .table_container tr, .table_container th, .table_container td {
+  vertical-align: middle;
+}
+.table_container tr {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+.table_container th, .table_container td {
+  text-align: center;
+}
+.table_container thead {
+  border-bottom: 2px solid rgba(24, 49, 83, 0.2);
+}
+.table_container thead tr {
+  position: relative;
+  box-sizing: border-box;
+  padding: 8px 0;
+}
+.table_container thead tr th {
+  width: 100%;
+  font-weight: 700;
+}
+.table_container thead tr th select {
+  font-size: 14px;
+  font-weight: 700;
+  background: rgb(240, 241, 243);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 4px 8px;
+  margin-left: 8px;
+}
+.table_container tbody tr {
+  border-bottom: 1px solid rgba(24, 49, 83, 0.2);
+  box-sizing: border-box;
+  padding: 4px 0;
+  transition: all 0.3s;
+}
+.table_container tbody tr td {
+  width: 100%;
+}
+.table_container tbody tr:last-child {
+  border-bottom: none;
+}
+
+.graph_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  place-items: center center;
+}
+.graph_container li {
+  width: 100%;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.default_container {
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  background: transparent;
+  font-size: 24px;
+  color: rgba(13, 25, 43, 0.3);
+  border: none;
+}
+.default_container i {
+  font-size: 1000%;
+  opacity: 0.2;
+}
+
+/* --- 모달 모듈 --- */
+.modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal::before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal > div {
+  width: 1120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 24px;
+  position: relative;
+}
+.modal > div > div {
+  width: 100%;
+}
+.modal > div > div:nth-of-type(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal > div > div:nth-of-type(1) h2 {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 0 8px;
+}
+.modal > div > div:nth-of-type(1) h2 i {
+  font-size: 22px;
+  margin-right: 12px;
+}
+.modal > div > div:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal > div > div:nth-of-type(2) ul {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+}
+.modal > div .modal_close {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+.modal > div .date_checker, .modal > div .filter_checker {
+  background: rgb(240, 241, 243);
+  border-radius: 16px;
+  box-sizing: border-box;
+  padding: 4px 12px;
+  text-align: center;
+  cursor: pointer;
+}
+.modal > div .selected_checker {
+  background: rgb(24, 49, 83);
+  color: rgb(255, 255, 255);
+}
+
+.modal_close {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  color: rgb(232, 84, 85);
+}
+
+.date_modal > div {
+  width: 620px;
+}
+.date_modal > div > div:nth-of-type(2) ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.date_modal > div > div:nth-of-type(2) ul li:nth-child(1) {
+  margin-bottom: 16px;
+}
+.date_modal > div > div:nth-of-type(2) ul li:nth-child(1) label {
+  width: 100%;
+  font-weight: 700;
+  box-sizing: border-box;
+  padding: 8px;
+  background: rgb(240, 241, 243);
+  border-radius: 12px;
+}
+.date_modal > div > div:nth-of-type(2) ul li:nth-child(2) div {
+  width: 100%;
+}
+
+.filter_modal > div {
+  width: 920px;
+}
+.filter_modal > div > div:nth-of-type(2) ul:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: rgb(240, 241, 243);
+  border-radius: 12px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter_modal > div > div:nth-of-type(2) ul:nth-child(2) {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 0;
+}
+.filter_modal > div > div:nth-of-type(2) ul:nth-child(2) li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+}
+.filter_modal > div > div:nth-of-type(2) ul:nth-child(2) li h3 {
+  margin-bottom: 8px;
+}
+
+/* --- 에셋 모듈 --- */
+.insert {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+}
+.insert span {
+  display: block;
+  margin-bottom: 4px;
+}
+.insert > input, .insert > select, .insert > textarea {
+  width: 100%;
+  font-size: 16px;
+  background: rgb(240, 241, 243);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  transition: all 0.3s;
+}
+.insert textarea:disabled {
+  background: rgba(240, 241, 243, 0.5);
+  cursor: not-allowed;
+}
+.insert textarea:disabled::-moz-placeholder {
+  color: rgba(16, 16, 16, 0.3);
+}
+.insert textarea:disabled::placeholder {
+  color: rgba(16, 16, 16, 0.3);
+}
+.insert p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.insert p.error {
+  display: none;
+  color: rgb(232, 84, 85);
+}
+
+.asset {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: rgb(240, 241, 243);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 4px 8px;
+  gap: 8px;
+  border: 2px solid transparent;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.asset select {
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 4px 8px;
+}
+.asset input[type=text] {
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 4px 12px;
+}
+
+.checkbox input {
+  display: none;
+}
+.checkbox input:checked + label span {
+  background-color: rgb(24, 49, 83);
+  transform: scale(1.1);
+}
+.checkbox input:checked + label span:after {
+  width: 10px;
+  background: rgb(255, 255, 255);
+  transition: width 150ms ease 100ms;
+}
+.checkbox input:checked + label span::before {
+  width: 4px;
+  background: rgb(255, 255, 255);
+  transition: width 150ms ease 100ms;
+}
+.checkbox input:checked + label:hover span {
+  background-color: rgb(24, 49, 83);
+  transform: scale(1.1);
+}
+.checkbox input:checked + label:hover span:after {
+  width: 10px;
+  background: rgb(255, 255, 255);
+  transition: width 150ms ease 100ms;
+}
+.checkbox input:checked + label:hover span::before {
+  width: 5px;
+  background: rgb(255, 255, 255);
+  transition: width 150ms ease 100ms;
+}
+.checkbox > label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.checkbox > label > div {
+  width: 20px;
+}
+.checkbox > label > div > span {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: block;
+  background-color: rgb(240, 241, 243);
+  border-radius: 4px;
+  transform-origin: center;
+  transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89);
+}
+.checkbox > label > div > span::before, .checkbox > label > div > span::after {
+  width: 0;
+  height: 2px;
+  content: "";
+  position: absolute;
+  background: rgb(24, 49, 83);
+  border-radius: 2px;
+  transform-origin: 0% 0%;
+}
+.checkbox > label > div > span::before {
+  top: 10px;
+  left: 6px;
+  transform: rotate(45deg);
+  transition: width 50ms ease 50ms;
+}
+.checkbox > label > div > span::after {
+  top: 14px;
+  left: 7px;
+  transform: rotate(305deg);
+  transition: width 50ms ease;
+}
+.checkbox > label:hover span::before {
+  width: 4px;
+  transition: width 100ms ease;
+}
+.checkbox > label:hover span:after {
+  width: 10px;
+  transition: width 150ms ease 100ms;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.dropdown button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 4px 8px;
+}
+.dropdown > li {
+  width: 100%;
+  position: absolute;
+  top: 26px;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  border: 3px solid rgb(240, 241, 243);
+  z-index: 100;
+}
+.dropdown > li > div {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.dropdown > li > div:hover {
+  background: rgb(24, 49, 83);
+  color: rgb(255, 255, 255);
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: rgb(240, 241, 243);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  gap: 8px;
+  font-weight: 700;
+  border: 2px solid rgb(240, 241, 243);
+  white-space: nowrap;
+  transition: all 0.3s;
+}
+.button:hover {
+  border: 2px solid rgb(24, 49, 83);
+}
+.button:focus {
+  border: 2px solid rgb(240, 241, 243);
+}
+.button:disabled {
+  background: rgba(240, 241, 243, 0.5);
+  color: rgba(19, 19, 19, 0.3);
+}
+.button:disabled:hover, .button:disabled:focus {
+  border: 2px solid rgba(240, 241, 243, 0.5);
+}
+
+.main {
+  background: rgb(24, 49, 83);
+  color: rgb(255, 255, 255);
+}
+.main:hover {
+  border: 2px solid rgb(24, 49, 83);
+}
+
+.red {
+  background: rgb(232, 84, 85);
+  color: rgb(255, 255, 255);
+}
+.red:hover {
+  border: 2px solid rgb(232, 84, 85);
+}/*# sourceMappingURL=ca_common.css.map */

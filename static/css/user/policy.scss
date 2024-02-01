@@ -1,0 +1,104 @@
+@charset "utf-8";
+@import "../global/_global.scss";
+
+/* --- 헤더 --- */
+#header {background: $opacity;
+    & article {
+        #header_menu li a,
+        .header_login>div a {color: $text;}
+    }
+}
+
+/* --- 약관 --- */
+#policy {position: relative;
+    & article {
+        width: 100%;
+        @include flex_box(column, center, center);
+        @include padding_setting(80px 20px);
+        margin: 0 auto;
+
+        & aside {width: 1280px;}
+    }
+
+    #policy_menu {padding: 20px 0;}
+    #policy_contents {animation-delay: 0.1s;
+        &>div {
+            display: none;
+            // @include ui_setting($bg1, 30px);
+            @include padding_setting(40px 10px);
+
+            &.on {display: block;}
+            &>span {
+                display: block;
+                font-size: $contents_title_normal;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+
+            & div {
+                font-size: $contents_text_normal;
+                word-break: keep-all;
+
+                & h1 {
+                    width: 100%;
+                    font-size: $contents_text_normal;
+                    margin-bottom: 10px;
+                }
+                & h2 {
+                    font-size: $contents_text_normal;
+                    margin-bottom: 5px;
+                }
+                & p {margin-bottom: 10px;}
+            }
+        }
+    }
+
+    #terms_of_use, #privacy_policy, #third_party_provision_consent, #consent_receive_marketing {animation-delay: 0.2s;}
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {
+    #policy article aside {width: 100%;}
+}
+
+@media (max-width: 1280px) {
+    // 컨텐츠 타이틀 텍스트
+    #policy article aside > span {font-size: $contents_title_small;}
+
+    // 컨텐츠 세부 텍스트
+    #policy article aside div h1,
+    #policy article aside div h2,
+    #policy article aside div p,
+    #policy #policy_menu ul li
+    {font-size: $contents_text_small;}
+}
+
+@media (max-width: 780px) {
+    // 컨텐츠 타이틀 텍스트
+    #policy article aside > span {font-size: $contents_title_smaller;}
+
+    // 컨텐츠 세부 텍스트
+    #policy article aside div h1,
+    #policy article aside div h2,
+    #policy article aside div p,
+    #policy #policy_menu ul li
+    {font-size: $contents_text_smaller;}
+}
+
+@media (max-width: 480px) {
+    // 컨텐츠 타이틀 텍스트
+    #policy article aside > span {font-size: $contents_title_smallest;}
+
+    // 컨텐츠 세부 텍스트
+    #policy article aside div h1,
+    #policy article aside div h2,
+    #policy article aside div p,
+    #policy #policy_menu ul li
+    {
+        font-size: $contents_text_smallest;
+        line-height: $contents_text_smallest + 6px;
+    }
+
+    // 기타
+    #policy article {padding: 60px 20px 40px;}
+}

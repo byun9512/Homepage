@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- CSS 리셋 --- */
+* {
+  font-family: Pretendard;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  outline: none;
+  color: rgb(13, 25, 43);
+  font-size: 16px;
+  letter-spacing: -1.5px;
+  overflow-x: hidden;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:visited, a:link {
+  color: inherit;
+}
+
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  letter-spacing: -1.5px;
+  cursor: pointer;
+}
+button:focus {
+  border: none;
+  outline: none;
+}
+
+input {
+  background: inherit;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  letter-spacing: -1.5px;
+}
+input:focus {
+  border: none;
+  outline: none;
+}
+
+textarea {
+  border: inherit;
+  outline: none;
+  font-size: 16px;
+  letter-spacing: -1.5px;
+}
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
+select {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  letter-spacing: -1.5px;
+}
+
+.animated {
+  opacity: 0;
+}
+
+/* --- CSS animation 정의 --- */
+@keyframes ani-bounce {
+  0% {
+    transform: scale(1) translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(1.2) translateY(0px) rotate(10deg);
+    opacity: 0.5;
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: scale(1) translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=ca_default.css.map */

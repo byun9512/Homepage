@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- 현재 안쓰는 페이지 --- */
+/* --- 회원가입 (가입 완료) --- */
+#signup_finish {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(/static/img/signup/bg_signup_finish.jpg) no-repeat;
+  background-size: cover;
+  color: #FFFFFF;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+#signup_finish:before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.7;
+}
+#signup_finish article {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#signup_finish article aside {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  place-items: center center;
+  text-align: center;
+  word-break: keep-all;
+}
+#signup_finish article aside img {
+  width: 60%;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  padding: 20px;
+}
+#signup_finish article aside h1 {
+  color: #FFFFFF;
+  font-size: 60px;
+  font-weight: 700;
+  transition: all 0.3s;
+  animation-delay: 0.2s;
+}
+#signup_finish article aside p {
+  font-size: 36px;
+  animation-delay: 0.3s;
+}
+#signup_finish article aside div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px 0;
+  animation-delay: 0.4s;
+}
+#signup_finish article aside div a {
+  margin: 20px;
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1280px) {
+  #signup_finish article aside h1 {
+    font-size: 50px;
+  }
+  #signup_finish article aside p {
+    font-size: 26px;
+  }
+}
+@media (max-width: 780px) {
+  #signup_finish article aside h1 {
+    font-size: 36px;
+  }
+  #signup_finish article aside p {
+    font-size: 22px;
+  }
+  #signup_finish article aside div a {
+    margin: 10px;
+  }
+}
+@media (max-width: 480px) {
+  #signup_finish article aside h1 {
+    font-size: 24px;
+  }
+  #signup_finish article aside p {
+    font-size: 20px;
+  }
+  #signup_finish article aside div {
+    flex-direction: column;
+  }
+  #signup_finish article aside div a {
+    margin: 5px;
+  }
+}/*# sourceMappingURL=success.css.map */

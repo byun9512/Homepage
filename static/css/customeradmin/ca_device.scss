@@ -1,0 +1,200 @@
+﻿@charset "utf-8";
+@import "../customeradmin/_ca_global.scss";
+
+/* --- 기기 (개요) --- */
+#device_statistics_contents {
+    &>li {position: relative;
+        &>div {position: absolute; top: $g8; right: $g16;
+            & select {
+                @include bg_setting($sub, $g12);
+                @include padding_setting($g4 $g8);
+            }
+        }
+    }
+}
+
+/* --- 기기 (이용 현황) --- */
+#device_user_list {
+    $list_checkbox: 3%; // 현재 사용 안함
+    $list_num: 3%;
+    $list_name: 10%;
+    $list_phone: 10%;
+    $list_contents: 77%;
+    $list_first_contents: 7%;
+    $list_sub_contents: 10%;
+
+    & thead {
+        & tr {
+            & th {
+                &:nth-child(1) {width: $list_num;}
+                &:nth-child(2) {width: $list_name;}
+                &:nth-child(3) {width: $list_phone;}
+                &:nth-child(4) {width: $list_contents;}
+            }
+
+            #user_result_print {
+                width: 80px;
+                display: none;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                position: absolute; right: 0;
+                gap: $g8;
+                padding: $g4 0;
+                transition: $transition;
+            }
+        }
+    }
+
+    & tbody {
+        & tr {
+            justify-content: space-evenly;
+            padding: 0;
+
+            & td {
+                &>ul {
+                    height: 44px;
+                    @include grid_box(1fr, 0);
+                    place-content: center center;
+                    
+                    &.kiosk_data {
+                        // display: none;
+                        background: rgba(50, 158, 255, 0.2);
+                        margin: $g4 0;
+                    }
+                    &.mobile_data {
+                        // display: none;
+                        background: rgba(236, 127, 0, 0.2);
+                        margin: $g4 0;
+                    }
+                    & li {
+                        @include flex_box(row, center, center);
+                        gap: $g4;
+                        font-size: $f14;
+
+                        &:first-child {font-weight: 700;}
+                        &.score_data {display: none;}
+                        &.rate_data {
+                            display: none;
+                            grid-template-columns: 1fr;
+                            gap: 0;
+                        }
+
+                        &>div {@include flex_box(column, center, center);}
+                    }                    
+                }
+
+                &.data_first ul {
+                    border-top-left-radius: $g8;
+                    border-bottom-left-radius: $g8;
+                }
+                &.data_last ul {
+                    border-top-right-radius: $g8;
+                    border-bottom-right-radius: $g8;
+                }
+
+                &:nth-child(1) {width: $list_num;}
+                &:nth-child(2) {width: $list_name;}
+                &:nth-child(3) {width: $list_phone;}
+                &:nth-child(4) {width: $list_first_contents;
+                    & ul {
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+                @for $i from 5 through 11 {
+                    &:nth-child(#{$i}) {width: $list_sub_contents;}
+                }
+                &:nth-child(6) ul:first-child li.rate_data,
+                &:nth-child(8) ul:first-child li.rate_data {grid-template-columns: 1fr 1fr;}
+            }
+
+            &:hover {
+                background: $default4;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+/* --- 기기 (분석표) --- */
+#analysis_mobile_data_type {display: none;}
+#device_analysis_list {
+    display: none;
+    font-size: $f14;
+
+    & tbody {
+        & tr {padding: 0;
+            & td {padding: $g4 0;
+                &:first-child {
+                    background: rgba(24, 49, 83, 0.1);
+                    border-right: 1px solid $default3;
+                }
+            }
+        }
+    }
+}
+
+/* --- 회원 상세 팝업 --- */
+#user_detail_view {display: none;
+    &>div {
+        &>ul {
+            width: 100%;
+            @include grid_box(1fr 1fr 1fr, $g32);
+            @include padding_setting($g16);
+
+            &>li {
+                width: 100%;
+                @include flex_box(column, flex-start, flex-start);
+                gap: $g16;
+
+                & h2 {
+                    width: 100%;
+                    border-bottom: 1px solid $default3;
+                    @include padding_setting($g8 0);
+                }
+
+                &>ul {
+                    width: 100%;
+                    @include flex_box(column, flex-start, flex-start);
+                    gap: $g16;
+
+                    &>li {width: 100%;
+                        &>div {
+                            #user_purpose_metabolic,
+                            #user_purpose_etc,
+                            #user_record_mobile_contents {display: none;}
+                        }
+
+                        #user_name_view,
+                        #user_belong_company_view {width: 65%;}
+                        #user_gender_view,
+                        #user_belong_company_code_view {width: 35%;}
+                    }
+                }
+            }
+
+            #user_info_basic, #user_info_extra {
+                & ul li:first-child {
+                    @include flex_box(row, flex-start, flex-start);
+                    gap: $g4;
+                }
+            }
+            #user_record_delete {
+                & ul li:nth-child(3) {
+                    @include flex_box(row, flex-start, flex-end);
+                    gap: $g4;
+                }
+            }
+        }
+        &>div:last-of-type {
+            @include flex_box(row, space-between, center);
+            @include padding_setting($g16);
+
+            &>div {
+                @include flex_box(row, flex-start, flex-start);
+                gap: $g8;
+            }
+        }
+    }
+}

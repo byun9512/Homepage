@@ -1,0 +1,525 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- 관리자 (전체) --- */
+section {
+  position: relative;
+}
+section article {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+section article:first-child {
+  width: 100%;
+  height: 360px;
+  color: #FFFFFF;
+}
+section article:first-child::before {
+  width: 110%;
+  height: 360px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+section article:first-child::after {
+  width: 110%;
+  height: 360px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(23, 23, 23, 0.6);
+  z-index: 0;
+}
+section article:first-child aside {
+  z-index: 1;
+}
+section article:last-child {
+  background: #FFFFFF;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  z-index: 1;
+}
+section article > aside {
+  width: 1280px;
+}
+section article > aside:first-child {
+  box-sizing: border-box;
+  padding: 0 40px;
+}
+section article > aside:first-child > h1 {
+  position: relative;
+  font-size: 60px;
+  word-break: keep-all;
+  transition: all 0.3s;
+}
+section article > aside:first-child > b {
+  width: 100px;
+  height: 5px;
+  display: block;
+  position: relative;
+  background: linear-gradient(to right, #329EFF, #7ABEFB);
+  border-radius: 5px;
+  margin: 10px 0;
+  transition: all 0.3s;
+  animation-delay: 0.1s;
+}
+section article > aside:first-child > div {
+  position: relative;
+  font-size: 30px;
+  font-weight: 300;
+  word-break: keep-all;
+  transition: all 0.3s;
+  animation-delay: 0.2s;
+}
+section article > aside:last-child {
+  box-sizing: border-box;
+  padding: 20px 40px;
+}
+
+/* --- 관리자 메인 --- */
+#site_manager_board article:first-child::before {
+  background: url("/static/img/site_manager/bg_site_manager.png");
+  background-size: cover;
+  background-position: 0% 30%;
+}
+#site_manager_board #site_manager_board_category {
+  width: 1400px;
+  animation-delay: 0.3s;
+}
+#site_manager_board #site_manager_board_category div {
+  margin-top: 20px;
+}
+#site_manager_board #site_manager_board_list {
+  width: 1400px;
+  animation-delay: 0.4s;
+}
+#site_manager_board #site_manager_board_list form {
+  width: 100%;
+}
+#site_manager_board #site_manager_board_list form:first-child {
+  background: #F9F9F9;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div, #site_manager_board #site_manager_board_list .customer_admin_add > div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 20px 0;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label {
+  display: block;
+  position: relative;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label:before, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label:before {
+  width: 0;
+  height: 2px;
+  content: "";
+  position: absolute;
+  top: 37px;
+  left: 0;
+  background: #404040;
+  transition: all 0.3s;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label.input_focus p, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label.input_focus p {
+  top: -20px;
+  left: 0;
+  color: #404040;
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label.input_focus:before, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label.input_focus:before {
+  width: 100%;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label:nth-child(1), #site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label:nth-child(2), #site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label:nth-child(3), #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label:nth-child(1), #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label:nth-child(2), #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label:nth-child(3) {
+  animation-delay: 0.5s;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label:nth-child(4), #site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label:nth-child(5), #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label:nth-child(4), #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label:nth-child(5) {
+  animation-delay: 0.6s;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label p, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label p {
+  position: absolute;
+  top: 0;
+  font-size: 22px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label p b, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label p b {
+  color: #DE3B3B;
+  margin-right: 3px;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label input, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label input {
+  width: 100%;
+  color: #404040;
+  font-size: 22px;
+  font-weight: 700;
+  background: transparent;
+  border-bottom: 2px solid #C4C4C4;
+  padding: 5px 0;
+  transition: all 0.3s;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label input::-moz-placeholder, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label input::-moz-placeholder {
+  color: #C4C4C4;
+  font-weight: 200;
+  opacity: 0;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label input::placeholder, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label input::placeholder {
+  color: #C4C4C4;
+  font-weight: 200;
+  opacity: 0;
+  transition: all 0.3s;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label input:focus::-moz-placeholder, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label input:focus::-moz-placeholder {
+  opacity: 1;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label input:focus::placeholder, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label input:focus::placeholder {
+  opacity: 1;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label select, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label select {
+  width: 100%;
+  color: #404040;
+  font-size: 22px;
+  font-weight: 700;
+  background: transparent;
+  border-bottom: 2px solid #C4C4C4;
+  padding: 5px 0;
+  transition: all 0.3s;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label span, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label span {
+  display: block;
+  color: #DE3B3B;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 0.5em;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(1) label span.error_text, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(1) label span.error_text {
+  display: none;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(2), #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(2) {
+  grid-template-columns: 1fr;
+  place-items: center center;
+  margin: 0;
+  animation-delay: 0.7s;
+}
+#site_manager_board #site_manager_board_list .belong_company_add > div:nth-of-type(2) p, #site_manager_board #site_manager_board_list .customer_admin_add > div:nth-of-type(2) p {
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+}
+#site_manager_board #site_manager_board_list .belong_company_table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#site_manager_board #site_manager_board_list .belong_company_table thead {
+  width: 100%;
+  border-bottom: 2px solid #D4D4D4;
+  box-sizing: border-box;
+  padding: 0 0 5px;
+  animation-delay: 0.8s;
+}
+#site_manager_board #site_manager_board_list .belong_company_table thead tr th:nth-of-type(1) {
+  width: 5%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table thead tr th:nth-of-type(2) {
+  width: 20%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table thead tr th:nth-of-type(3) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table thead tr th:nth-of-type(4) {
+  width: 5%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table thead tr th:nth-of-type(5) {
+  width: 35%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table thead tr th:nth-of-type(6) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table thead tr th:nth-of-type(7) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody {
+  width: 100%;
+  animation-delay: 0.9s;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit) {
+  border-bottom: 1px solid #EDEDED;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit):hover {
+  background: #F9F9F9;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit) td {
+  width: 5%;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 5px;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit) th {
+  font-weight: 400;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit) th:nth-of-type(1) {
+  width: 20%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit) th:nth-of-type(2) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit) th:nth-of-type(3) {
+  width: 5%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit) th:nth-of-type(4) {
+  width: 35%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit) th:nth-of-type(5) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit) th:nth-of-type(6) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit) th span.on {
+  color: #329EFF;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit) th span.off {
+  color: #DE3B3B;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody tr:not(.company_list_detail, .company_list_submit):last-child {
+  border: none;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail {
+  background: #F9F9F9;
+  border: none;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail td:nth-of-type(1) {
+  width: 5%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail td:nth-of-type(2) {
+  width: 20%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail td:nth-of-type(3) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail td:nth-of-type(4) {
+  width: 5%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail td:nth-of-type(5) {
+  width: 35%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail td:nth-of-type(6) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail td:nth-of-type(7) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail td input, #site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail td select {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  background: #EDEDED;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 5px 0;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail td input:disabled, #site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_detail td select:disabled {
+  background: #F9F9F9;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_submit {
+  margin: 5px 0 20px;
+  border: none;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_submit td {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_submit td button {
+  color: #FFFFFF;
+  background: #329EFF;
+  font-size: 18px;
+  border-radius: 10px;
+  margin: 0 5px;
+  box-sizing: border-box;
+  padding: 5px 20px;
+}
+#site_manager_board #site_manager_board_list .belong_company_table tbody .company_list_submit td button:last-child {
+  background: #C4C4C4;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table thead {
+  width: 100%;
+  border-bottom: 2px solid #D4D4D4;
+  box-sizing: border-box;
+  padding: 0 0 5px;
+  animation-delay: 0.8s;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table thead tr th:nth-of-type(1) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table thead tr th:nth-of-type(2) {
+  width: 50%;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table thead tr th:nth-of-type(3) {
+  width: 30%;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table thead tr th:nth-of-type(4) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody {
+  width: 100%;
+  animation-delay: 0.9s;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody tr:not(.authority_list_detail, .authority_list_submit) {
+  border-bottom: 1px solid #EDEDED;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody tr:not(.authority_list_detail, .authority_list_submit):hover {
+  background: #F9F9F9;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody tr:not(.authority_list_detail, .authority_list_submit) td {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 5px;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody tr:not(.authority_list_detail, .authority_list_submit) td:nth-of-type(1) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody tr:not(.authority_list_detail, .authority_list_submit) td:nth-of-type(2) {
+  width: 50%;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody tr:not(.authority_list_detail, .authority_list_submit) td:nth-of-type(3) {
+  width: 30%;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody tr:not(.authority_list_detail, .authority_list_submit) td:nth-of-type(4) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody tr:not(.authority_list_detail, .authority_list_submit):last-child {
+  border: none;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_detail {
+  background: #F9F9F9;
+  border: none;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_detail td {
+  box-sizing: border-box;
+  padding: 2px;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_detail td:nth-of-type(1) {
+  width: 10%;
+  text-align: center;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_detail td:nth-of-type(2) {
+  width: 80%;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_detail td:nth-of-type(3) {
+  width: 10%;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_detail td input, #site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_detail td select {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  background: #EDEDED;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 5px 0;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_detail td input:disabled, #site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_detail td select:disabled {
+  background: #F9F9F9;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_submit {
+  margin: 5px 0 20px;
+  border: none;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_submit td {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_submit td button {
+  color: #FFFFFF;
+  background: #329EFF;
+  font-size: 18px;
+  border-radius: 10px;
+  margin: 0 5px;
+  box-sizing: border-box;
+  padding: 5px 20px;
+}
+#site_manager_board #site_manager_board_list .customer_admin_table tbody .authority_list_submit td button:last-child {
+  background: #C4C4C4;
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {
+  section article > aside {
+    width: 100%;
+  }
+}
+@media (max-width: 1280px) {
+  section article > aside:first-child > h1 {
+    font-size: 50px;
+  }
+  section article > aside:first-child > div {
+    font-size: 26px;
+  }
+}
+@media (max-width: 480px) {
+  section article > aside:first-child > h1 {
+    font-size: 36px;
+  }
+  section article > aside:first-child > div {
+    font-size: 22px;
+  }
+  section article > aside:last-child {
+    padding: 20px;
+  }
+  section article > aside:first-child > b {
+    margin: 10px 0;
+  }
+}/*# sourceMappingURL=sitemanager.css.map */

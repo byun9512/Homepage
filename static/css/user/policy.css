@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- 헤더 --- */
+#header {
+  background: rgba(255, 255, 255, 0.9);
+}
+#header article #header_menu li a,
+#header article .header_login > div a {
+  color: #404040;
+}
+
+/* --- 약관 --- */
+#policy {
+  position: relative;
+}
+#policy article {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 80px 20px;
+  margin: 0 auto;
+}
+#policy article aside {
+  width: 1280px;
+}
+#policy #policy_menu {
+  padding: 20px 0;
+}
+#policy #policy_contents {
+  animation-delay: 0.1s;
+}
+#policy #policy_contents > div {
+  display: none;
+  box-sizing: border-box;
+  padding: 40px 10px;
+}
+#policy #policy_contents > div.on {
+  display: block;
+}
+#policy #policy_contents > div > span {
+  display: block;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#policy #policy_contents > div div {
+  font-size: 22px;
+  word-break: keep-all;
+}
+#policy #policy_contents > div div h1 {
+  width: 100%;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+#policy #policy_contents > div div h2 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+#policy #policy_contents > div div p {
+  margin-bottom: 10px;
+}
+#policy #terms_of_use, #policy #privacy_policy, #policy #third_party_provision_consent, #policy #consent_receive_marketing {
+  animation-delay: 0.2s;
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {
+  #policy article aside {
+    width: 100%;
+  }
+}
+@media (max-width: 1280px) {
+  #policy article aside > span {
+    font-size: 28px;
+  }
+  #policy article aside div h1,
+  #policy article aside div h2,
+  #policy article aside div p,
+  #policy #policy_menu ul li {
+    font-size: 20px;
+  }
+}
+@media (max-width: 780px) {
+  #policy article aside > span {
+    font-size: 24px;
+  }
+  #policy article aside div h1,
+  #policy article aside div h2,
+  #policy article aside div p,
+  #policy #policy_menu ul li {
+    font-size: 18px;
+  }
+}
+@media (max-width: 480px) {
+  #policy article aside > span {
+    font-size: 20px;
+  }
+  #policy article aside div h1,
+  #policy article aside div h2,
+  #policy article aside div p,
+  #policy #policy_menu ul li {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  #policy article {
+    padding: 60px 20px 40px;
+  }
+}/*# sourceMappingURL=policy.css.map */

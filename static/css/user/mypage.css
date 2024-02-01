@@ -1,0 +1,491 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- 마이페이지 --- */
+#mypage article {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#mypage article aside {
+  width: 1280px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+#mypage article aside form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#mypage #mypage_intro {
+  height: 500px;
+  color: #FFFFFF;
+}
+#mypage #mypage_intro::before {
+  width: 110%;
+  height: 110%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/static/img/bg_mypage.jpg) no-repeat;
+  background-size: cover;
+  background-position: 0 50%;
+  z-index: 0;
+}
+#mypage #mypage_intro::after {
+  width: 110%;
+  height: 600px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(23, 23, 23, 0.6);
+  z-index: 0;
+}
+#mypage #mypage_intro aside {
+  z-index: 100;
+}
+#mypage #mypage_intro aside > h1 {
+  position: relative;
+  font-size: 60px;
+  word-break: keep-all;
+  transition: all 0.3s;
+  font-size: 60px;
+}
+#mypage #mypage_intro aside > b {
+  width: 100px;
+  height: 5px;
+  display: block;
+  position: relative;
+  background: linear-gradient(to right, #329EFF, #7ABEFB);
+  border-radius: 5px;
+  margin: 10px 0;
+  transition: all 0.3s;
+  animation-delay: 0.1s;
+}
+#mypage #mypage_intro aside > div {
+  position: relative;
+  font-size: 30px;
+  font-weight: 300;
+  word-break: keep-all;
+  transition: all 0.3s;
+  animation-delay: 0.2s;
+}
+#mypage #mypage_intro aside form {
+  position: absolute;
+  top: 30%;
+  right: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation-delay: 0.3s;
+}
+#mypage #mypage_intro aside form input {
+  display: none;
+}
+#mypage #mypage_intro aside form label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#mypage #mypage_intro aside form label div {
+  width: 260px;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 260px;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+#mypage #mypage_intro aside form label div img {
+  width: 100%;
+}
+#mypage #mypage_intro aside form label div img.user-picture {
+  transform: scale(1.5);
+}
+#mypage #mypage_intro aside form label div img.user-default {
+  transform: none;
+}
+#mypage #mypage_intro aside form label i {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 40px;
+  background: #404040;
+  border-radius: 80px;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#mypage #mypage_intro aside form label i:hover {
+  background: #329EFF;
+}
+#mypage #mypage_intro #mypage_layer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+#mypage #mypage_info {
+  background: #FFFFFF;
+  box-sizing: border-box;
+  padding: 60px 0 100px;
+  z-index: 1;
+}
+#mypage #mypage_info aside form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#mypage #mypage_info aside form ul {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+#mypage #mypage_info aside form ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: inherit;
+  align-items: inherit;
+}
+#mypage #mypage_info aside form ul li h2 {
+  color: #329EFF;
+  font-size: 40px;
+  margin-bottom: 20px;
+  animation-delay: 0.3s;
+}
+#mypage #mypage_info aside form ul li > div {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: inherit;
+  align-items: inherit;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+#mypage #mypage_info aside form ul li > div > label {
+  font-size: 22px;
+  font-weight: 700;
+}
+#mypage #mypage_info aside form ul li > div > input, #mypage #mypage_info aside form ul li > div > select {
+  width: 100%;
+  color: #404040;
+  background: transparent;
+  font-size: 22px;
+  border-bottom: 2px solid #404040;
+  box-sizing: border-box;
+  padding: 5px 0;
+}
+#mypage #mypage_info aside form ul li > div > input::-moz-placeholder, #mypage #mypage_info aside form ul li > div > select::-moz-placeholder {
+  color: #C4C4C4;
+  font-weight: 200;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#mypage #mypage_info aside form ul li > div > input::placeholder, #mypage #mypage_info aside form ul li > div > select::placeholder {
+  color: #C4C4C4;
+  font-weight: 200;
+  transition: all 0.3s;
+}
+#mypage #mypage_info aside form ul li > div > span {
+  display: block;
+  color: #DE3B3B;
+  font-size: 22px;
+  margin-top: 5px;
+}
+#mypage #mypage_info aside form ul li > div > span.error_text {
+  display: none;
+}
+#mypage #mypage_info aside form ul li > div:nth-of-type(1), #mypage #mypage_info aside form ul li > div:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+#mypage #mypage_info aside form ul li > div:nth-of-type(3), #mypage #mypage_info aside form ul li > div:nth-of-type(4) {
+  animation-delay: 0.5s;
+}
+#mypage #mypage_info aside form ul li > div:nth-of-type(5) {
+  animation-delay: 0.6s;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div textarea {
+  font-size: 22px;
+  border: 2px solid #404040;
+  border-radius: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  padding: 15px;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div textarea:disabled {
+  color: #C4C4C4;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div input {
+  display: none;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div input:checked + label span {
+  background-color: #329EFF;
+  border: 2px solid #329EFF;
+  transform: scale(1.25);
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div input:checked + label span:after {
+  width: 10px;
+  background: #FFFFFF;
+  transition: width 150ms ease 100ms;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div input:checked + label span:before {
+  width: 5px;
+  background: #FFFFFF;
+  transition: width 150ms ease 100ms;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div input:checked + label:hover span {
+  background-color: #329EFF;
+  transform: scale(1.25);
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div input:checked + label:hover span:after {
+  width: 10px;
+  background: #FFFFFF;
+  transition: width 150ms ease 100ms;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div input:checked + label:hover span:before {
+  width: 5px;
+  background: #FFFFFF;
+  transition: width 150ms ease 100ms;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div {
+  width: 25px;
+  margin-right: 15px;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div span {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  display: block;
+  background-color: transparent;
+  border: 2px solid #B3B3B3;
+  border-radius: 25px;
+  transform-origin: center;
+  transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89);
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div span::before, #mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div span::after {
+  width: 0;
+  height: 2px;
+  content: "";
+  position: absolute;
+  background: #329EFF;
+  border-radius: 2px;
+  transform-origin: 0% 0%;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div span::before {
+  top: 13px;
+  left: 9px;
+  transform: rotate(45deg);
+  transition: width 50ms ease 50ms;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div span::after {
+  top: 16px;
+  left: 10px;
+  transform: rotate(305deg);
+  transition: width 50ms ease;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div:hover span {
+  border: 2px solid #329EFF;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div:hover span:before {
+  width: 5px;
+  transition: width 100ms ease;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div:hover span:after {
+  width: 10px;
+  transition: width 150ms ease 100ms;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra > div > div label strong {
+  color: #404040;
+  font-size: 22px;
+  font-weight: 400;
+}
+#mypage #mypage_info aside form ul #mypage_info_extra #mypage_info_history, #mypage #mypage_info aside form ul #mypage_info_extra #mypage_info_medication {
+  padding: 10px 0;
+}
+#mypage #mypage_info aside form > div:last-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  animation-delay: 0.7s;
+  margin-bottom: 0;
+}
+#mypage #mypage_info aside form > div:last-of-type button, #mypage #mypage_info aside form > div:last-of-type a {
+  color: #FFFFFF;
+  font-size: 22px;
+  margin: 0 20px;
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {
+  #mypage article aside {
+    width: 100%;
+  }
+}
+@media (max-width: 1280px) {
+  #mypage #mypage_intro aside > h1 {
+    font-size: 50px;
+  }
+  #mypage #mypage_intro aside > div {
+    font-size: 26px;
+  }
+  #mypage #mypage_info aside form ul li h2 {
+    font-size: 28px;
+  }
+  #mypage #mypage_info aside form ul li > div > label,
+  #mypage #mypage_info aside form ul li > div > input,
+  #mypage #mypage_info aside form ul li > div > select,
+  #mypage #mypage_info aside form ul li > div > span,
+  #mypage #mypage_info aside form > div:last-of-type button,
+  #mypage #mypage_info aside form > div:last-of-type a,
+  #mypage #mypage_info aside form ul #mypage_info_extra > div textarea,
+  #mypage #mypage_info aside form ul #mypage_info_extra > div > div label strong {
+    font-size: 20px;
+  }
+}
+@media (max-width: 780px) {
+  #mypage #mypage_intro aside > h1 {
+    font-size: 50px;
+  }
+  #mypage #mypage_intro aside > div {
+    font-size: 26px;
+  }
+  #mypage #mypage_info aside form ul li h2 {
+    font-size: 24px;
+  }
+  #mypage #mypage_info aside form ul li > div > label,
+  #mypage #mypage_info aside form ul li > div > input,
+  #mypage #mypage_info aside form ul li > div > select,
+  #mypage #mypage_info aside form ul li > div > span,
+  #mypage #mypage_info aside form > div:last-of-type button,
+  #mypage #mypage_info aside form > div:last-of-type a,
+  #mypage #mypage_info aside form ul #mypage_info_extra > div textarea,
+  #mypage #mypage_info aside form ul #mypage_info_extra > div > div label strong {
+    font-size: 18px;
+  }
+  #mypage #mypage_intro aside form {
+    top: 110%;
+  }
+  #mypage #mypage_intro aside form label div {
+    width: 200px;
+    height: 200px;
+  }
+  #mypage #mypage_intro aside form label i {
+    width: 50px;
+    height: 50px;
+    font-size: 35px;
+  }
+  #mypage #mypage_info aside form ul {
+    grid-template-columns: 1fr;
+    margin-bottom: 20px;
+  }
+  #mypage #mypage_info aside form ul li > div {
+    padding: 10px 0;
+  }
+  #mypage #mypage_info aside form > div:last-of-type button,
+  #mypage #mypage_info aside form > div:last-of-type a {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 600px) {
+  #mypage #mypage_info aside form > div:last-of-type {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  #mypage #mypage_intro aside > h1 {
+    font-size: 36px;
+  }
+  #mypage #mypage_intro aside > div {
+    font-size: 22px;
+  }
+  #mypage #mypage_info aside form ul li h2 {
+    font-size: 20px;
+  }
+  #mypage #mypage_info aside form ul li > div > label,
+  #mypage #mypage_info aside form ul li > div > input,
+  #mypage #mypage_info aside form ul li > div > select,
+  #mypage #mypage_info aside form ul li > div > span,
+  #mypage #mypage_info aside form > div:last-of-type button,
+  #mypage #mypage_info aside form > div:last-of-type a,
+  #mypage #mypage_info aside form ul #mypage_info_extra > div textarea,
+  #mypage #mypage_info aside form ul #mypage_info_extra > div > div label strong {
+    font-size: 16px;
+  }
+  #mypage #mypage_intro {
+    height: 400px;
+  }
+  #mypage #mypage_intro aside form label div {
+    width: 160px;
+    height: 160px;
+  }
+  #mypage #mypage_info {
+    padding: 20px 0;
+  }
+  #mypage #mypage_info aside form ul #mypage_info_extra > div > div {
+    margin: 0;
+  }
+  #mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div {
+    width: 20px;
+  }
+  #mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div span {
+    width: 20px;
+    height: 20px;
+  }
+  #mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div span::before {
+    top: 10px;
+    left: 7px;
+  }
+  #mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div span::after {
+    top: 13px;
+    left: 8px;
+  }
+  #mypage #mypage_info aside form ul #mypage_info_extra > div > div label strong {
+    margin-top: 3px;
+  }
+  #mypage #mypage_info aside form > div:last-of-type button,
+  #mypage #mypage_info aside form > div:last-of-type a {
+    width: 100%;
+    margin: 0 10px;
+  }
+}/*# sourceMappingURL=mypage.css.map */

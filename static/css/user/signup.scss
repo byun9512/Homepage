@@ -1,0 +1,520 @@
+@charset "utf-8";
+@import "../global/_global.scss";
+
+/* --- 회원가입 (공통) --- */
+// 회원 가입 프로세스
+.signup_process {
+    @include padding_setting(20px 60px);
+    margin-bottom: 10px;
+
+    & ul {
+        width: 100%;
+        @include flex_box(row, space-between, center);
+        
+        & li {
+            width: 100%;
+            @include flex_box(column, center, center);
+
+            & i {
+                color: $default1;
+                background: $default4;
+                border-radius: 100px;
+                font-size: 40px;
+                @include padding_setting(10px);
+
+                &.on {
+                    color: $bg1;
+                    background: $blue;
+                }
+            }
+
+            & span {
+                font-size: $contents_text_normal;
+                white-space: nowrap;
+                margin-top: 10px;
+
+                &.on {color: $blue;}
+            }
+
+            & b {
+                width: 100%;
+                display: inline-block;
+
+                border : {
+                    width: 2px;
+                    color: $default1;
+                    style: dashed;
+                    radius: 2px;
+                }
+
+                &.on {border-color: $blue;}
+            }
+        }
+    }
+}
+
+// 회원 가입 틀
+.signup_container {position: relative;
+    & article {
+        width: 100%; min-height: 80vh;
+        @include flex_box(column, center, center);
+        padding: 100px 0 40px;
+
+        &::before {
+            @include pseudo(110%, 110%);
+            top: 0; left: 0;
+            background: url(/static/img/signup/bg_signup.jpg) no-repeat;
+            background-size: cover;
+        }
+    
+        &::after {
+            @include pseudo(110%, 110%);
+            top: 0; left: 0;
+            background: $blur;
+            z-index: 0;
+        }
+
+        & aside {
+            width: 750px;
+            @include flex_box(column, flex-start, center);
+            @include ui_setting($bg1, 30px);
+            z-index: 1;
+            animation-delay: 0.2s;
+
+            &>div {width: 100%;
+                &>h1 {
+                    @include flex_box(row, flex-start, center);
+                    font-size: $section_title_small;
+                    transition: all 0.3s;
+
+                    & i {
+                        font-size: 60px;
+                        margin-right: 10px;
+                    }
+                }
+
+                &>p {
+                    font-size: $section_subtitle_small;
+                    padding: 20px 0 40px;
+                    transition: all 0.3s;
+
+                    & br {display: none;}
+                }
+            }
+
+            & form {width: 100%;}
+        }
+    }
+}
+
+// 회원 가입 버튼
+.signup_button {
+    @include flex_box(row, center, center);
+    @include padding_setting(20px 0);
+    color: $bg1;
+}
+
+/* --- 회원가입 (회원 구분) --- */
+#signup_user {
+    #signup_user_contents {@include padding_setting(40px 60px);
+        & form {@include flex_box(row, center, center);
+            & div {
+                width: 50%;
+                position: relative;
+                @include flex_box(column, center, center);
+                @include padding_setting(0 10px);
+
+                & img {width: 150px;}
+                & span {
+                    font-size: $contents_text_normal;
+                    font-weight: 700;
+                    text-align: center;
+                    margin: 20px 0;
+                }
+                & a {color: $bg1;
+                    &::after {
+                        @include pseudo(150px, 145px);
+                        top: 0;
+                        border: 3px solid $default4;
+                        border-radius: 50%;
+                        z-index: 1;
+                        transition: all 0.3s;
+                    }
+                    &:hover::after {border-color: $blue;}
+                }
+            }
+        }
+    }
+}
+
+/* --- 회원가입 (약관 동의) --- */
+#signup_terms {
+    #signup_terms_contents {@include padding_setting(40px 60px);
+        & form {
+            & ul {margin-bottom: 20px;
+                & h2 {
+                    @include text_setting($text, $contents_text_small, 700);
+                    margin-bottom: 10px;
+                }
+
+                & li {
+                    background: $bg3;
+                    border-radius: 20px;
+                    @include padding_setting(10px 20px);
+
+                    &>div {
+                        width: 100%;
+                        @include flex_box(row, space-between, center);
+                        padding: 10px 0;
+            
+                        & input {
+                            display: none;
+            
+                            &:checked {
+                                +label {
+                                    span {
+                                        background-color: $blue;
+                                        transform: scale(1.25);
+            
+                                        &:after {
+                                            width: 10px;
+                                            background: $bg1;
+                                            transition: width 150ms ease 100ms;
+                                        }
+            
+                                        &::before {
+                                            width: 5px;
+                                            background: $bg1;
+                                            transition: width 150ms ease 100ms;
+                                        }
+                                    }
+            
+                                    &:hover {
+                                        span {
+                                            background-color: $blue;
+                                            transform: scale(1.25);
+            
+                                            &:after {
+                                                width: 10px;
+                                                background: $bg1;
+                                                transition: width 150ms ease 100ms;
+                                            }
+            
+                                            &::before {
+                                                width: 5px;
+                                                background: $bg1;
+                                                transition: width 150ms ease 100ms;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+            
+                        & label {
+                            width: 100%;
+                            @include flex_box(row, flex-start, center);
+                            cursor: pointer;
+            
+                            &>div {
+                                width: 25px;
+                                margin-right: 15px;
+            
+                                & span {
+                                    width: 25px; height: 25px;
+                                    position: relative;
+                                    display: block;
+                                    background-color: #DEDEDE;
+                                    border-radius: 25px;
+                                    transform-origin: center;
+                                    transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78, -1.22, .17, 1.89);
+            
+                                    &::before,
+                                    &::after {
+                                        @include pseudo(0, 2px);
+                                        background: $default1;
+                                        border-radius: 2px;
+                                        transform-origin: 0% 0%;
+                                    }
+            
+                                    &::before {
+                                        top: 13px;
+                                        left: 9px;
+                                        transform: rotate(45deg);
+                                        transition: width 50ms ease 50ms;
+                                    }
+            
+                                    &::after {
+                                        top: 16px;
+                                        left: 10px;
+                                        transform: rotate(305deg);
+                                        transition: width 50ms ease;
+                                    }
+                                }
+            
+                                &:hover {
+                                    span {
+                                        &::before {
+                                            width: 5px;
+                                            transition: width 100ms ease;
+                                        }
+            
+                                        &:after {
+                                            width: 10px;
+                                            transition: width 150ms ease 100ms;
+                                        }
+                                    }
+                                }
+                            }
+                            & strong {font-size: $contents_text_small;}
+                        }
+            
+                        & a {
+                            font-size: $contents_text_small;
+                            font-weight: 700;
+                            white-space: nowrap;
+                            text-decoration: underline;
+                        }
+                    }
+
+                }
+
+                &:nth-of-type(3) {
+                    & li {
+                        background: transparent;
+                        padding: 0;
+                    }
+                    & label {
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* --- 회원가입 (보호자 인증, 본인 인증) --- */
+#signup_parent_auth, #signup_self_auth {
+    #signup_parent_auth_contents, #signup_self_auth_contents {@include padding_setting(40px 60px);
+        & form {
+            width: 100%;
+            @include flex_box(row, center, center);
+
+            & div {
+                width: 100%;
+                text-align: center;
+                @include flex_box(column, center, center);
+
+                & img {width: 150px;}
+                & span {
+                    font-size: $section_subtitle_normal;
+                    font-weight: 700;
+                    text-align: center;
+                    margin: 20px 0;
+                }
+                & a {color: $bg1;}
+            }
+        }
+    }
+}
+
+/* --- 회원가입 (정보 입력) --- */
+#signup_info {
+    #signup_info_contents {@include padding_setting(40px 60px);
+        & ul {
+            width: 100%;
+            margin-bottom: 20px;
+
+            & h2 {
+                @include text_setting($text, $contents_text_small, 700);
+                margin-bottom: 10px;
+            }
+
+            & li {
+                position: relative;
+                background: $bg3;
+                border-radius: 20px;
+                @include padding_setting(5px 20px);
+
+                & label {
+                    width: 100%;
+                    display: block;
+                    position: relative;
+                    margin: 30px 0;
+    
+                    &::before {@include input_border();}
+                    &.input_focus:before {width: 100%;}
+                    &.input_focus p {@include input_focus();}
+
+                    & p {@include input_label();
+                        & b {
+                            color: $red;
+                            margin-right: 3px;
+                        }
+                    }
+    
+                    & input {@include input();
+                        &::placeholder {
+                            color: $default1;
+                            font-weight: 200;
+                            opacity: 0;
+                            transition: all 0.3s;
+                        }
+                        &:focus::placeholder {opacity: 1;}
+                    }
+
+                    & select {
+                        @include input();
+                        background: transparent;
+
+                        & option {color: $text;}
+                    }
+
+                    & span {
+                        display: block;
+                        @include text_setting($red, $contents_text_normal, 400);
+                        word-break: keep-all;
+                        margin-top: 5px;
+                        
+                        &.error_text {display: none;}
+                    }
+
+                    &.input_disabled {
+                        &::before {background: $default2;}
+                        & input:disabled {color: $default2;}
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* --- 회원가입 (가입 완료) --- */
+#signup_success {
+    #signup_success_contents {
+        @include padding_setting(40px 60px);
+        text-align: center;
+        word-break: keep-all;
+
+        & img {
+            width: 250px;
+            transition: all 0.3s;
+            @include padding_setting(20px);
+        }
+    
+        & h1 {font-size: $section_title_small;}
+        & p {
+            font-size: $contents_title_small;
+            margin: 10px 0 20px;
+        }
+        & div {
+            width: 100%;
+            @include flex_box(row, center, center);
+            @include padding_setting(20px 0);
+    
+            & a {
+                color: $bg1;
+                margin: 20px;
+            }
+        }
+    }
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 780px) {
+    // 섹션 타이틀 텍스트
+    .signup_container article aside > div > h1,
+    #signup_success #signup_success_contents h1
+    {font-size: $section_title_smaller;}
+
+    // 컨텐츠 타이틀 텍스트
+    #signup_parent_auth #signup_parent_auth_contents form div span, 
+    #signup_parent_auth #signup_self_auth_contents form div span, 
+    #signup_self_auth #signup_parent_auth_contents form div span, 
+    #signup_self_auth #signup_self_auth_contents form div span,
+    #signup_success #signup_success_contents p
+    {font-size: $contents_title_small;}
+
+    // 컨텐츠 세부 텍스트
+    .signup_process ul li span,
+    .signup_container article aside > div > p,
+    #signup_user #signup_user_contents form div span,
+    #signup_terms #signup_terms_contents form ul h2,
+    #signup_terms #signup_terms_contents form ul li > div a,
+    #signup_terms #signup_terms_contents form ul li > div label strong,
+    #signup_info #signup_info_contents ul h2,
+    #signup_info #signup_info_contents ul li label p,
+    #signup_info #signup_info_contents ul li label input,
+    #signup_info #signup_info_contents ul li label select,
+    #signup_info #signup_info_contents ul li label span
+    {font-size: $contents_text_small;}
+
+    // 기타 (공통)
+    .signup_container article aside {width: 90%;}
+
+    // 기타 (각각)
+    #signup_user #signup_user_contents form div {width: 100%;}
+    #signup_info #signup_info_contents ul li label::before {top: 35px;}
+}
+
+@media (max-width: 600px) {
+    .signup_container article aside {padding: 20px !important;}
+    .signup_process ul li i {font-size: 30px;}
+}
+
+@media (max-width: 480px) {
+    // 섹션 타이틀 텍스트
+    .signup_container article aside > div > h1
+    {font-size: $contents_title_smaller;}
+    
+    // 컨텐츠 타이틀 텍스트
+    #signup_parent_auth #signup_parent_auth_contents form div span, 
+    #signup_parent_auth #signup_self_auth_contents form div span, 
+    #signup_self_auth #signup_parent_auth_contents form div span, 
+    #signup_self_auth #signup_self_auth_contents form div span,
+    #signup_success #signup_success_contents p
+    {font-size: $contents_title_smaller;}
+    
+    #signup_success #signup_success_contents h1
+    {font-size: $section_title_smaller - 6px;}
+
+    // 컨텐츠 세부 텍스트
+    .signup_container article aside > div > p,
+    #signup_user #signup_user_contents form div span,
+    #signup_terms #signup_terms_contents form ul h2,
+    #signup_terms #signup_terms_contents form ul li > div a,
+    #signup_terms #signup_terms_contents form ul li > div label strong,
+    #signup_info #signup_info_contents ul h2,
+    #signup_info #signup_info_contents ul li label p,
+    #signup_info #signup_info_contents ul li label input,
+    #signup_info #signup_info_contents ul li label select,
+    #signup_info #signup_info_contents ul li label span
+    {font-size: $contents_text_smallest;}
+
+    // 기타 (공통)
+    .signup_process {display: none !important;}
+    .signup_container article aside > div > p {padding: 10px 0 20px;}
+    .signup_container article aside > div > h1 i {
+        font-size: 40px;
+        margin-right: 5px;
+    }
+    .button {width: 100% !important;}
+
+    // 기타 (각각)
+    #signup_user #signup_user_contents form {flex-direction: column;}
+    #signup_user #signup_user_contents form div {padding: 0; margin: 10px 0;}
+
+    #signup_terms #signup_terms_contents form ul li {padding: 10px;}
+    #signup_terms #signup_terms_contents form ul li > div {padding: 5px 0;}
+    #signup_terms #signup_terms_contents form ul li > div label > div {margin-right: 10px;}
+    #signup_terms #signup_terms_contents form ul li > div input:checked + label span,
+    #signup_terms #signup_terms_contents form ul li > div input:checked + label:hover span {transform: none;}
+
+    #signup_info #signup_info_contents ul li {padding: 5px 10px;}
+    #signup_info #signup_info_contents ul li label::before {top: 29px;}
+
+    #signup_success #signup_success_contents img {width: 200px;}
+    #signup_success #signup_success_contents div {flex-direction: column;}
+    #signup_success #signup_success_contents div a {margin: 5px 0;}
+}

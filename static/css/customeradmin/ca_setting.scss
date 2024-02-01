@@ -1,0 +1,131 @@
+﻿@charset "utf-8";
+@import "../customeradmin/_ca_global.scss";
+
+/* --- 관리 (그룹 관리) --- */
+#group_management {
+    & article:nth-of-type(2) {grid-template-columns: 1fr;}
+}
+
+#group_number {
+    & span {
+        @include flex_box(row, center, center);
+        gap: $g4;
+        color: rgba(24, 49, 83, 0.7);
+
+        & strong {color: $main;}
+    }
+}
+
+#group_manage_list {
+    // display: none;
+    font-size: $f18;
+
+    $list_num: 10%;
+    $list_company: 20%;
+    $list_group: 50%;
+    $list_date: 20%;
+    
+    & thead {
+        & tr {
+            & th {
+                &:nth-child(1) {width: $list_num;}
+                &:nth-child(2) {width: $list_company;}
+                &:nth-child(3) {width: $list_group;}
+                &:nth-child(4) {width: $list_date;}
+            }
+        }
+    }
+
+    & tbody {
+        & tr {padding: $g8 0;
+            & td {
+                &:nth-child(1) {width: $list_num;}
+                &:nth-child(2) {width: $list_company;}
+                &:nth-child(3) {width: $list_group;}
+                &:nth-child(4) {width: $list_date;}
+            }
+
+            &:hover {
+                background: $default4;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+#group_manage_default {display: none;}
+.checkbox>label>div>span {background: $white;}
+
+#group_detail_view {
+    &>div {
+        &>ul {
+            width: 100%;
+            @include flex_box(column, center, center);
+
+            &>li {
+                width: 100%;
+                @include grid_box(1fr 10% 1fr, 0);
+                @include padding_setting($g16);
+                place-items: end;
+                gap: $g16;
+
+                &>ul {
+                    width: 100%;
+                    @include flex_box(column, center, center);
+                    gap: $g8;
+
+                    &>li {width: 100%;
+                        &:nth-of-type(2) {
+                            @include flex_box(column, center, center);
+                            gap: $g8;
+
+                            &>div {width: 100%;
+                                &:first-child {
+                                    width: 100%;
+                                    @include flex_box(row, flex-start, center);
+                                    gap: $g4;
+
+                                    & input {
+                                        width: 100%;
+                                        @include bg_setting($sub, $g12);
+                                        @include padding_setting(9px $g12);
+                                    }
+                                    & select {
+                                        @include bg_setting($sub, $g12);
+                                        @include padding_setting($g8 $g8);
+                                    }
+                                }
+
+                                &:last-child {
+                                    min-height: 400px;
+                                    @include bg_setting($sub, $g12);
+                                    @include padding_setting($g16);
+
+                                    & table {
+                                        td, th {
+                                            &:nth-child(1) {width: 10%;}
+                                            &:nth-child(2) {width: 45%;}
+                                            &:nth-child(3) {width: 45%;}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &:nth-of-type(2) {place-self: center;}
+                }
+            }
+        }
+
+        &>div:last-of-type {
+            @include flex_box(row, center, center);
+            @include padding_setting($g16);
+            gap: $g8;
+
+            & button {
+                &.off {display: none;}
+            }
+        }
+    }
+}

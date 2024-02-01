@@ -1,0 +1,14 @@
+﻿@charset "utf-8";
+@import "../customeradmin/_ca_global.scss";
+
+/* --- 홈 (회원 목록) --- */
+#home_user_list {
+    & tbody {
+        & tr {
+            &:hover {
+                background: $default4;
+                cursor: pointer;
+            }
+        }
+    }
+}

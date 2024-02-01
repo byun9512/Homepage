@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+/* --- SASS 변수 정리 --- */
+// 색깔 관련
+$main: rgba(24, 49, 83, 1);
+$sub: rgba(240, 241, 243, 1);
+$disabledBackground: rgba(240, 241, 243, 0.5);
+$disabledColor: rgba(19, 19, 19, 0.3);
+$red: rgba(232, 84, 85, 1);
+$white: rgba(255, 255, 255, 1);
+$default1: rgba(24, 49, 83, 0.4);
+$default2: rgba(24, 49, 83, 0.3);
+$default3: rgba(24, 49, 83, 0.2);
+$default4: rgba(24, 49, 83, 0.1);
+$text: rgba(13, 25, 43, 1);
+$blur: rgba(0, 0, 0, 0.5);
+
+// 수치 관련
+$navbar_width: 220px;
+$large_modal_width: 1120px;
+$date_modal_width: 620px;
+$filter_modal_width: 920px;
+$transition: all 0.3s;
+$g4: 4px;
+$g8: 8px;
+$g12: 12px;
+$g16: 16px;
+$g24: 24px;
+$g32: 32px;
+
+// 폰트 관련
+$f14: 14px;
+$f16: 16px;
+$f18: 18px;
+$f20: 20px;
+$f22: 22px;
+$f24: 24px;
+
+/* --- SASS 함수 정리 --- */
+// flex box 세팅
+@mixin flex_box($direction, $justify, $items) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $items;
+}
+
+// grid box 세팅
+@mixin grid_box($template, $gap) {
+    display: grid;
+    grid-template-columns: $template;
+    gap: $gap;
+}
+
+// 배경 세팅
+@mixin bg_setting($background, $radius) {
+    background: $background;
+    border-radius: $radius;
+}
+
+// 박스 여백 세팅
+@mixin padding_setting($padding) {
+    box-sizing: border-box;
+    padding: $padding
+}
+
+// 가상 요소 기본 설정
+@mixin pseudo($width, $height) {
+    width: $width;
+    height: $height;
+    content: "";
+    position: absolute;
+}
+
+// 애니메이션 기본 설정
+@mixin animation($name) {
+    animation-name: $name;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+}

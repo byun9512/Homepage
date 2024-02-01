@@ -1,0 +1,167 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- border 세팅 --- */
+/* --- 헤더 --- */
+#header {
+  background: #FFFFFF;
+}
+#header article #header_menu li a,
+#header article .header_login > div a {
+  color: #404040;
+}
+
+/* --- 전광판 --- */
+#displayboard article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 100px 20px;
+}
+#displayboard article aside::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+#displayboard article aside::-webkit-scrollbar-thumb {
+  background: #C4C4C4;
+  border-radius: 10px;
+}
+#displayboard article aside::-webkit-scrollbar-track {
+  background: #EDEDED;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.05) inset;
+  border-radius: 10px;
+}
+#displayboard article aside::-webkit-scrollbar-button:start:decrement, #displayboard article aside::-webkit-scrollbar-button:end:increment {
+  display: none;
+}
+#displayboard article aside > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+#displayboard article aside > ul > li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#displayboard article aside > ul > li:first-child {
+  font-size: 24px;
+  font-weight: bold;
+}
+#displayboard article aside > ul > li > div {
+  margin-right: 5px;
+}
+#displayboard article aside table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#displayboard article aside table tr {
+  display: grid;
+  grid-template-columns: 160px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+  gap: 0;
+}
+#displayboard article aside table th, #displayboard article aside table td {
+  text-align: center;
+  word-break: keep-all;
+}
+#displayboard article aside table ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+#displayboard article aside table thead {
+  background: #EDEDED;
+  border-bottom: 1px solid #C4C4C4;
+}
+#displayboard article aside table thead tr th {
+  border-right: 1px solid #C4C4C4;
+}
+#displayboard article aside table thead tr th div {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 3px 0px;
+}
+#displayboard article aside table thead tr th ul {
+  border-top: 1px solid #C4C4C4;
+}
+#displayboard article aside table thead tr th ul li {
+  font-size: 12px;
+  border-right: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  padding: 3px 0px;
+}
+#displayboard article aside table thead tr th ul li:last-child {
+  border: none;
+}
+#displayboard article aside table thead tr th.first {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border: none;
+  padding-left: 10px;
+}
+#displayboard article aside table thead tr th:nth-child(2) {
+  border-left: 1px solid #C4C4C4;
+}
+#displayboard article aside table thead tr th:last-child {
+  border: none;
+}
+#displayboard article aside table tbody tr td {
+  font-size: 14px;
+  border-right: 1px solid #C4C4C4;
+}
+#displayboard article aside table tbody tr td div {
+  cursor: pointer;
+  border-bottom: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  padding: 3px 0px;
+}
+#displayboard article aside table tbody tr td ul {
+  border-bottom: 1px solid #C4C4C4;
+}
+#displayboard article aside table tbody tr td ul li {
+  border-right: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  padding: 3px 0px;
+}
+#displayboard article aside table tbody tr td ul li:last-child {
+  border: none;
+}
+#displayboard article aside table tbody tr td ul:last-child {
+  background: rgba(50, 158, 255, 0.1);
+}
+#displayboard article aside table tbody tr td.first {
+  text-align: left;
+  border: none;
+}
+#displayboard article aside table tbody tr td.first div:last-child {
+  background: rgba(50, 158, 255, 0.1);
+}
+#displayboard article aside table tbody tr td.last {
+  background: rgba(50, 158, 255, 0.1);
+}
+#displayboard article aside table tbody tr td:nth-child(2) {
+  border-left: 1px solid #C4C4C4;
+}
+#displayboard article aside table tbody tr td:last-child {
+  border: none;
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1920px) {
+  #displayboard article aside {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}/*# sourceMappingURL=displayboard.css.map */

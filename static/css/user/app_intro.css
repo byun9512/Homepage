@@ -1,0 +1,452 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- 어플 소개 (전체) --- */
+section {
+  position: relative;
+}
+section article {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 80px 0;
+  margin: 0 auto;
+}
+section article > aside {
+  width: 1280px;
+  z-index: 1;
+}
+section article > aside:first-child {
+  box-sizing: border-box;
+  padding: 0 40px;
+}
+section article > aside:first-child > h1 {
+  position: relative;
+  font-size: 60px;
+  word-break: keep-all;
+  transition: all 0.3s;
+}
+section article > aside:first-child > b {
+  width: 100px;
+  height: 5px;
+  display: block;
+  position: relative;
+  background: linear-gradient(to right, #329EFF, #7ABEFB);
+  border-radius: 5px;
+  margin: 10px 0;
+  transition: all 0.3s;
+  animation-delay: 0.1s;
+}
+section article > aside:first-child > div {
+  position: relative;
+  font-size: 30px;
+  font-weight: 300;
+  word-break: keep-all;
+  transition: all 0.3s;
+  animation-delay: 0.2s;
+}
+section article > aside:first-child > div br {
+  display: none;
+}
+section article > aside:last-child {
+  box-sizing: border-box;
+  padding: 40px 40px 0;
+}
+
+/* --- 어플 소개 (이용 순서) --- */
+#app_process {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 100px 0 0;
+  color: #FFFFFF;
+}
+#app_process::before {
+  width: 110%;
+  height: 110%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/static/img/app_intro/bg_app_intro.jpg) no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  z-index: 0;
+}
+#app_process::after {
+  width: 110%;
+  height: 110%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(23, 23, 23, 0.6);
+  z-index: 0;
+}
+#app_process article aside:first-child h1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+#app_process article aside:first-child h1 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+#app_process article aside:first-child h1 > div a {
+  display: inline-block;
+  transition: all 0.5s;
+}
+#app_process article aside:first-child h1 > div a img {
+  transition: all 0.3s;
+}
+#app_process article aside:first-child h1 > div a:hover img {
+  transform: scale(1.1);
+}
+#app_process article aside:first-child h1 > div a:first-of-type img {
+  width: 220px;
+}
+#app_process article aside:first-child h1 > div a:last-of-type img {
+  width: 180px;
+}
+#app_process #app_process_contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+#app_process #app_process_contents > img {
+  width: 100%;
+  display: none;
+  animation-delay: 0.6s;
+}
+#app_process #app_process_contents > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#app_process #app_process_contents > div p {
+  font-size: 40px;
+}
+#app_process #app_process_contents > div img {
+  width: 100%;
+}
+#app_process #app_process_contents > div:first-of-type {
+  animation-delay: 0.4s;
+  margin-bottom: 40px;
+}
+#app_process #app_process_contents > div:not(:first-of-type) {
+  animation-delay: 0.5s;
+}
+
+/* --- 어플 소개 (기록 연동) --- */
+#app_record article {
+  background: #F5F5F5;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  padding: 0;
+}
+#app_record aside {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+}
+#app_record aside ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#app_record aside ul img {
+  width: 120px;
+  height: 120px;
+  background: #FFFFFF;
+  border-radius: 120px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-right: 15px;
+}
+#app_record aside ul li {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  word-break: keep-all;
+  z-index: 10;
+  box-sizing: border-box;
+  padding: 30px 20px;
+}
+#app_record aside ul li h1 {
+  font-size: 40px;
+  white-space: nowrap;
+}
+#app_record aside ul li b {
+  width: 100px;
+  height: 5px;
+  display: block;
+  position: relative;
+  background: linear-gradient(to right, #329EFF, #7ABEFB);
+  border-radius: 5px;
+  margin: 10px 0;
+  transition: all 0.3s;
+  animation-delay: 0.1s;
+}
+#app_record aside ul li div {
+  width: 100%;
+  font-size: 22px;
+  line-height: 27px;
+}
+#app_record aside ul li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+#app_record aside ul li:nth-child(2) {
+  animation-delay: 0.3s;
+}
+#app_record aside > video {
+  width: 60%;
+  animation-delay: 0.4s;
+}
+
+/* --- 어플 소개 (회원 가입) --- */
+#app_membership #app_membership_contents {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#app_membership #app_membership_contents img {
+  width: 600px;
+  animation-delay: 0.3s;
+}
+#app_membership #app_membership_contents div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  word-break: keep-all;
+}
+#app_membership #app_membership_contents div h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  animation-delay: 0.3s;
+}
+#app_membership #app_membership_contents div p {
+  font-size: 22px;
+  line-height: 27px;
+  margin-bottom: 30px;
+  animation-delay: 0.4s;
+}
+#app_membership #app_membership_contents div p b {
+  color: #329EFF;
+}
+#app_membership #app_membership_contents div a {
+  color: #FFFFFF;
+  animation-delay: 0.5s;
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {
+  section article > aside {
+    width: 100%;
+  }
+}
+@media (max-width: 1280px) {
+  section article > aside:first-child > h1 {
+    font-size: 50px;
+  }
+  section article > aside:first-child > div {
+    font-size: 26px;
+  }
+  #app_process #app_process_contents > div p,
+  #app_record aside ul li h1,
+  #app_membership #app_membership_contents div h2 {
+    font-size: 28px;
+  }
+  #app_record aside ul li div,
+  #app_membership #app_membership_contents div p,
+  #app_membership #app_membership_contents div a {
+    font-size: 20px;
+  }
+  #app_record aside ul li div,
+  #app_membership #app_membership_contents div p {
+    line-height: 25px;
+  }
+  #app_record aside {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  #app_record aside > video {
+    width: 80%;
+  }
+  #app_record aside ul {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  #app_record aside ul img {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+  }
+  #app_record aside ul li {
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #app_record aside ul li h1 {
+    margin-top: 10px;
+  }
+  #app_record aside ul li div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #app_membership #app_membership_contents img {
+    width: 42%;
+  }
+}
+@media (max-width: 780px) {
+  #app_process #app_process_contents > div p,
+  #app_record aside ul li h1,
+  #app_membership #app_membership_contents div h2 {
+    font-size: 24px;
+  }
+  #app_record aside ul li div,
+  #app_membership #app_membership_contents div p,
+  #app_membership #app_membership_contents div a {
+    font-size: 18px;
+  }
+  #app_record aside ul li div,
+  #app_membership #app_membership_contents div p {
+    line-height: 23px;
+  }
+  #app_process article aside:first-child h1 > div {
+    flex-direction: column;
+  }
+  #app_process article aside:first-child h1 > div a:first-of-type img {
+    width: 160px;
+  }
+  #app_process article aside:first-child h1 > div a:last-of-type img {
+    width: 140px;
+  }
+  #app_process #app_process_contents {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #app_process #app_process_contents > img {
+    display: block;
+  }
+  #app_process #app_process_contents > div {
+    width: 50%;
+  }
+  #app_process #app_process_contents > div:first-child {
+    margin-bottom: 0;
+  }
+  #app_process #app_process_contents > div p {
+    width: 100%;
+    text-align: center;
+  }
+  #app_process #app_process_contents > div img {
+    display: none;
+  }
+  #app_record aside > video {
+    width: 100%;
+  }
+  #app_record aside ul li {
+    padding: 0 5px;
+  }
+  #app_membership #app_membership_contents {
+    flex-direction: column-reverse;
+  }
+  #app_membership #app_membership_contents img {
+    width: 424px;
+  }
+  #app_membership #app_membership_contents div {
+    width: 100%;
+    margin: 0;
+  }
+  #app_membership #app_membership_contents div h2 {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 480px) {
+  section article > aside:first-child > h1 {
+    font-size: 36px;
+  }
+  section article > aside:first-child > div {
+    font-size: 22px;
+  }
+  #app_process #app_process_contents > div p,
+  #app_record aside ul li h1,
+  #app_membership #app_membership_contents div h2 {
+    font-size: 20px;
+  }
+  #app_record aside ul li div,
+  #app_membership #app_membership_contents div p,
+  #app_membership #app_membership_contents div a {
+    font-size: 16px;
+  }
+  #app_record aside ul li div,
+  #app_membership #app_membership_contents div p {
+    line-height: 21px;
+  }
+  section article {
+    padding: 60px 20px 40px;
+  }
+  section article > aside:first-child {
+    padding: 0;
+  }
+  section article > aside:first-child > b {
+    margin: 10px 0;
+  }
+  section article > aside:first-child > div br {
+    display: block;
+  }
+  section article > aside:last-child {
+    padding: 30px 0;
+  }
+  #app_process {
+    padding: 100px 0 0;
+  }
+  #app_record article {
+    padding: 50px 0 0;
+  }
+  #app_record aside {
+    padding: 0 20px;
+  }
+  #app_record aside ul img {
+    width: 80px;
+    height: 80px;
+  }
+  #app_record aside ul li h1 {
+    margin: 10px 0 0;
+  }
+  #app_record aside ul li b {
+    margin: 10px 0;
+  }
+  #app_record aside ul li div {
+    text-align: center;
+  }
+}/*# sourceMappingURL=app_intro.css.map */

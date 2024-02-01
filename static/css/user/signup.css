@@ -1,0 +1,619 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- 회원가입 (공통) --- */
+.signup_process {
+  box-sizing: border-box;
+  padding: 20px 60px;
+  margin-bottom: 10px;
+}
+.signup_process ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.signup_process ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup_process ul li i {
+  color: #C4C4C4;
+  background: #EDEDED;
+  border-radius: 100px;
+  font-size: 40px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.signup_process ul li i.on {
+  color: #FFFFFF;
+  background: #329EFF;
+}
+.signup_process ul li span {
+  font-size: 22px;
+  white-space: nowrap;
+  margin-top: 10px;
+}
+.signup_process ul li span.on {
+  color: #329EFF;
+}
+.signup_process ul li b {
+  width: 100%;
+  display: inline-block;
+  border-width: 2px;
+  border-color: #C4C4C4;
+  border-style: dashed;
+  border-radius: 2px;
+}
+.signup_process ul li b.on {
+  border-color: #329EFF;
+}
+
+.signup_container {
+  position: relative;
+}
+.signup_container article {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0 40px;
+}
+.signup_container article::before {
+  width: 110%;
+  height: 110%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/static/img/signup/bg_signup.jpg) no-repeat;
+  background-size: cover;
+}
+.signup_container article::after {
+  width: 110%;
+  height: 110%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(23, 23, 23, 0.6);
+  z-index: 0;
+}
+.signup_container article aside {
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 30px;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  animation-delay: 0.2s;
+}
+.signup_container article aside > div {
+  width: 100%;
+}
+.signup_container article aside > div > h1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 50px;
+  transition: all 0.3s;
+}
+.signup_container article aside > div > h1 i {
+  font-size: 60px;
+  margin-right: 10px;
+}
+.signup_container article aside > div > p {
+  font-size: 26px;
+  padding: 20px 0 40px;
+  transition: all 0.3s;
+}
+.signup_container article aside > div > p br {
+  display: none;
+}
+.signup_container article aside form {
+  width: 100%;
+}
+
+.signup_button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px 0;
+  color: #FFFFFF;
+}
+
+/* --- 회원가입 (회원 구분) --- */
+#signup_user #signup_user_contents {
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+#signup_user #signup_user_contents form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#signup_user #signup_user_contents form div {
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+#signup_user #signup_user_contents form div img {
+  width: 150px;
+}
+#signup_user #signup_user_contents form div span {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 20px 0;
+}
+#signup_user #signup_user_contents form div a {
+  color: #FFFFFF;
+}
+#signup_user #signup_user_contents form div a::after {
+  width: 150px;
+  height: 145px;
+  content: "";
+  position: absolute;
+  top: 0;
+  border: 3px solid #EDEDED;
+  border-radius: 50%;
+  z-index: 1;
+  transition: all 0.3s;
+}
+#signup_user #signup_user_contents form div a:hover::after {
+  border-color: #329EFF;
+}
+
+/* --- 회원가입 (약관 동의) --- */
+#signup_terms #signup_terms_contents {
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+#signup_terms #signup_terms_contents form ul {
+  margin-bottom: 20px;
+}
+#signup_terms #signup_terms_contents form ul h2 {
+  color: #404040;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+#signup_terms #signup_terms_contents form ul li {
+  background: #F5F5F5;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
+#signup_terms #signup_terms_contents form ul li > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+#signup_terms #signup_terms_contents form ul li > div input {
+  display: none;
+}
+#signup_terms #signup_terms_contents form ul li > div input:checked + label span {
+  background-color: #329EFF;
+  transform: scale(1.25);
+}
+#signup_terms #signup_terms_contents form ul li > div input:checked + label span:after {
+  width: 10px;
+  background: #FFFFFF;
+  transition: width 150ms ease 100ms;
+}
+#signup_terms #signup_terms_contents form ul li > div input:checked + label span::before {
+  width: 5px;
+  background: #FFFFFF;
+  transition: width 150ms ease 100ms;
+}
+#signup_terms #signup_terms_contents form ul li > div input:checked + label:hover span {
+  background-color: #329EFF;
+  transform: scale(1.25);
+}
+#signup_terms #signup_terms_contents form ul li > div input:checked + label:hover span:after {
+  width: 10px;
+  background: #FFFFFF;
+  transition: width 150ms ease 100ms;
+}
+#signup_terms #signup_terms_contents form ul li > div input:checked + label:hover span::before {
+  width: 5px;
+  background: #FFFFFF;
+  transition: width 150ms ease 100ms;
+}
+#signup_terms #signup_terms_contents form ul li > div label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+#signup_terms #signup_terms_contents form ul li > div label > div {
+  width: 25px;
+  margin-right: 15px;
+}
+#signup_terms #signup_terms_contents form ul li > div label > div span {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  display: block;
+  background-color: #DEDEDE;
+  border-radius: 25px;
+  transform-origin: center;
+  transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89);
+}
+#signup_terms #signup_terms_contents form ul li > div label > div span::before, #signup_terms #signup_terms_contents form ul li > div label > div span::after {
+  width: 0;
+  height: 2px;
+  content: "";
+  position: absolute;
+  background: #C4C4C4;
+  border-radius: 2px;
+  transform-origin: 0% 0%;
+}
+#signup_terms #signup_terms_contents form ul li > div label > div span::before {
+  top: 13px;
+  left: 9px;
+  transform: rotate(45deg);
+  transition: width 50ms ease 50ms;
+}
+#signup_terms #signup_terms_contents form ul li > div label > div span::after {
+  top: 16px;
+  left: 10px;
+  transform: rotate(305deg);
+  transition: width 50ms ease;
+}
+#signup_terms #signup_terms_contents form ul li > div label > div:hover span::before {
+  width: 5px;
+  transition: width 100ms ease;
+}
+#signup_terms #signup_terms_contents form ul li > div label > div:hover span:after {
+  width: 10px;
+  transition: width 150ms ease 100ms;
+}
+#signup_terms #signup_terms_contents form ul li > div label strong {
+  font-size: 20px;
+}
+#signup_terms #signup_terms_contents form ul li > div a {
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: underline;
+}
+#signup_terms #signup_terms_contents form ul:nth-of-type(3) li {
+  background: transparent;
+  padding: 0;
+}
+#signup_terms #signup_terms_contents form ul:nth-of-type(3) label {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* --- 회원가입 (보호자 인증, 본인 인증) --- */
+#signup_parent_auth #signup_parent_auth_contents, #signup_parent_auth #signup_self_auth_contents, #signup_self_auth #signup_parent_auth_contents, #signup_self_auth #signup_self_auth_contents {
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+#signup_parent_auth #signup_parent_auth_contents form, #signup_parent_auth #signup_self_auth_contents form, #signup_self_auth #signup_parent_auth_contents form, #signup_self_auth #signup_self_auth_contents form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#signup_parent_auth #signup_parent_auth_contents form div, #signup_parent_auth #signup_self_auth_contents form div, #signup_self_auth #signup_parent_auth_contents form div, #signup_self_auth #signup_self_auth_contents form div {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#signup_parent_auth #signup_parent_auth_contents form div img, #signup_parent_auth #signup_self_auth_contents form div img, #signup_self_auth #signup_parent_auth_contents form div img, #signup_self_auth #signup_self_auth_contents form div img {
+  width: 150px;
+}
+#signup_parent_auth #signup_parent_auth_contents form div span, #signup_parent_auth #signup_self_auth_contents form div span, #signup_self_auth #signup_parent_auth_contents form div span, #signup_self_auth #signup_self_auth_contents form div span {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin: 20px 0;
+}
+#signup_parent_auth #signup_parent_auth_contents form div a, #signup_parent_auth #signup_self_auth_contents form div a, #signup_self_auth #signup_parent_auth_contents form div a, #signup_self_auth #signup_self_auth_contents form div a {
+  color: #FFFFFF;
+}
+
+/* --- 회원가입 (정보 입력) --- */
+#signup_info #signup_info_contents {
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+#signup_info #signup_info_contents ul {
+  width: 100%;
+  margin-bottom: 20px;
+}
+#signup_info #signup_info_contents ul h2 {
+  color: #404040;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+#signup_info #signup_info_contents ul li {
+  position: relative;
+  background: #F5F5F5;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 5px 20px;
+}
+#signup_info #signup_info_contents ul li label {
+  width: 100%;
+  display: block;
+  position: relative;
+  margin: 30px 0;
+}
+#signup_info #signup_info_contents ul li label::before {
+  width: 0;
+  height: 2px;
+  content: "";
+  position: absolute;
+  top: 37px;
+  left: 0;
+  background: #404040;
+  transition: all 0.3s;
+}
+#signup_info #signup_info_contents ul li label.input_focus:before {
+  width: 100%;
+}
+#signup_info #signup_info_contents ul li label.input_focus p {
+  top: -20px;
+  left: 0;
+  color: #404040;
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+#signup_info #signup_info_contents ul li label p {
+  position: absolute;
+  top: 0;
+  font-size: 22px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+#signup_info #signup_info_contents ul li label p b {
+  color: #DE3B3B;
+  margin-right: 3px;
+}
+#signup_info #signup_info_contents ul li label input {
+  width: 100%;
+  color: #404040;
+  font-size: 22px;
+  font-weight: 700;
+  background: transparent;
+  border-bottom: 2px solid #C4C4C4;
+  padding: 5px 0;
+  transition: all 0.3s;
+}
+#signup_info #signup_info_contents ul li label input::-moz-placeholder {
+  color: #C4C4C4;
+  font-weight: 200;
+  opacity: 0;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#signup_info #signup_info_contents ul li label input::placeholder {
+  color: #C4C4C4;
+  font-weight: 200;
+  opacity: 0;
+  transition: all 0.3s;
+}
+#signup_info #signup_info_contents ul li label input:focus::-moz-placeholder {
+  opacity: 1;
+}
+#signup_info #signup_info_contents ul li label input:focus::placeholder {
+  opacity: 1;
+}
+#signup_info #signup_info_contents ul li label select {
+  width: 100%;
+  color: #404040;
+  font-size: 22px;
+  font-weight: 700;
+  background: transparent;
+  border-bottom: 2px solid #C4C4C4;
+  padding: 5px 0;
+  transition: all 0.3s;
+  background: transparent;
+}
+#signup_info #signup_info_contents ul li label select option {
+  color: #404040;
+}
+#signup_info #signup_info_contents ul li label span {
+  display: block;
+  color: #DE3B3B;
+  font-size: 22px;
+  font-weight: 400;
+  word-break: keep-all;
+  margin-top: 5px;
+}
+#signup_info #signup_info_contents ul li label span.error_text {
+  display: none;
+}
+#signup_info #signup_info_contents ul li label.input_disabled::before {
+  background: #B3B3B3;
+}
+#signup_info #signup_info_contents ul li label.input_disabled input:disabled {
+  color: #B3B3B3;
+}
+
+/* --- 회원가입 (가입 완료) --- */
+#signup_success #signup_success_contents {
+  box-sizing: border-box;
+  padding: 40px 60px;
+  text-align: center;
+  word-break: keep-all;
+}
+#signup_success #signup_success_contents img {
+  width: 250px;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  padding: 20px;
+}
+#signup_success #signup_success_contents h1 {
+  font-size: 50px;
+}
+#signup_success #signup_success_contents p {
+  font-size: 28px;
+  margin: 10px 0 20px;
+}
+#signup_success #signup_success_contents div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+#signup_success #signup_success_contents div a {
+  color: #FFFFFF;
+  margin: 20px;
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 780px) {
+  .signup_container article aside > div > h1,
+  #signup_success #signup_success_contents h1 {
+    font-size: 36px;
+  }
+  #signup_parent_auth #signup_parent_auth_contents form div span,
+  #signup_parent_auth #signup_self_auth_contents form div span,
+  #signup_self_auth #signup_parent_auth_contents form div span,
+  #signup_self_auth #signup_self_auth_contents form div span,
+  #signup_success #signup_success_contents p {
+    font-size: 28px;
+  }
+  .signup_process ul li span,
+  .signup_container article aside > div > p,
+  #signup_user #signup_user_contents form div span,
+  #signup_terms #signup_terms_contents form ul h2,
+  #signup_terms #signup_terms_contents form ul li > div a,
+  #signup_terms #signup_terms_contents form ul li > div label strong,
+  #signup_info #signup_info_contents ul h2,
+  #signup_info #signup_info_contents ul li label p,
+  #signup_info #signup_info_contents ul li label input,
+  #signup_info #signup_info_contents ul li label select,
+  #signup_info #signup_info_contents ul li label span {
+    font-size: 20px;
+  }
+  .signup_container article aside {
+    width: 90%;
+  }
+  #signup_user #signup_user_contents form div {
+    width: 100%;
+  }
+  #signup_info #signup_info_contents ul li label::before {
+    top: 35px;
+  }
+}
+@media (max-width: 600px) {
+  .signup_container article aside {
+    padding: 20px !important;
+  }
+  .signup_process ul li i {
+    font-size: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .signup_container article aside > div > h1 {
+    font-size: 24px;
+  }
+  #signup_parent_auth #signup_parent_auth_contents form div span,
+  #signup_parent_auth #signup_self_auth_contents form div span,
+  #signup_self_auth #signup_parent_auth_contents form div span,
+  #signup_self_auth #signup_self_auth_contents form div span,
+  #signup_success #signup_success_contents p {
+    font-size: 24px;
+  }
+  #signup_success #signup_success_contents h1 {
+    font-size: 30px;
+  }
+  .signup_container article aside > div > p,
+  #signup_user #signup_user_contents form div span,
+  #signup_terms #signup_terms_contents form ul h2,
+  #signup_terms #signup_terms_contents form ul li > div a,
+  #signup_terms #signup_terms_contents form ul li > div label strong,
+  #signup_info #signup_info_contents ul h2,
+  #signup_info #signup_info_contents ul li label p,
+  #signup_info #signup_info_contents ul li label input,
+  #signup_info #signup_info_contents ul li label select,
+  #signup_info #signup_info_contents ul li label span {
+    font-size: 16px;
+  }
+  .signup_process {
+    display: none !important;
+  }
+  .signup_container article aside > div > p {
+    padding: 10px 0 20px;
+  }
+  .signup_container article aside > div > h1 i {
+    font-size: 40px;
+    margin-right: 5px;
+  }
+  .button {
+    width: 100% !important;
+  }
+  #signup_user #signup_user_contents form {
+    flex-direction: column;
+  }
+  #signup_user #signup_user_contents form div {
+    padding: 0;
+    margin: 10px 0;
+  }
+  #signup_terms #signup_terms_contents form ul li {
+    padding: 10px;
+  }
+  #signup_terms #signup_terms_contents form ul li > div {
+    padding: 5px 0;
+  }
+  #signup_terms #signup_terms_contents form ul li > div label > div {
+    margin-right: 10px;
+  }
+  #signup_terms #signup_terms_contents form ul li > div input:checked + label span,
+  #signup_terms #signup_terms_contents form ul li > div input:checked + label:hover span {
+    transform: none;
+  }
+  #signup_info #signup_info_contents ul li {
+    padding: 5px 10px;
+  }
+  #signup_info #signup_info_contents ul li label::before {
+    top: 29px;
+  }
+  #signup_success #signup_success_contents img {
+    width: 200px;
+  }
+  #signup_success #signup_success_contents div {
+    flex-direction: column;
+  }
+  #signup_success #signup_success_contents div a {
+    margin: 5px 0;
+  }
+}/*# sourceMappingURL=signup.css.map */

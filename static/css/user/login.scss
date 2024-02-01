@@ -1,0 +1,167 @@
+@charset "utf-8";
+@import "../global/_global.scss";
+
+/* --- 로그인 --- */
+#login {position: relative;
+    & article {
+        width: 100%; min-height: 100vh;
+        @include flex_box(column, center, center);
+    
+        &::before {
+            @include pseudo(110%, 110%);
+            top: 0; left: 0;
+            background: url(/static/img/bg_login.jpg) no-repeat;
+            background-size: cover;
+            z-index: 0;
+        }
+
+        &::after {
+            @include pseudo(100%, 100%);
+            top: 0; left: 0;
+            background: $blur;
+            z-index: 0;
+        }
+
+        #login_contents {
+            width: 750px;
+            @include flex_box(column, center, center);
+            gap: 30px;
+            @include ui_setting($bg3, 30px);
+            @include padding_setting(60px);
+            z-index: 1;
+            animation-delay: 0.2s;
+    
+            &>div {@include flex_box(column, center, center);
+                & img {width: 60px;}
+                & h1 {
+                    font-size: $contents_title_normal;
+                    margin: 20px 0 5px;
+                }
+                & div {
+                    font-size: $contents_text_normal;
+                    text-align: center;
+                    word-break: keep-all;
+    
+                    & br {display: none;}
+                    & strong {color: $blue;}
+                }
+            }
+            
+            & form {
+                width: 60%;
+                transition: all 0.3s;
+    
+                &>div {
+                    width: 100%;
+                    @include flex_box(column, center, center);
+                    margin: 15px 0;
+    
+                    &:nth-of-type(1) {
+                        & label {
+                            width: 100%;
+                            display: block;
+                            position: relative;
+                            
+                            &:first-child {margin-bottom: 30px;}
+                            &:before {@include input_border();}
+                            &.input_focus p {@include input_focus();}
+                            &.input_focus:before {width: 100%;}
+            
+                            & p {@include input_label();
+                                & b {
+                                    color: $red;
+                                    margin-right: 3px;
+                                }
+                            }
+            
+                            & input {@include input();
+                                &::placeholder {
+                                    color: $default1;
+                                    font-weight: 200;
+                                    opacity: 0;
+                                    transition: all 0.3s;
+                                }
+                                &:focus::placeholder {opacity: 1;}
+                            }
+            
+                            & span {
+                                display: block;
+                                @include text_setting($red, $contents_text_normal, 400);
+                                word-break: keep-all;
+                                margin-top: 5px;
+                                
+                                &.error_text {display: none;}
+                            }
+                        }
+                        
+                        & a {
+                            width: 100%;
+                            display: inline-block;
+                            @include text_setting($blue, $contents_text_normal, 400);
+                            margin: 0 0 20px;
+                            
+                            &:hover {text-decoration: underline;}
+                        }
+    
+                        &>input {margin: 20px 0;}
+                    }
+    
+                    &:nth-of-type(2) {
+                        & p {
+                            @include text_setting($text, $contents_text_normal, 100);
+                            margin-bottom: 3px;
+                        }
+                        & a {@include text_setting($blue, $contents_text_normal, 400);
+                            &:hover {text-decoration: underline;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 780px) {
+    // 컨텐츠 타이틀 텍스트
+    #login article #login_contents > div h1
+    {font-size: $contents_title_smaller;}
+
+    // 컨텐츠 세부 텍스트
+    #login article #login_contents > div div,
+    #login article #login_contents form > div:nth-of-type(1) a,
+    #login article #login_contents form > div:nth-of-type(1) label p,
+    #login article #login_contents form > div:nth-of-type(1) label input,
+    #login article #login_contents form > div:nth-of-type(1) label span,
+    #login article #login_contents form > div:nth-of-type(2) p,
+    #login article #login_contents form > div:nth-of-type(2) a
+    {font-size: $contents_text_smaller;}
+
+    // 기타
+    #login article #login_contents {width: 90%;}
+    #login article #login_contents form {width: 100%;}
+    #login article #login_contents form > div:nth-of-type(1) > input {width: 100%;}
+    #login article #login_contents form > div:nth-of-type(1) label:before {top: 31px;}
+}
+
+@media (max-width: 480px) {
+    // 컨텐츠 타이틀 텍스트
+    #login article #login_contents > div h1
+    {font-size: $contents_title_smallest;}
+
+    // 컨텐츠 세부 텍스트
+    #login article #login_contents > div div,
+    #login article #login_contents form > div:nth-of-type(1) a,
+    #login article #login_contents form > div:nth-of-type(1) label p,
+    #login article #login_contents form > div:nth-of-type(1) label input,
+    #login article #login_contents form > div:nth-of-type(1) label span,
+    #login article #login_contents form > div:nth-of-type(2) p,
+    #login article #login_contents form > div:nth-of-type(2) a
+    {font-size: $contents_text_smallest;}
+
+    // 기타
+    #login article #login_contents {padding: 20px;}
+    #login article #login_contents form > div:nth-of-type(1) label:before {top: 29px;}
+}

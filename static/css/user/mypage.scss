@@ -1,0 +1,400 @@
+@charset "utf-8";
+@import "../global/_global.scss";
+
+/* --- 마이페이지 --- */
+#mypage {
+    & article {
+        width: 100%;
+        position: relative;
+        @include flex_box(column, center, center);
+
+        & aside {
+            width: 1280px;
+            position: relative;
+            @include padding_setting(0 20px);
+
+            & form {@include flex_box(column, flex-start, flex-start);}
+        }
+    }
+
+    #mypage_intro {
+        height: 500px;
+        color: $bg1;
+
+        &::before {
+            @include pseudo(110%, 110%);
+            top: 0; left: 0;
+            background: url(/static/img/bg_mypage.jpg) no-repeat;
+            background-size: cover;
+            background-position: 0 50%;
+            z-index: 0;
+        }
+    
+        &::after {
+            @include pseudo(110%, 600px);
+            top: 0; left: 0;
+            background: $blur;
+            z-index: 0;
+        }
+
+        & aside {z-index: 100;
+            &>h1 {
+                @include section_title();
+                font-size: $section_title_normal;
+            }
+            &>b {@include section_bar();}
+            &>div {@include section_subtitle();}
+
+            & form {
+                position: absolute; top: 30%; right: 20%;
+                @include flex_box(column, center, center);
+                animation-delay: 0.3s;
+
+                & input {display: none;}
+                & label {
+                    @include flex_box(column, center, center);
+                    cursor: pointer;
+
+                    & div {
+                        width: 260px; height: 260px;
+                        @include flex_box(column, center, center);
+                        @include ui_setting($bg1, 260px);
+                        overflow: hidden;
+
+                        & img {width: 100%;
+                            &.user-picture {transform: scale(1.5);}
+                            &.user-default {transform: none;}
+                        }
+                    }
+
+                    & i {
+                        width: 60px; height: 60px;
+                        @include flex_box(column, center, center);
+                        position: absolute; bottom: 0; right: 0;
+                        font-size: 40px;
+                        @include ui_setting($text, 80px);
+                        cursor: pointer;
+                        transition: all 0.3s;
+    
+                        &:hover {background: $blue;}
+                    }
+                }
+            }
+        }
+
+        #mypage_layer {
+            @include svg(bottom);
+            z-index: 1;
+        }
+    }
+
+    #mypage_info {
+        background: $bg1;
+        @include padding_setting(60px 0 100px);
+        z-index: 1;
+
+        & aside {
+            & form {@include flex_box(column, center, center);
+                & ul {
+                    width: 100%;
+                    @include grid_box(1fr 1fr, 40px);
+                    margin-bottom: 60px;
+                    
+                    & li {
+                        width: 100%;
+                        @include flex_box(column, inherit, inherit);
+                        
+                        & h2 {
+                            color: $blue;
+                            font-size: $contents_title_normal;
+                            margin-bottom: 20px;
+                            animation-delay: 0.3s;
+                        }
+    
+                        &>div {
+                            width: 100%;
+                            position: relative;
+                            @include flex_box(column, inherit, inherit);
+                            @include padding_setting(20px 0);
+
+                            &>label {
+                                font-size: $contents_text_normal;
+                                font-weight: 700;
+                            }
+        
+                            &>input, &>select {
+                                width: 100%;
+                                color: $text;
+                                background: transparent;
+                                font-size: $contents_text_normal;
+                                border-bottom: 2px solid $text;
+                                @include padding_setting(5px 0);
+            
+                                &::placeholder {
+                                    color: $default1;
+                                    font-weight: 200;
+                                    transition: all 0.3s;
+                                }
+                            }
+
+                            &>span {
+                                display: block;
+                                color: $red;
+                                font-size: $contents_text_normal;
+                                margin-top: 5px;
+                                
+                                &.error_text {display: none;}
+                            }
+
+                            &:nth-of-type(1), &:nth-of-type(2) {animation-delay: 0.4s;}
+                            &:nth-of-type(3), &:nth-of-type(4) {animation-delay: 0.5s;}
+                            &:nth-of-type(5) {animation-delay: 0.6s;}
+                            
+                        }
+        
+                    }
+
+                    #mypage_info_extra {
+                        &>div {
+                            & textarea {
+                                font-size: $contents_text_normal;
+                                border: 2px solid $text;
+                                border-radius: 10px;
+                                margin: 10px 0;
+                                @include padding_setting(15px);
+
+                                &:disabled {color: $default1;}
+                            }
+
+                            &>div {
+                                width: 100%;
+                                @include flex_box(row, space-between, center);
+                                margin-top: 10px;
+    
+                                & input {display: none;
+                                    &:checked {
+                                        + label {
+                                                span {
+                                                    background-color: $blue;
+                                                    border: 2px solid $blue;
+                                                    transform: scale(1.25);
+                                            
+                                                &:after {
+                                                    width: 10px;
+                                                    background: $bg1;
+                                                    transition: width 150ms ease 100ms;
+                                                }
+                                            
+                                                &:before {
+                                                    width: 5px;
+                                                    background: $bg1;
+                                                    transition: width 150ms ease 100ms;
+                                                }
+                                            }
+                                            
+                                            &:hover {
+                                                span {
+                                                    background-color: $blue;
+                                                    transform: scale(1.25);
+                                        
+                                                    &:after {
+                                                        width: 10px;
+                                                        background: $bg1;
+                                                        transition: width 150ms ease 100ms;
+                                                    }
+                                        
+                                                    &:before {
+                                                        width: 5px;
+                                                        background: $bg1;
+                                                        transition: width 150ms ease 100ms;
+                                                    }
+                                                }  
+                                            }
+                                        }
+                                    }
+                                }
+                
+                                & label {
+                                    width: 100%;
+                                    @include flex_box(row, flex-start, center);
+                                    cursor: pointer;
+        
+                                    &>div {
+                                        width: 25px;
+                                        margin-right: 15px;
+        
+                                        & span {
+                                            width: 25px; height: 25px;
+                                            position: relative;
+                                            display: block;
+                                            background-color: transparent;
+                                            border: 2px solid $default2;
+                                            border-radius: 25px;
+                                            transform-origin: center;
+                                            transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89);
+            
+                                            &::before, &::after {
+                                                @include pseudo(0, 2px);
+                                                background: $blue;
+                                                border-radius: 2px;
+                                                transform-origin: 0% 0%;
+                                            }
+                    
+                                            &::before {
+                                                top: 13px; left: 9px;
+                                                transform: rotate(45deg);
+                                                transition: width 50ms ease 50ms;
+                                            }
+                    
+                                            &::after {
+                                                top: 16px; left: 10px; 
+                                                transform: rotate(305deg);
+                                                transition: width 50ms ease;
+                                            }
+                                        }
+                    
+                                        &:hover {
+                                            span {border: 2px solid $blue;
+                                                &:before {
+                                                    width: 5px;
+                                                    transition: width 100ms ease;
+                                                }
+                                                
+                                                &:after {
+                                                    width: 10px;
+                                                    transition: width 150ms ease 100ms;
+                                                }
+                                            }
+                                        }
+                                    }
+        
+                                    & strong {@include text_setting($text, 22px, 400)}
+                                }
+                            }
+                        }
+
+                        #mypage_info_history, #mypage_info_medication {padding: 10px 0;}
+                    }
+                }
+                
+                &>div:last-of-type {
+                    @include flex_box(row, center, center);
+                    animation-delay: 0.7s;
+                    margin-bottom: 0;
+
+                    & button, a {
+                        color: $bg1;
+                        font-size: $contents_text_normal;
+                        margin: 0 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {
+    #mypage article aside {width: 100%;}
+}
+
+@media (max-width: 1280px) {
+    // 섹션 텍스트
+    #mypage #mypage_intro aside > h1 {font-size: $section_title_small;}
+    #mypage #mypage_intro aside > div {font-size: $section_subtitle_small;}
+
+    // 컨텐츠 타이틀 텍스트
+    #mypage #mypage_info aside form ul li h2
+    {font-size: $contents_title_small;}
+
+    // 컨텐츠 세부 텍스트
+    #mypage #mypage_info aside form ul li > div > label,
+    #mypage #mypage_info aside form ul li > div > input, 
+    #mypage #mypage_info aside form ul li > div > select,
+    #mypage #mypage_info aside form ul li > div > span,
+    #mypage #mypage_info aside form > div:last-of-type button, 
+    #mypage #mypage_info aside form > div:last-of-type a,
+    #mypage #mypage_info aside form ul #mypage_info_extra > div textarea,
+    #mypage #mypage_info aside form ul #mypage_info_extra > div > div label strong
+    {font-size: $contents_text_small;}
+}
+
+@media (max-width: 780px) {
+    // 슬로건 텍스트
+    #mypage #mypage_intro aside > h1 {font-size: $section_title_small;}
+    #mypage #mypage_intro aside > div {font-size: $section_subtitle_small;}
+
+    // 컨텐츠 타이틀 텍스트
+    #mypage #mypage_info aside form ul li h2 
+    {font-size: $contents_title_smaller;}
+
+    // 컨텐츠 세부 텍스트
+    #mypage #mypage_info aside form ul li > div > label,
+    #mypage #mypage_info aside form ul li > div > input, 
+    #mypage #mypage_info aside form ul li > div > select,
+    #mypage #mypage_info aside form ul li > div > span,
+    #mypage #mypage_info aside form > div:last-of-type button, 
+    #mypage #mypage_info aside form > div:last-of-type a,
+    #mypage #mypage_info aside form ul #mypage_info_extra > div textarea,
+    #mypage #mypage_info aside form ul #mypage_info_extra > div > div label strong
+    {font-size: $contents_text_smaller;}
+
+    // 기타
+    #mypage #mypage_intro aside form {top: 110%;}
+    #mypage #mypage_intro aside form label div {width: 200px; height: 200px;}
+    #mypage #mypage_intro aside form label i {
+        width: 50px; height: 50px;
+        font-size: 35px;
+    }
+    #mypage #mypage_info aside form ul {
+        grid-template-columns: 1fr;
+        margin-bottom: 20px;
+    }
+    #mypage #mypage_info aside form ul li > div {padding: 10px 0;}
+    
+    #mypage #mypage_info aside form > div:last-of-type button, 
+    #mypage #mypage_info aside form > div:last-of-type a {margin-bottom: 20px;}
+}
+
+@media (max-width: 600px) {
+    #mypage #mypage_info aside form > div:last-of-type {width: 100%;}
+}
+
+@media (max-width: 480px) {
+    // 슬로건 텍스트
+    #mypage #mypage_intro aside > h1 {font-size: $section_title_smaller;}
+    #mypage #mypage_intro aside > div {font-size: $section_subtitle_smaller;}
+
+    // 컨텐츠 타이틀 텍스트
+    #mypage #mypage_info aside form ul li h2 
+    {font-size: $contents_title_smallest;}
+
+    // 컨텐츠 세부 텍스트
+    #mypage #mypage_info aside form ul li > div > label,
+    #mypage #mypage_info aside form ul li > div > input, 
+    #mypage #mypage_info aside form ul li > div > select,
+    #mypage #mypage_info aside form ul li > div > span,
+    #mypage #mypage_info aside form > div:last-of-type button, 
+    #mypage #mypage_info aside form > div:last-of-type a,
+    #mypage #mypage_info aside form ul #mypage_info_extra > div textarea,
+    #mypage #mypage_info aside form ul #mypage_info_extra > div > div label strong
+    {font-size: $contents_text_smallest;}
+
+    // 기타
+    #mypage #mypage_intro {height: 400px;}
+    #mypage #mypage_intro aside form label div {width: 160px; height: 160px;}
+
+    #mypage #mypage_info {padding: 20px 0;}
+    #mypage #mypage_info aside form ul #mypage_info_extra > div > div {margin: 0;}
+    #mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div {width: 20px;}
+    #mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div span {width: 20px; height: 20px;}
+    #mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div span::before {top: 10px; left: 7px;}
+    #mypage #mypage_info aside form ul #mypage_info_extra > div > div label > div span::after {top: 13px; left: 8px;}
+    #mypage #mypage_info aside form ul #mypage_info_extra > div > div label strong {margin-top: 3px;}
+
+    #mypage #mypage_info aside form > div:last-of-type button, 
+    #mypage #mypage_info aside form > div:last-of-type a {
+        width: 100%;
+        margin: 0 10px;
+    }
+}

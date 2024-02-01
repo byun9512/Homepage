@@ -1,0 +1,722 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- 회사 소개 (전체) --- */
+section {
+  position: relative;
+}
+section article {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 80px 0;
+  margin: 0 auto;
+}
+section article > aside {
+  width: 1280px;
+}
+section article > aside:first-child {
+  box-sizing: border-box;
+  padding: 0 40px;
+}
+section article > aside:first-child > h1 {
+  position: relative;
+  font-size: 60px;
+  word-break: keep-all;
+  transition: all 0.3s;
+}
+section article > aside:first-child > b {
+  width: 100px;
+  height: 5px;
+  display: block;
+  position: relative;
+  background: linear-gradient(to right, #329EFF, #7ABEFB);
+  border-radius: 5px;
+  margin: 10px 0;
+  transition: all 0.3s;
+  animation-delay: 0.1s;
+}
+section article > aside:first-child > div {
+  position: relative;
+  font-size: 30px;
+  font-weight: 300;
+  word-break: keep-all;
+  transition: all 0.3s;
+  animation-delay: 0.2s;
+}
+section article > aside:first-child > div br {
+  display: none;
+}
+section article > aside:last-child {
+  box-sizing: border-box;
+  padding: 40px 40px 0;
+}
+
+/* --- 회사 소개 (대문) --- */
+#company_slogan nav {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin: 0 auto;
+  color: #FFFFFF;
+}
+#company_slogan nav::before {
+  width: 110%;
+  height: 110%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/static/img/company_intro/bg_company_intro_slogan.jpg) no-repeat;
+  background-size: cover;
+  background-position: 40%;
+  z-index: 0;
+}
+#company_slogan nav::after {
+  width: 110%;
+  height: 110%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(23, 23, 23, 0.6);
+  z-index: 0;
+}
+#company_slogan nav > div {
+  width: 1280px;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 0 40px;
+}
+#company_slogan nav > div h1 {
+  position: relative;
+  font-size: 60px;
+  word-break: keep-all;
+  transition: all 0.3s;
+}
+#company_slogan nav > div h1 br {
+  display: none;
+}
+#company_slogan nav > div b {
+  width: 100px;
+  height: 5px;
+  display: block;
+  position: relative;
+  background: linear-gradient(to right, #329EFF, #7ABEFB);
+  border-radius: 5px;
+  margin: 10px 0;
+  transition: all 0.3s;
+  animation-delay: 0.1s;
+}
+#company_slogan nav > div > div {
+  position: relative;
+  font-size: 30px;
+  font-weight: 300;
+  word-break: keep-all;
+  transition: all 0.3s;
+  animation-delay: 0.2s;
+}
+#company_slogan nav > div > div mark {
+  color: #FFFFFF;
+  border-color: rgba(255, 137, 0, 0.8);
+  box-shadow: rgba(255, 137, 0, 0.8) 0px -14px 0px inset;
+}
+#company_slogan nav > ul {
+  width: 1180px;
+  position: relative;
+  position: relative;
+  font-size: 30px;
+  font-weight: 300;
+  word-break: keep-all;
+  transition: all 0.3s;
+  animation-delay: 0.2s;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 20px 20px 20px 50px;
+  animation-delay: 0.4s;
+}
+#company_slogan nav > ul h3 {
+  color: #000000;
+  padding-bottom: 10px;
+}
+#company_slogan nav > ul li {
+  color: #000000;
+  list-style-type: disc;
+  margin: 6px 0;
+}
+#company_slogan nav > ul li mark {
+  color: #000000;
+  border-color: rgba(255, 137, 0, 0.4);
+  box-shadow: rgba(255, 137, 0, 0.4) 0px -10px 0px inset;
+}
+
+/* --- 회사 소개 (미션) --- */
+#company_intro article {
+  background: #FFFFFF;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+#company_intro aside:first-child > div br {
+  display: none;
+}
+#company_intro #company_intro_contents ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#company_intro #company_intro_contents ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+#company_intro #company_intro_contents ul li::before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  opacity: 0.1;
+  z-index: -1;
+}
+#company_intro #company_intro_contents ul li > img {
+  width: 40%;
+  opacity: 0.8;
+}
+#company_intro #company_intro_contents ul li > div {
+  width: 100%;
+  text-align: center;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+#company_intro #company_intro_contents ul li > div p {
+  font-size: 26px;
+  margin-top: 20px;
+}
+#company_intro #company_intro_contents ul li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+#company_intro #company_intro_contents ul li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+#company_intro #company_intro_contents ul li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* --- 회사 소개 (핵심 가치) --- */
+#company_value aside:first-child > h1 {
+  font-size: 50px;
+  font-weight: 400;
+  text-align: center;
+}
+#company_value aside:first-child > h1 strong {
+  color: transparent;
+  background: linear-gradient(to right, #329EFF, #7ABEFB);
+  -webkit-background-clip: text;
+}
+#company_value aside:first-child > h1 strong br {
+  display: none;
+}
+#company_value #company_value_contents ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+#company_value #company_value_contents ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5px;
+}
+#company_value #company_value_contents ul li img {
+  width: 300px;
+  border-radius: 30px;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+}
+#company_value #company_value_contents ul li > div {
+  width: 100%;
+  word-break: keep-all;
+}
+#company_value #company_value_contents ul li > div h2 {
+  font-size: 40px;
+  text-align: center;
+  margin: 30px 0 20px;
+}
+#company_value #company_value_contents ul li > div p {
+  font-size: 22px;
+  line-height: 27px;
+}
+#company_value #company_value_contents ul li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+#company_value #company_value_contents ul li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+#company_value #company_value_contents ul li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* --- 회사 소개 (연혁) --- */
+#company_history article aside:first-child > div br {
+  display: none;
+}
+#company_history #company_history_contents {
+  padding: 0 40px;
+  animation-delay: 0.2s;
+}
+#company_history #company_history_contents ol {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+#company_history #company_history_contents ol li h2 {
+  height: 140px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 30px;
+  text-align: center;
+  border-right: 4px solid #D4D4D4;
+  border-bottom: 4px solid #D4D4D4;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+#company_history #company_history_contents ol li h2::before {
+  width: 15px;
+  height: 15px;
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: -8px;
+  background: #D4D4D4;
+  border-radius: 15px;
+}
+#company_history #company_history_contents ol li h2.on {
+  height: 55px;
+  color: #329EFF;
+  border-color: #329EFF;
+}
+#company_history #company_history_contents ol li h2.on::before {
+  background: #329EFF;
+}
+#company_history #company_history_contents ol li h2.on > div {
+  background: #D0E9FF;
+}
+#company_history #company_history_contents ol li h2 > div {
+  width: 100%;
+  background: #EDEDED;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+#company_history #company_history_contents ol li > div {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 10px;
+  gap: 10px;
+}
+#company_history #company_history_contents ol li > div h3 {
+  color: #329EFF;
+  font-size: 22px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+#company_history #company_history_contents ol li > div p {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 18px;
+  word-break: keep-all;
+}
+#company_history #company_history_contents ol li > div p span {
+  margin-left: 5px;
+}
+#company_history #company_history_contents ol li:nth-child(1) {
+  margin-top: 335px;
+}
+#company_history #company_history_contents ol li:nth-child(2) {
+  margin-top: 195px;
+}
+#company_history #company_history_contents ol li:nth-child(3) {
+  margin-top: 55px;
+}
+
+/* --- 회사 소개 (고객사) --- */
+#company_partners #company_partners_contents {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+#company_partners #company_partners_contents > ul {
+  width: 100%;
+}
+#company_partners #company_partners_contents > ul h3 {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  background: #F5F5F5;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #E5E5E5;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+#company_partners #company_partners_contents > ul div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 4px;
+}
+#company_partners #company_partners_contents > ul div li {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+#company_partners #company_partners_contents > ul div li img {
+  width: 95%;
+}
+#company_partners #company_partners_contents > ul div li span {
+  font-size: 12px;
+  display: block;
+  word-break: keep-all;
+  white-space: nowrap;
+  margin-top: 5px;
+}
+#company_partners #company_partners_contents > ul:nth-child(1) {
+  animation-delay: 0.2s;
+}
+#company_partners #company_partners_contents > ul:nth-child(2) {
+  animation-delay: 0.3s;
+}
+#company_partners #company_partners_contents > ul:nth-child(3) {
+  animation-delay: 0.4s;
+}
+#company_partners #company_partners_contents > ul:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {
+  section article > aside,
+  #company_slogan nav > div {
+    width: 100%;
+  }
+  #company_slogan nav > ul {
+    width: 90%;
+  }
+  #company_partners #company_partners_contents > ul div {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 1280px) {
+  section article > aside:first-child > h1,
+  #company_slogan nav > div h1 {
+    font-size: 50px;
+  }
+  section article > aside:first-child > div,
+  #company_slogan nav > div > div {
+    font-size: 26px;
+  }
+  #company_value aside:first-child > h1,
+  #company_value #company_value_contents > h2,
+  #company_value #company_value_contents ul li > div h2 {
+    font-size: 40px;
+  }
+  #company_intro #company_intro_contents ul li > div p,
+  #company_value #company_value_contents ul li > div p {
+    font-size: 20px;
+  }
+  #company_intro #company_intro_contents ul li > div p,
+  #company_value #company_value_contents ul li > div p {
+    line-height: 25px;
+  }
+  #company_slogan nav > div > div br {
+    display: none;
+  }
+  #company_value #company_value_contents ul li img {
+    width: 260px;
+  }
+}
+@media (max-width: 1000px) {
+  #company_slogan nav div h1 br {
+    display: block;
+  }
+  #company_intro #company_intro_contents ul {
+    flex-wrap: wrap;
+  }
+  #company_intro #company_intro_contents ul li {
+    width: 45%;
+    padding: 10px;
+  }
+  #company_value #company_value_contents ul li {
+    padding: 0;
+  }
+  #company_value #company_value_contents ul li img {
+    width: 100%;
+  }
+  #company_history #company_history_contents {
+    padding: 20px 40px 0;
+  }
+  #company_history #company_history_contents ol {
+    grid-template-columns: 1fr;
+  }
+  #company_history #company_history_contents ol li h2 {
+    height: inherit;
+    border-right: 0;
+    border-radius: 0;
+  }
+  #company_history #company_history_contents ol li {
+    margin-bottom: 40px;
+  }
+  #company_history #company_history_contents ol li:nth-child(1),
+  #company_history #company_history_contents ol li:nth-child(2),
+  #company_history #company_history_contents ol li:nth-child(3) {
+    margin-top: 0;
+  }
+  #company_history #company_history_contents ol li h2 {
+    margin-bottom: 10px;
+  }
+  #company_history #company_history_contents ol li > div {
+    flex-direction: row;
+    padding: 5px 0;
+  }
+  #company_history #company_history_contents ol li > div h3 {
+    width: 50px;
+    margin: 0;
+  }
+  #company_partners #company_partners_contents > ul div {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 780px) {
+  section article > aside:first-child > h1,
+  #company_slogan nav > div h1,
+  #company_value aside:first-child > h1 {
+    font-size: 40px;
+  }
+  #company_slogan nav > ul h3,
+  #company_value #company_value_contents ul li > div h2,
+  #company_history #company_history_contents ol li h2 > div {
+    font-size: 28px;
+  }
+  section article > aside:first-child > div,
+  #company_slogan nav > div > div,
+  #company_slogan nav > ul li {
+    font-size: 20px;
+  }
+  #company_intro #company_intro_contents ul li > div p,
+  #company_value #company_value_contents ul li > div p,
+  #company_history #company_history_contents ol li > div h3,
+  #company_history #company_history_contents ol li > div p {
+    font-size: 18px;
+  }
+  #company_intro #company_intro_contents ul li > div p,
+  #company_value #company_value_contents ul li > div p,
+  #company_history #company_history_contents ol li > div h3,
+  #company_history #company_history_contents ol li > div p {
+    line-height: 23px;
+  }
+  section article > aside:last-child {
+    padding-bottom: 0;
+  }
+  #company_intro #company_intro_contents {
+    width: 100%;
+  }
+  #company_value aside:first-child > h1 strong {
+    display: block;
+  }
+  #company_value #company_value_contents ul {
+    flex-direction: column;
+  }
+  #company_value #company_value_contents ul li {
+    flex-direction: row;
+  }
+  #company_value #company_value_contents ul li img {
+    width: 30%;
+  }
+  #company_value #company_value_contents ul li > div {
+    margin-left: 30px;
+  }
+  #company_value #company_value_contents ul li > div h2 {
+    text-align: left;
+    margin: 20px 0 10px;
+  }
+  #company_history #company_history_contents ol li h2 > div {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 0;
+  }
+  #company_partners #company_partners_contents {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  #company_partners #company_partners_contents > ul div {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  #company_intro aside:first-child > div br,
+  #company_value aside:first-child > h1 strong br,
+  #company_history aside:first-child > div br {
+    display: block;
+  }
+}
+@media (max-width: 600px) {
+  #company_intro #company_intro_contents ul {
+    flex-direction: column;
+  }
+  #company_intro #company_intro_contents ul li {
+    width: 100%;
+    flex-direction: row;
+  }
+  #company_intro #company_intro_contents ul li > img {
+    width: 25%;
+    padding: 0 10px;
+  }
+  #company_intro #company_intro_contents ul li > div {
+    text-align: left;
+  }
+  #company_intro #company_intro_contents ul li > div p {
+    margin-top: 0;
+    margin-left: 2%;
+  }
+}
+@media (max-width: 480px) {
+  section article > aside:first-child > h1,
+  #company_slogan nav > div h1 {
+    font-size: 36px;
+  }
+  section article > aside:first-child > div,
+  #company_slogan nav > div > div,
+  #company_value aside:first-child > h1 {
+    font-size: 22px;
+  }
+  #company_value #company_value_contents ul li > div h2,
+  #company_history #company_history_contents ol li h2,
+  #company_partners #company_partners_contents > ul h3 {
+    font-size: 20px;
+  }
+  #company_intro #company_intro_contents ul li > div p,
+  #company_value #company_value_contents ul li > div p,
+  #company_history #company_history_contents ol li > div h3,
+  #company_history #company_history_contents ol li > div p {
+    font-size: 16px;
+  }
+  #company_intro #company_intro_contents ul li > div p,
+  #company_value #company_value_contents ul li > div p,
+  #company_history #company_history_contents ol li > div h3,
+  #company_history #company_history_contents ol li > div p {
+    line-height: 21px;
+  }
+  section article {
+    padding: 60px 20px 40px;
+  }
+  section article > aside:first-child {
+    padding: 0;
+  }
+  section article > aside:first-child > b {
+    margin: 10px 0;
+  }
+  section article > aside:first-child > div br {
+    display: block;
+  }
+  section article > aside:last-child {
+    padding: 30px 0;
+  }
+  #company_slogan nav {
+    height: 120vh;
+  }
+  #company_slogan nav > div {
+    padding: 0 20px;
+  }
+  #company_slogan nav > ul {
+    padding: 20px 10px 10px 30px;
+  }
+  #company_intro #company_intro_contents ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  #company_intro #company_intro_contents ul {
+    gap: 0;
+  }
+  #company_intro #company_intro_contents ul li {
+    margin: 0;
+  }
+  #company_intro #company_intro_contents ul li > div {
+    white-space: normal;
+  }
+  #company_intro #company_intro_contents ul li > div p br {
+    display: none;
+  }
+  #company_value #company_value_contents ul li {
+    flex-direction: column;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  #company_value #company_value_contents ul li img {
+    width: 100%;
+  }
+  #company_value #company_value_contents ul li > div {
+    margin: 0;
+  }
+  #company_history #company_history_contents {
+    padding: 20px 0 0;
+  }
+  #company_history #company_history_contents ol li h2 {
+    padding-bottom: 5px;
+  }
+  #company_history #company_history_contents ol li > div {
+    padding: 2px 0;
+  }
+  #company_history #company_history_contents ol li > div h3 {
+    width: 36px;
+  }
+  #company_partners #company_partners_contents > ul div {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 380px) {
+  #company_slogan nav {
+    height: 160vh;
+  }
+}/*# sourceMappingURL=company_intro.css.map */

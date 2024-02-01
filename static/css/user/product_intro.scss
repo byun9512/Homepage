@@ -1,0 +1,783 @@
+@charset "utf-8";
+@import "../global/_global.scss";
+
+/* --- 헤더 --- */
+#header {background: $opacity;
+    & article {
+        #header_menu li a,
+        .header_login>div a {color: $text;}
+    }
+}
+
+/* --- 제품 소개 (전체) --- */
+section {position: relative;
+    & article {
+        width: 100%;
+        @include flex_box(column, center, center);
+        @include padding_setting(80px 0);
+        margin: 0 auto;
+
+        &>aside {width: 1280px;
+            &:first-child {@include padding_setting(0 40px);
+                &>h1 {@include section_title();}
+                &>b {@include section_bar();}
+                &>div {@include section_subtitle();
+                    & br {display: none;}
+                }
+            }
+
+            &:last-child {@include padding_setting(40px 40px 0);}
+        }
+    }
+}
+
+/* --- 제품 소개 (라인업) --- */
+#product_intro {
+    width: 100%;
+    @include flex_box(column, center, center);
+    color: $text;
+    background: $bg1;
+    @include padding_setting(40px 0 0);
+
+    #product_intro_contents {padding-top: 60px;
+        &>ul {@include flex_box(row, flex-start, center);
+            &>li {
+                position: relative;
+                @include flex_box(column, center, center);
+                animation-delay: 0.4s;
+
+                &>h2 {
+                    width: 100%;
+                    position: relative; top: -10px;
+                    @include flex_box(row, center, flex-start);
+                    font-size: $contents_text_normal;
+                    font-weight: 700;
+                    text-align: center;
+                    white-space: nowrap;
+                    opacity: 0.5;
+                    transition: all 0.3s;
+                }
+
+                &>img {
+                    width: 80%;
+                    transition: all 0.3s;
+                }
+
+                & video {
+                    width: 45px;
+                    position: absolute;
+                    top: -15px;
+                    left: 0px;
+                    border-radius: 45px;
+                    z-index: 100;
+                    transition: all 0.3s;
+                }
+
+                .product_tag {
+                    width: 100%;
+                    @include flex_box(row, center, flex-start);
+                    position: absolute; top: 20px;
+                    transition: all 0.3s;
+
+                    & small {
+                        @include text_setting(#000000, $contents_text_smaller, 700);
+                        text-align: center;
+                        border-radius: 10px;
+                        white-space: nowrap;
+                        @include padding_setting(4px 8px);
+                        margin-right: 4px;
+
+                        &.ai {
+                            background-image: 
+                                linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+                                linear-gradient(to right, rgba(0, 255, 209, 0.4) 0%, rgba(0, 119, 255, 0.4) 50%, rgba(255, 0, 128, 0.4) 100%);
+                        }
+
+                        &.venture {
+                            background-image: 
+                                linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+                                linear-gradient(to right, rgba(228, 226, 125, 0.8) 0%, rgba(110, 185, 43, 0.8) 100%);
+                        }
+
+                        &.inch {
+                            background-image: 
+                                linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+                                linear-gradient(to right, rgba(246, 82, 82, 0.8) 0%, rgba(250, 165, 86, 0.8) 100%);
+                        }
+                    }
+                }
+
+                .product_text {
+                    position: absolute;
+                    @include flex_box(column, flex-start, flex-start);
+                    transition: all 0.3s;
+
+                    &>div {
+                        width: 100%;
+                        @include flex_box(column, flex-start, flex-start);
+                        background: rgba(245, 245, 245, 0.8);
+                        border-radius: 10px;
+                        @include padding_setting(10px);
+                        margin-bottom: 10px;
+    
+                        & h3 {
+                            color: $blue;
+                            font-size: $contents_text_normal;
+                            @include padding_setting(0 5px 10px);
+                        }
+    
+                        &>ul {
+                            width: 100%; 
+                            display: grid;
+                            align-content: start;
+                            @include padding_setting(0 5px);
+    
+                            &>li {
+                                width: 100%;
+                                display: flex;
+        
+                                & span {
+                                    color: $text;
+                                    font-size: $contents_text_normal;
+                                    line-height: $contents_text_normal + 8px;
+                                    word-break: keep-all;
+                                    margin-left: 5px;
+                                }
+                            }
+                        }
+
+                        &:first-child {&>ul {grid-template-columns: 1fr 1fr;}}
+                    }
+                }
+
+                &.swiper-slide-active {
+                    & h2 {
+                        transform: scale(2);
+                        transform-origin: bottom;
+                        opacity: 1;
+                    }
+                    &>img {
+                        transform: scale(1.2) translateX(-160px);
+                        transform-origin: top;
+                    }
+                    .product_text {transform: translateX(280px) translateY(80px);}
+                }
+                &:not(.swiper-slide-active) {
+                    & h2 {
+                        opacity: 0.2;
+                        transform: translateY(50px);
+                    }
+                    & img {
+                        opacity: 0.5;
+                        transform: scale(0.8);
+                    }
+                    .product_tag {opacity: 0;}
+                    .product_text {opacity: 0;}
+                }
+                &:nth-child(5), &:nth-child(6) {
+                    &.swiper-slide-active {
+                        .product_text {transform: translateX(200px) translateY(80px);}
+                    }
+                }
+            }
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: absolute !important; top: 60%;
+            background: $text;
+            border-radius: 100%;
+            @include padding_setting(30px);
+            box-shadow: $box_shadow;
+
+            &::after {
+                color: $bg1;
+                font-weight: 800;
+                transform: scale(0.7);
+            }
+            &:hover {background: $gradation;
+                &::after {color: $bg1;}
+            }
+        }
+        .swiper-button-next,
+        .swiper-rtl .swiper-button-prev {right: 3%;}
+        .swiper-button-prev,
+        .swiper-rtl .swiper-button-next {left: 3%;}
+        .swiper-horizontal>.swiper-pagination-bullets,
+        .swiper-pagination-bullets.swiper-pagination-horizontal,
+        .swiper-pagination-custom,
+        .swiper-pagination-fraction {bottom: 0px;}
+    }
+
+    #product_intro_case {
+        @include flex_box(row, center, center);
+        border-radius: 10px;
+        @include padding_setting(10px);
+        z-index: 1;
+        margin: 140px 20px 0;
+        animation-delay: 0.5s;
+
+        & h3 {
+            color: $blue;
+            font-size: $contents_text_normal;
+            white-space: nowrap;
+            margin-right: 20px;
+        }
+
+        &>ul {@include grid_box(repeat(8, auto), 10px);
+            &>li {
+                width: 140px;
+                @include flex_box(row, center, center);
+                background: rgba(230, 230, 230, 1);
+                border-radius: 10px;
+                color: #000000;
+                @include padding_setting(5px);
+    
+                & img {width: 30px;}
+                & span {
+                    display: inline-block;
+                    font-size: $contents_text_normal;
+                    white-space: nowrap;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+/* --- 제품 소개 (구성) --- */
+#product_composition {
+    background: $bg1;
+    @include padding_setting(120px 0 80px);
+
+    #product_composition_contents {@include flex_box(column, center, center);
+        &>div {
+            @include flex_box(row, center, center);
+            margin-bottom: 20px;
+
+            &>img {
+                width: 35%;
+                animation-delay: 0.3s;
+            }
+        }
+
+        #product_composition_performance {
+            width: 100%;
+            @include grid_box(repeat(6, 1fr), 20px);
+
+            & li {position: relative;
+                & img {
+                    width: 100%;
+                    border: 5px solid transparent;
+                    border-radius: 15px;
+                    transition: all 0.3s;
+                }
+
+                & b {
+                    width: 30px; height: 30px;
+                    position: absolute; top: -15px; left: 0px;
+                    @include flex_box(row, center, center);
+                    background: $gradation;
+                    @include text_setting($bg1, $contents_text_normal, 700);
+                    border: 4px solid $bg1;
+                    border-radius: 30px;
+                    transition: all 0.3s;
+                }
+
+                &>div {width: 100%;
+                    & p {
+                        font-size: $contents_text_normal;
+                        font-weight: 700;
+                        text-align: center;
+                        word-break: keep-all;
+                        cursor: default;
+                        margin-top: 10px;
+                        transition: all 0.3s;
+                    }
+                }
+
+                &:hover {
+                    & img {transform: scale(1.05);}
+                    &>div p {
+                        color: $blue;
+                        transform: scale(1.03);
+                    }
+                }
+                &:nth-child(1) {animation-delay: 0.4s;}
+                &:nth-child(2) {animation-delay: 0.5s;}
+                &:nth-child(3) {animation-delay: 0.6s;}
+                &:nth-child(4) {animation-delay: 0.7s;}
+                &:nth-child(5) {animation-delay: 0.8s;}
+                &:nth-child(6) {animation-delay: 0.9s;}
+            }
+        }
+    }
+}
+
+/* --- 제품 소개 (건강) --- */
+#product_data {
+    #product_data_contents {
+        position: relative;
+        @include flex_box(row, space-between, center);
+
+        & div {
+            width: 48%;
+            @include flex_box(column, center, center);
+            text-align: center;
+            word-break: keep-all;
+
+            & p {
+                font-size: $contents_text_normal + 10px;
+                font-weight: 500;
+
+                & br {display: none;}
+            }
+            & img {width: 100%;}
+            &:nth-child(1) {animation-delay: 0.4s;}
+            &:nth-child(2) {animation-delay: 0.5s;}
+        }
+    }
+}
+
+/* --- 제품 소개 (컨텐츠) --- */
+#product_content {
+    #product_content_contents {
+        #product_content_list {
+            width: 100%;
+            @include flex_box(column, inherit, center);
+
+            & ol {animation-delay: 0.3s;
+                & li {
+                    & br {display: none;}
+                }
+            }
+
+            & ul {
+                & li {
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 20px;
+
+                    &.on {display: flex;}
+                    & div {padding-right: 20px;
+                        & h2 {
+                            font-size: $contents_title_normal;
+                            font-weight: 700;
+                            word-break: keep-all;
+                            margin-bottom: 10px;
+                            animation-delay: 0.4s;
+
+                            & br {display: none;}
+                        }
+        
+                        & p {
+                            font-size: $contents_text_normal;
+                            line-height: $contents_text_normal + 5px;
+                            word-break: keep-all;
+                            animation-delay: 0.5s;
+    
+                            & strong {color: $blue;}
+                        }
+                    }
+
+                    & img {
+                        width: 600px;
+                        position: relative;
+                        animation-delay: 0.6s;
+                        transition: top 0.3s;
+                    }
+
+                    &:nth-child(2) h2 br {display: block;}
+                }
+            }
+        }
+    }
+}
+
+/* --- 제품 소개 (핵심 기능) --- */
+#product_process {
+    background: linear-gradient(to bottom, $text, #000000);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    color: $bg1;
+
+    #product_process_contents {
+        & ul {@include grid_box(repeat(3, 1fr), 40px);
+            & li {@include flex_box(column, flex-start, center);
+                &>img {
+                    width: 320px;
+                    transition: all 0.3s;
+                }
+                &>div {
+                    @include flex_box(column, flex-start, flex-start);
+                    word-break: keep-all;
+
+                    &>h2 {
+                        font-size: $contents_title_normal;
+                        margin: 20px 0;
+                    }
+    
+                    &>p {
+                        font-size: $contents_text_normal;
+                        line-height: $contents_text_normal + 5px;
+
+                        & mark {
+                            color: $bg1;
+                            border-color: rgba(255, 137, 0, 0.8);
+                            box-shadow: rgba(255, 137, 0, 0.8) 0px -14px 0px inset;
+                        }
+                    }
+                }
+
+                &:hover>img {transform: scale(1.1);}
+                &:nth-child(2) {animation-delay: 0.3s;}
+                &:nth-child(3) {animation-delay: 0.4s;}
+                &:nth-child(4) {animation-delay: 0.5s;}
+                &:nth-child(5) {animation-delay: 0.6s;}
+                &:nth-child(6) {animation-delay: 0.7s;}
+            }
+        }
+    }
+}
+
+/* --- 제품 소개 (보호) --- */
+#product_protect {
+    background: #000000;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    color: $bg1;
+    
+        
+    & aside:first-child {
+        position: relative;
+        z-index: 30;
+    }
+
+    #product_protect_contents {
+        & ul {width: 100%;
+            & li {
+                @include flex_box(row, space-between, center);
+                margin: 20px 0;
+
+                &>div {
+                    &:first-child {
+                        width: 80%;
+                        @include flex_box(row, center, center);
+                    }
+
+                    &:last-child {
+                        width: 70%;
+                        position: relative;
+                        word-break: keep-all;
+                        z-index: 20;
+
+                        & h2 {
+                            font-size: $contents_title_normal;
+                            margin-bottom: 15px;
+                        }
+                        & p {display: flex;
+                            & b.dot::before {color: $bg1;}
+                            & span {
+                                font-size: $contents_text_normal;
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                }
+
+                &:first-child {animation-delay: 0.3s;
+                    &>div video {
+                        width: 80%;
+                        margin: 10px 0;
+                    }
+                }
+
+                &:last-child {animation-delay: 0.4s;
+                    &>div {
+                        &:first-child img {
+                            width: 100%;
+                            border-radius: 20px;
+                        }
+                        
+                        &:last-child {
+                            & span {@include flex_box(column, flex-start, flex-start);
+                                & small {@include flex_box(row, flex-start, center);
+                                    &:first-of-type {margin-top: 10px;}
+                                    &::before {
+                                        font-size: 18px;
+                                        @include padding_setting(3px);
+                                    }
+
+                                    &.number_1::before {content: "①"}
+                                    &.number_2::before {content: "②"}
+                                    &.number_3::before {content: "③"}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {
+    section article > aside {width: 100%;}
+    #product_intro #product_intro_case > ul {grid-template-columns: repeat(4, 1fr);}
+
+    #product_process #product_process_contents ul {grid-template-columns: repeat(3, 1fr);}
+}
+
+@media (max-width: 1280px) {
+    // 섹션 텍스트
+    section article > aside:first-child > h1 {font-size: $section_title_small;}
+    section article > aside:first-child > div {font-size: $section_subtitle_small;}
+
+    // 컨텐츠 타이틀 텍스트
+    #product_data #product_data_contents ul li p,
+    #product_content #product_content_contents #product_content_list ul li div h2,
+    #product_process #product_process_contents ul li > div > h2,
+    #product_protect #product_protect_contents ul li > div:last-child h2
+    {font-size: $contents_title_small;}
+
+    #product_intro #product_intro_contents>ul>li>h2,
+    #product_data #product_data_contents div p
+    {font-size: $contents_title_small - 10px;}
+
+    // 컨텐츠 세부 텍스트
+    #product_intro #product_intro_contents>ul>li .product_text>div h3,
+    #product_intro #product_intro_contents>ul>li .product_text>div>ul>li span,
+    #product_intro #product_intro_case h3,
+    #product_intro #product_intro_case>ul>li span,
+    #product_composition #product_composition_contents #product_composition_performance li b,
+    #product_composition #product_composition_contents #product_composition_performance li > div p,
+    #product_content #product_content_contents #product_content_list ol li,
+    #product_content #product_content_contents #product_content_list ul li div p,
+    #product_process #product_process_contents ul li > div > p,
+    #product_protect #product_protect_contents ul li > div:last-child p span
+    {font-size: $contents_text_small;}
+
+    #product_intro #product_intro_contents>ul>li .product_text>div>ul>li span,
+    #product_content #product_content_contents #product_content_list ul li div p,
+    #product_process #product_process_contents ul li > div > p
+    {line-height: $contents_text_small + 5px;}
+
+    // 기타
+    #product_composition #product_composition_contents > img {width: 100%;}
+    #product_composition #product_composition_contents #product_composition_performance li b {
+        width: 26px; height: 26px;
+        border: 3px solid $bg1;
+    }
+
+    #product_content #product_content_contents #product_content_list ul li img {width: 40%;}
+
+    #product_process #product_process_contents ul {grid-template-columns: 1fr 1fr;}
+}
+
+@media (max-width: 1000px) {
+    #product_intro #product_intro_contents>ul>li .product_text {
+        width: 80%;
+        position: inherit;
+    }
+    #product_intro #product_intro_contents>ul>li>img {width: 60%;}
+    #product_intro #product_intro_contents>ul>li.swiper-slide-active>img {margin: 40px 0;}
+    #product_intro #product_intro_contents>ul>li.swiper-slide-active .product_text,
+    #product_intro #product_intro_contents>ul>li:nth-child(5).swiper-slide-active .product_text,
+    #product_intro #product_intro_contents>ul>li:nth-child(6).swiper-slide-active .product_text,
+    #product_intro #product_intro_contents>ul>li.swiper-slide-active>img,
+    #product_intro #product_intro_contents>ul>li:not(.swiper-slide-active) h2 {transform: inherit;}
+    #product_intro #product_intro_contents .swiper-button-next,
+    #product_intro #product_intro_contents .swiper-button-prev {top: 40%;}
+    #product_intro #product_intro_case {
+        width: 80%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background: rgba(245, 245, 245, 0.8);
+        margin: 0 20px 0;
+    }
+    #product_intro #product_intro_case h3 {padding: 0 5px 10px;}
+    #product_intro #product_intro_case>ul {
+        width: 100%;
+        grid-template-columns: repeat(4, 24%);
+        place-items: center;
+    }
+    #product_intro #product_intro_case>ul>li {width: 100%;}
+    #product_intro #product_intro_case>ul>li img {width: 30px;}
+
+    #product_composition #product_composition_contents > div {flex-wrap: wrap;}
+    #product_composition #product_composition_contents > div > img {width: 50%;}
+    #product_composition #product_composition_contents #product_composition_performance {gap: 0;}
+
+    #product_content #product_content_contents #product_content_list ol {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    #product_content #product_content_contents #product_content_list ol li {
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+    }
+
+    #product_protect #product_protect_contents ul li {
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+    #product_protect #product_protect_contents ul li > div {width: 100% !important;}
+    #product_protect #product_protect_contents ul li > div:last-child {padding: 0;}
+    #product_protect #product_protect_contents ul li:last-child > div:first-child img {margin-bottom: 40px;}
+    #product_protect #product_protect_contents ul li:last-child > div:last-child span small::before {
+        font-size: 16px;
+        padding: 1px 3px;
+    }
+}
+
+@media (max-width: 780px) {
+    // 컨텐츠 타이틀 텍스트
+    #product_data #product_data_contents ul li p,
+    #product_content #product_content_contents #product_content_list ul li div h2,
+    #product_process #product_process_contents ul li > div > h2,
+    #product_protect #product_protect_contents ul li > div:last-child h2
+    {font-size: $contents_title_smaller;}
+
+    // 컨텐츠 세부 텍스트
+    #product_intro #product_intro_contents > ul > li .product_text > div h3,
+    #product_intro #product_intro_contents>ul>li .product_text>div>ul>li span,
+    #product_intro #product_intro_case h3,
+    #product_intro #product_intro_case>ul>li span,
+    #product_composition #product_composition_contents #product_composition_performance li b,
+    #product_composition #product_composition_contents #product_composition_performance li > div p,
+    #product_content #product_content_contents #product_content_list ol li,
+    #product_content #product_content_contents #product_content_list ul li div p,
+    #product_process #product_process_contents ul li > div > p,
+    #product_protect #product_protect_contents ul li > div:last-child p span
+    {font-size: $contents_text_smaller;}
+
+    #product_intro #product_intro_contents>ul>li .product_text>div>ul>li span,
+    #product_content #product_content_contents #product_content_list ul li div p,
+    #product_process #product_process_contents ul li > div > p
+    {line-height: $contents_text_smaller + 5px;}
+
+    // 기타
+    #product_intro #product_intro_contents>ul>li .product_text,
+    #product_intro #product_intro_case {width: 95%;}
+    #product_intro #product_intro_contents>ul>li.swiper-slide-active>img,
+    #product_intro #product_intro_contents>ul>li:not(.swiper-slide-active) img {width: 400px;}
+    #product_intro #product_intro_contents>ul>li.swiper-slide-active h2 {transform: scale(1.5);}
+    #product_intro #product_intro_contents .swiper-button-next,
+    #product_intro #product_intro_contents .swiper-button-prev {padding: 20px;}
+    #product_intro #product_intro_contents .swiper-button-next::after,
+    #product_intro #product_intro_contents .swiper-button-prev::after {transform: scale(0.5);}
+    #product_intro #product_intro_case>ul {gap: 5px;}
+    #product_intro #product_intro_case>ul>li img {width: 25px;}
+
+    #product_composition {padding: 80px 0;}
+    #product_composition #product_composition_contents > div {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    #product_composition #product_composition_contents > div > img {width: 100%;}
+    #product_composition #product_composition_contents > img {width: 120%;}
+
+    #product_data #product_data_contents {flex-direction: column;}
+    #product_data #product_data_contents div {width: 100%;}
+
+    #product_content #product_content_contents #product_content_list ul li {
+        flex-direction: column-reverse;
+        margin-top: 20px;
+    }
+    #product_content #product_content_contents #product_content_list ol {
+        grid-template-columns: repeat(3, 1fr);
+        margin: 0;
+    }
+    #product_content #product_content_contents #product_content_list ol li {padding: 10px 0;}
+    #product_content #product_content_contents #product_content_list ul li div {padding: 0;}
+    #product_content #product_content_contents #product_content_list ul li img {width: 80%;}
+    
+    #product_process #product_process_contents ul {
+        display: flex;
+        gap: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    #product_intro #product_intro_contents>ul>li:not(.swiper-slide-active) h2,
+    #product_intro #product_intro_contents>ul>li:not(.swiper-slide-active) img {opacity: 0;}
+}
+
+@media (max-width: 480px) {
+    // 섹션 텍스트
+    section article > aside:first-child > h1 {font-size: $section_title_smaller;}
+    section article > aside:first-child > div {font-size: $section_subtitle_smaller;}
+
+    // 컨텐츠 타이틀 텍스트
+    #product_data #product_data_contents ul li p,
+    #product_content #product_content_contents #product_content_list ul li div h2,
+    #product_process #product_process_contents ul li > div > h2,
+    #product_protect #product_protect_contents ul li > div:last-child h2
+    {font-size: $contents_title_smallest;}
+
+    // 컨텐츠 세부 텍스트
+    #product_intro #product_intro_contents > ul > li > p,
+    #product_intro #product_intro_contents > ul > li > div h3,
+    #product_intro #product_intro_contents > ul > li > div > ul > li span,
+    #product_intro #product_intro_contents > div h3,
+    #product_intro #product_intro_contents > div ul li span,
+    #product_intro #product_intro_contents > ul > li .product_tag small,
+    #product_composition #product_composition_contents #product_composition_performance li b,
+    #product_composition #product_composition_contents #product_composition_performance li > div p,
+    #product_content #product_content_contents #product_content_list ol li,
+    #product_content #product_content_contents #product_content_list ul li div p,
+    #product_process #product_process_contents ul li > div > p,
+    #product_protect #product_protect_contents ul li > div:last-child p span
+    {font-size: $contents_text_smallest;}
+
+    #product_intro #product_intro_contents > ul > li > div > ul > li span,
+    #product_intro #product_intro_contents > div p span,
+    #product_content #product_content_contents #product_content_list ul li div p,
+    #product_process #product_process_contents ul li > div > p
+    {line-height: $contents_text_smallest + 5px;}
+    
+    // 기타
+    section article {padding: 60px 20px 40px;}
+    section article > aside:first-child {padding: 0;}
+    section article > aside:first-child > b {margin: 10px 0;}
+    section article > aside:first-child > div br {display: block;}
+    section article > aside:last-child {padding: 30px 0;}
+
+    #product_intro #product_intro_contents > ul > li::before {height: 97%;}
+    #product_intro #product_intro_contents > ul > li > img {width: 80%;}
+    #product_intro #product_intro_contents > ul > li > div > ul,
+    #product_intro #product_intro_contents > ul > li:nth-child(1) div:first-of-type ul,
+    #product_intro #product_intro_contents > ul > li:nth-child(2) div:first-of-type ul {
+        height: auto;
+        padding: 0 5px 10px;
+    }
+    #product_intro #product_intro_contents > div {margin-top: 0;}
+    #product_intro #product_intro_contents > div ul {gap: 5px;}
+    #product_intro #product_intro_contents > div ul li {padding: 3px 10px;}
+    #product_intro #product_intro_contents>ul>li .product_text,
+    #product_intro #product_intro_case {width: 100%;}
+    #product_intro #product_intro_case>ul {grid-template-columns: repeat(2, 49%);}
+    #product_intro #product_intro_contents .swiper-horizontal>.swiper-pagination-bullets,
+    #product_intro #product_intro_contents .swiper-pagination-bullets.swiper-pagination-horizontal,
+    #product_intro #product_intro_contents .swiper-pagination-custom,
+    #product_intro #product_intro_contents .swiper-pagination-fraction {bottom: -20px;}
+
+    #product_composition #product_composition_contents > div > img {width: 100%;}
+    #product_composition #product_composition_contents #product_composition_performance li b {width: 28px; height: 28px;}
+    #product_composition #product_composition_contents #product_composition_performance li > div p {margin: 0;}
+    #product_composition #product_composition_contents #product_composition_performance li > div p br {display: block;}
+
+    #product_data #product_data_contents div p br {display: block;}
+
+    #product_content aside:first-child > div br {display: block;}
+    #product_content #product_content_contents #product_content_list ol {gap: 5px;}
+    #product_content #product_content_contents #product_content_list ul li img {width: 100%;}
+    #product_content #product_content_contents #product_content_list ul li div h2 br {display: block;}
+
+    #product_process #product_process_contents ul li > img {width: 80%;}
+}

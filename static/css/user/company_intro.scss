@@ -1,0 +1,556 @@
+@charset "utf-8";
+@import "../global/_global.scss";
+
+/* --- 회사 소개 (전체) --- */
+section {position: relative;
+    & article {
+        width: 100%;
+        @include flex_box(column, center, center);
+        @include padding_setting(80px 0);
+        margin: 0 auto;
+
+        &>aside {width: 1280px;
+            &:first-child {@include padding_setting(0 40px);
+                &>h1 {@include section_title();}
+                &>b {@include section_bar();}
+                &>div {@include section_subtitle();
+                    & br {display: none;}
+                }
+            }
+
+            &:last-child {@include padding_setting(40px 40px 0);}
+        }
+    }
+}
+
+/* --- 회사 소개 (대문) --- */
+#company_slogan {
+    & nav {
+        width: 100%; min-height: 100vh;
+        @include flex_box(column, center, center);
+        gap: 30px;
+        margin: 0 auto;
+        color: $bg1;
+
+        &::before {
+            @include pseudo(110%, 110%);
+            top: 0; left: 0;
+            background: url(/static/img/company_intro/bg_company_intro_slogan.jpg) no-repeat;
+            background-size: cover;
+            background-position: 40%;
+            z-index: 0;
+        }
+    
+        &::after {
+            @include pseudo(110%, 110%);
+            top: 0; left: 0;
+            background: $blur;
+            z-index: 0;
+        }
+
+        &>div {
+            width: 1280px;
+            z-index: 1;
+            @include padding_setting(0 40px);
+
+            & h1 {@include section_title();
+                & br {display: none;}
+            }
+            & b {@include section_bar();}
+            &>div {@include section_subtitle();
+                & mark {
+                    color: $bg1;
+                    border-color: rgba(255, 137, 0, 0.8);
+                    box-shadow: rgba(255, 137, 0, 0.8) 0px -14px 0px inset;
+                }
+            }
+        }
+
+        &>ul {
+            width: 1180px;
+            position: relative;
+            @include section_subtitle();
+            z-index: 1;
+            @include ui_setting(rgba(255, 255, 255, 0.8), 20px);
+            @include padding_setting(20px 20px 20px 50px);
+            animation-delay: 0.4s;
+
+            & h3 {
+                color: #000000;
+                padding-bottom: 10px;
+            }
+            & li {
+                color: #000000;
+                list-style-type: disc;
+                margin: 6px 0;
+
+                & mark {
+                    color: #000000;
+                    border-color: rgba(255, 137, 0, 0.4);
+                    box-shadow: rgba(255, 137, 0, 0.4) 0px -10px 0px inset;
+                }
+            }
+        }
+    }
+}
+
+/* --- 회사 소개 (미션) --- */
+#company_intro {
+    & article {
+        background: $bg1;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+    
+    & aside:first-child {
+        &>div br {display: none;}
+    }
+
+    #company_intro_contents {
+        & ul {@include flex_box(row, center, center);
+            & li {@include flex_box(column, flex-start, center);
+                &::before {
+                    @include pseudo(100%, 100%);
+                    top: 0; left: 0;
+                    border-radius: 10px;
+                    opacity: 0.1;
+                    z-index: -1;
+                }
+
+                &>img {
+                    width: 40%;
+                    opacity: 0.8;
+                }
+                
+                &>div {
+                    width: 100%;
+                    text-align: center;
+                    word-break: keep-all;
+                    white-space: nowrap;
+
+                    & p {
+                        font-size: $contents_text_normal + 4px;
+                        margin-top: 20px;
+                    }
+                }
+
+                &:nth-child(1) {animation-delay: 0.2s;}
+                &:nth-child(2) {animation-delay: 0.4s;}
+                &:nth-child(3) {animation-delay: 0.6s;}
+            }
+        }
+    }
+}
+
+/* --- 회사 소개 (핵심 가치) --- */
+#company_value {
+    & aside:first-child {
+        &>h1 {
+            font-size: $section_title_small;
+            font-weight: 400;
+            text-align: center;
+
+            & strong {@include gradation();
+                & br {display: none;}
+            }
+        }
+    }
+
+    #company_value_contents {
+        & ul {@include flex_box(row, center, flex-start);
+            & li {
+                width: 100%;
+                @include flex_box(column, flex-start, center);
+                margin: 5px;
+
+                & img {
+                    width: 300px;
+                    border-radius: 30px;
+                    box-shadow: $box_shadow;
+                }
+
+                &>div {
+                    width: 100%;
+                    word-break: keep-all;
+
+                    & h2 {
+                        font-size: $contents_title_normal;
+                        text-align: center;
+                        margin: 30px 0 20px;
+                    }
+                    & p {
+                        font-size: $contents_text_normal;
+                        line-height: $contents_text_normal + 5px;
+                    }
+                }
+                &:nth-child(1) {animation-delay: 0.2s}
+                &:nth-child(2) {animation-delay: 0.4s}
+                &:nth-child(3) {animation-delay: 0.6s}
+            }
+        }
+    }
+}
+
+/* --- 회사 소개 (연혁) --- */
+#company_history {
+    & article {
+        & aside:first-child {
+            &>div br {display: none;}
+        }
+    }
+
+    #company_history_contents {
+        padding: 0 40px;
+        animation-delay: 0.2s;
+
+        & ol {@include grid_box(repeat(4, 1fr), 0);
+            & li {
+                $history_height_off: 140px;
+                $history_height_on: $history_height_off - 85px;
+
+                & h2 {
+                    height: $history_height_off;
+                    position: relative;
+                    @include flex_box(column, flex-end, center);             
+                    font-size: $contents_title_normal - 10px;
+                    text-align: center;
+                    border: {
+                        right: 4px solid $default3;
+                        bottom: 4px solid $default3;
+                        top-left-radius: 20px;
+                        bottom-right-radius: 20px;
+                    }
+
+                    &::before {
+                        @include pseudo(15px, 15px);
+                        bottom: -10px; left: -8px;
+                        background: $default3;
+                        border-radius: 15px;
+                    }
+
+                    &.on {
+                        height: $history_height_on;
+                        color: $blue;
+                        border-color: $blue;
+
+                        &::before {background: $blue;}
+                        &>div {background: $light_blue;}
+                    }
+
+                    &>div {
+                        width: 100%;
+                        background: $default4;
+                        border: {
+                            top-left-radius: 15px;
+                            bottom-right-radius: 15px;
+                        }
+                        @include padding_setting(10px);       
+                    }
+                }
+
+                &>div {
+                    width: 100%;
+                    position: relative;
+                    @include flex_box(row, flex-start, flex-start);
+                    @include padding_setting(10px);
+                    gap: 10px;
+
+                    & h3 {
+                        @include text_setting($blue, $contents_text_normal, 700);
+                        white-space: nowrap;
+                    }
+                    & p {
+                        @include flex_box(row, flex-start, flex-start);
+                        font-size: $contents_text_normal - 4px;
+                        word-break: keep-all;
+
+                        & span {margin-left: 5px;}
+                    }
+                }
+
+                &:nth-child(1) {margin-top: ($history_height_off * 3) - 85px;}
+                &:nth-child(2) {margin-top: ($history_height_off * 2) - 85px;}
+                &:nth-child(3) {margin-top: $history_height_off - 85px;}
+            }
+        }
+    }
+}
+
+/* --- 회사 소개 (고객사) --- */
+#company_partners {
+    #company_partners_contents {@include grid_box(1fr 1fr, 20px);
+        &>ul {width: 100%;
+            & h3 {
+                font-size: $contents_title_small;
+                font-weight: 600;
+                text-align: center;
+                white-space: nowrap;
+                background: $bg3;
+                border: {
+                    width: 1px;
+                    style: solid;
+                    color: $default5;
+                    top-left-radius: 20px;
+                    top-right-radius: 20px;
+                    bottom-left-radius: 5px;
+                    bottom-right-radius: 5px;
+                }
+                margin-bottom: 10px;
+                @include padding_setting(10px 0);
+            }
+
+            & div {
+                width: 100%;
+                @include grid_box(1fr 1fr 1fr 1fr 1fr, 4px);
+
+                & li {
+                    width: 100%;
+                    @include flex_box(column, center, center);
+                    background: $bg1;
+                    border: 1px solid $default5;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+                    @include padding_setting(10px 0);
+
+                    & img {width: 95%;}
+                    & span {
+                        font-size: 12px;
+                        display: block;
+                        word-break: keep-all;
+                        white-space: nowrap;
+                        margin-top: 5px;
+                    }
+                }
+            }
+
+            &:nth-child(1) {animation-delay: 0.2s;}
+            &:nth-child(2) {animation-delay: 0.3s;}
+            &:nth-child(3) {animation-delay: 0.4s;}
+            &:nth-child(4) {animation-delay: 0.5s;}
+        }
+    }
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {
+    section article > aside,
+    #company_slogan nav > div {width: 100%;}
+    #company_slogan nav > ul {width: 90%;}
+
+    #company_partners #company_partners_contents > ul div {grid-template-columns: 1fr 1fr 1fr 1fr;}
+}
+
+@media (max-width: 1280px) {
+    // 섹션 텍스트
+    section article > aside:first-child > h1,
+    #company_slogan nav > div h1
+    {font-size: $section_title_small;}
+
+    section article > aside:first-child > div,
+    #company_slogan nav > div > div
+    {font-size: $section_subtitle_small;}
+
+    // 컨텐츠 타이틀 텍스트
+    #company_value aside:first-child > h1,
+    #company_value #company_value_contents > h2,
+    #company_value #company_value_contents ul li > div h2
+    {font-size: $contents_title_normal;}
+
+    // 컨텐츠 세부 텍스트
+    #company_intro #company_intro_contents ul li > div p,
+    #company_value #company_value_contents ul li > div p
+    {font-size: $contents_text_small;}
+
+    #company_intro #company_intro_contents ul li > div p,
+    #company_value #company_value_contents ul li > div p
+    {line-height: $contents_text_small + 5px;}
+
+    // 기타
+    #company_slogan nav>div>div br {display: none;}
+    #company_value #company_value_contents ul li img {width: 260px;}
+}
+
+@media (max-width: 1000px) {
+    #company_slogan nav div h1 br {display: block;}
+
+    #company_intro #company_intro_contents ul {flex-wrap: wrap;}
+    #company_intro #company_intro_contents ul li {
+        width: 45%;
+        padding: 10px;
+    }
+    
+    #company_value #company_value_contents ul li {padding: 0;}
+    #company_value #company_value_contents ul li img {width: 100%;}
+    
+    #company_history #company_history_contents {padding: 20px 40px 0;}
+    #company_history #company_history_contents ol {grid-template-columns: 1fr;}
+    #company_history #company_history_contents ol li h2 {
+        height: inherit;
+        border-right: 0;
+        border-radius: 0;
+    }
+    #company_history #company_history_contents ol li {margin-bottom: 40px;}
+    #company_history #company_history_contents ol li:nth-child(1),
+    #company_history #company_history_contents ol li:nth-child(2),
+    #company_history #company_history_contents ol li:nth-child(3) {margin-top: 0;}
+    #company_history #company_history_contents ol li h2 {margin-bottom: 10px;}
+    #company_history #company_history_contents ol li > div {
+        flex-direction: row;
+        padding: 5px 0;
+    }
+    #company_history #company_history_contents ol li > div h3 {
+        width: 50px;
+        margin: 0;
+    }
+
+    #company_partners #company_partners_contents > ul div {grid-template-columns: 1fr 1fr 1fr;}
+}
+
+@media (max-width: 780px) {
+    // 컨텐츠 타이틀 텍스트
+    section article > aside:first-child > h1,
+    #company_slogan nav > div h1,
+    #company_value aside:first-child > h1
+    {font-size: $contents_title_normal;}
+
+    #company_slogan nav > ul h3,
+    #company_value #company_value_contents ul li > div h2,
+    #company_history #company_history_contents ol li h2 > div
+    {font-size: $contents_title_small;}
+
+    // 컨텐츠 세부 텍스트
+    section article > aside:first-child > div,
+    #company_slogan nav > div > div,
+    #company_slogan nav > ul li
+    {font-size: $contents_text_small;}
+
+    #company_intro #company_intro_contents ul li > div p,
+    #company_value #company_value_contents ul li > div p,
+    #company_history #company_history_contents ol li > div h3,
+    #company_history #company_history_contents ol li > div p
+    {font-size: $contents_text_smaller;}
+
+    #company_intro #company_intro_contents ul li > div p,
+    #company_value #company_value_contents ul li > div p,
+    #company_history #company_history_contents ol li > div h3,
+    #company_history #company_history_contents ol li > div p
+    {line-height: $contents_text_smaller + 5px;}
+
+    // 기타
+    section article > aside:last-child {padding-bottom: 0;}
+    #company_intro #company_intro_contents {width: 100%;}
+
+    #company_value aside:first-child > h1 strong {display: block;}
+    #company_value #company_value_contents ul {flex-direction: column;}
+    #company_value #company_value_contents ul li {flex-direction: row;}
+    #company_value #company_value_contents ul li img {width: 30%;}
+    #company_value #company_value_contents ul li > div {margin-left: 30px;}
+    #company_value #company_value_contents ul li > div h2 {
+        text-align: left;
+        margin: 20px 0 10px;
+    }
+
+    #company_history #company_history_contents ol li h2 > div {
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 0;
+    }
+
+    #company_partners #company_partners_contents {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    #company_partners #company_partners_contents > ul div {grid-template-columns: 1fr 1fr 1fr 1fr 1fr;}
+
+    // 띄어쓰기
+    #company_intro aside:first-child > div br,
+    #company_value aside:first-child > h1 strong br,
+    #company_history aside:first-child > div br {display: block;}
+}
+
+@media (max-width: 600px) {
+    #company_intro #company_intro_contents ul {flex-direction: column;}
+    #company_intro #company_intro_contents ul li {
+        width: 100%;
+        flex-direction: row;
+    }
+    #company_intro #company_intro_contents ul li > img {
+        width: 25%;
+        padding: 0 10px;
+    }
+    #company_intro #company_intro_contents ul li > div {text-align: left;}
+    #company_intro #company_intro_contents ul li > div p {
+        margin-top: 0;
+        margin-left: 2%;
+    }
+}
+
+@media (max-width: 480px) {
+    // 섹션 텍스트
+    section article > aside:first-child > h1,
+    #company_slogan nav > div h1
+    {font-size: $section_title_smaller;}
+
+    section article > aside:first-child > div,
+    #company_slogan nav > div > div,
+    #company_value aside:first-child > h1
+    {font-size: $section_subtitle_smaller;}
+
+    // 컨텐츠 타이틀 텍스트
+    #company_value #company_value_contents ul li > div h2,
+    #company_history #company_history_contents ol li h2,
+    #company_partners #company_partners_contents > ul h3
+    {font-size: $contents_title_smallest;}
+
+    // 컨텐츠 세부 텍스트
+    #company_intro #company_intro_contents ul li > div p,
+    #company_value #company_value_contents ul li > div p,
+    #company_history #company_history_contents ol li > div h3,
+    #company_history #company_history_contents ol li > div p
+    {font-size: $contents_text_smallest;}
+
+    #company_intro #company_intro_contents ul li > div p,
+    #company_value #company_value_contents ul li > div p,
+    #company_history #company_history_contents ol li > div h3,
+    #company_history #company_history_contents ol li > div p
+    {line-height: $contents_text_smallest + 5px;}
+
+    // 기타
+    section article {padding: 60px 20px 40px;}
+    section article > aside:first-child {padding: 0;}
+    section article > aside:first-child > b {margin: 10px 0;}
+    section article > aside:first-child > div br {display: block;}
+    section article > aside:last-child {padding: 30px 0;}
+    
+    #company_slogan nav {height: 120vh;}
+    #company_slogan nav > div {padding: 0 20px;}
+    #company_slogan nav > ul {padding: 20px 10px 10px 30px;}
+
+    #company_intro #company_intro_contents ul {
+        width: 100%;
+        @include flex_box(column, center, center);
+        gap: 10px;
+    }
+    #company_intro #company_intro_contents ul {gap: 0;}
+    #company_intro #company_intro_contents ul li {margin: 0;}
+    #company_intro #company_intro_contents ul li > div {white-space: normal;}
+    #company_intro #company_intro_contents ul li > div p br {display: none;}
+
+    #company_value #company_value_contents ul li {
+        flex-direction: column;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    #company_value #company_value_contents ul li img {width: 100%;}
+    #company_value #company_value_contents ul li > div {margin: 0;}
+
+    #company_history #company_history_contents {padding: 20px 0 0;}
+    #company_history #company_history_contents ol li h2 {padding-bottom: 5px;}
+    #company_history #company_history_contents ol li > div {padding: 2px 0;}
+    #company_history #company_history_contents ol li > div h3 {width: 36px;}
+
+    #company_partners #company_partners_contents > ul div {grid-template-columns: 1fr 1fr 1fr;}
+}
+
+@media (max-width: 380px) {
+    #company_slogan nav {height: 160vh;}
+}

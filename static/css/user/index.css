@@ -1,0 +1,445 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- 메인 (리스트) --- */
+#main_list {
+  position: relative;
+}
+#main_list article {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#main_list article aside {
+  width: 1280px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 30px;
+}
+#main_list #main_box {
+  background: #F0F8FF;
+  box-sizing: border-box;
+  padding: 120px 0 20px;
+}
+#main_list #main_box::before {
+  width: 100%;
+  height: 55%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/static/img/bg_main.jpg) no-repeat;
+  background-size: cover;
+  z-index: 0;
+}
+#main_list #main_box::after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(23, 23, 23, 0.6);
+  z-index: 0;
+}
+#main_list #main_box #data_box {
+  width: 100%;
+  z-index: 50;
+}
+#main_list #main_box #data_box > h1 {
+  position: relative;
+  color: #FFFFFF;
+  font-size: 60px;
+  text-align: center;
+  word-break: keep-all;
+  margin-bottom: 80px;
+}
+#main_list #main_box #data_box > h1 > span {
+  font-size: 22px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+#main_list #main_box #data_box > h1 b {
+  color: transparent;
+  background: linear-gradient(to right, #329EFF, #7ABEFB);
+  -webkit-background-clip: text;
+}
+#main_list #main_box #data_box > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+#main_list #main_box #data_box > ul::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+#main_list #main_box #data_box > ul::-webkit-scrollbar-thumb {
+  background: #329EFF;
+  border-radius: 10px;
+}
+#main_list #main_box #data_box > ul::-webkit-scrollbar-track {
+  background: #EDEDED;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.05) inset;
+  border-radius: 10px;
+}
+#main_list #main_box #data_box > ul::-webkit-scrollbar-button:start:decrement, #main_list #main_box #data_box > ul::-webkit-scrollbar-button:end:increment {
+  display: none;
+}
+#main_list #main_box #data_box > ul > li {
+  width: 450px;
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  margin: 0 10px;
+}
+#main_list #main_box #data_box > ul > li ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  word-break: keep-all;
+}
+#main_list #main_box #data_box > ul > li ul li {
+  width: 100%;
+}
+#main_list #main_box #data_box > ul > li ul li:first-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 45px 30px 0;
+}
+#main_list #main_box #data_box > ul > li ul li:first-child > img {
+  position: absolute;
+  top: -60px;
+}
+#main_list #main_box #data_box > ul > li ul li:first-child > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#main_list #main_box #data_box > ul > li ul li:first-child > div > span {
+  position: absolute;
+  top: -10px;
+  left: 0px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 5px 15px;
+}
+#main_list #main_box #data_box > ul > li ul li:first-child > div > b {
+  font-size: 40px;
+  white-space: nowrap;
+}
+#main_list #main_box #data_box > ul > li ul li:first-child::before {
+  width: 40px;
+  height: 40px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 55%;
+  z-index: 100;
+  transform: rotate(10deg) scale(1.1);
+}
+#main_list #main_box #data_box > ul > li ul li:last-child {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-size: 22px;
+  background: #F9F9F9;
+  border-radius: 10px;
+  margin: 0 0 10px;
+}
+#main_list #main_box #data_box > ul > li ul li:last-child p {
+  font-weight: 700;
+}
+#main_list #main_box #data_box > ul > li ul li:last-child span {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+#main_list #main_box #data_box > ul > li ul li:last-child span strong {
+  color: #DE3B3B;
+  margin: 0 5px;
+}
+#main_list #main_box #data_box > ul > li ul li:last-child span > img {
+  width: 18px;
+}
+#main_list #main_box #data_box > ul > li > div {
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+#main_list #main_box #data_box > ul > li > div .highcharts-container {
+  width: 100% !important;
+}
+#main_list #main_box #data_box > ul > li:nth-child(1) ul li::before {
+  background: url(/static/img/ic_top_health_crown.svg) no-repeat;
+}
+#main_list #main_box #data_box > ul > li:nth-child(2) ul li::before {
+  background: url(/static/img/ic_top_strength_crown.svg) no-repeat;
+}
+#main_list #main_box #data_box > ul > li:nth-child(3) ul li::before {
+  background: url(/static/img/ic_top_calories_crown.svg) no-repeat;
+}
+#main_list #main_table {
+  position: relative;
+  background: #FFFFFF;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-sizing: border-box;
+  padding: 40px 0;
+  z-index: 1;
+}
+#main_list #main_table #data_table {
+  width: 1400px;
+}
+#main_list #main_table #data_table > h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+#main_list #main_table #data_table > h2 span {
+  font-size: 22px;
+  font-weight: 300;
+}
+#main_list #main_table #data_table ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 0 0 15px;
+}
+#main_list #main_table #data_table ul::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+#main_list #main_table #data_table ul::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #329EFF, #7ABEFB);
+  border-radius: 10px;
+}
+#main_list #main_table #data_table ul::-webkit-scrollbar-track {
+  background: #EDEDED;
+  box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.05) inset;
+  border-radius: 10px;
+}
+#main_list #main_table #data_table ul::-webkit-scrollbar-button:start:decrement, #main_list #main_table #data_table ul::-webkit-scrollbar-button:end:increment {
+  display: none;
+}
+#main_list #main_table #data_table ul li {
+  width: 1400px;
+}
+#main_list #main_table #data_table ul li table, #main_list #main_table #data_table ul li thead, #main_list #main_table #data_table ul li tbody, #main_list #main_table #data_table ul li tr, #main_list #main_table #data_table ul li th, #main_list #main_table #data_table ul li td {
+  vertical-align: middle;
+}
+#main_list #main_table #data_table ul li table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#main_list #main_table #data_table ul li tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+#main_list #main_table #data_table ul li th {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 0 0 15px;
+}
+#main_list #main_table #data_table ul li td {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+#main_list #main_table #data_table ul li th, #main_list #main_table #data_table ul li td {
+  font-size: 22px;
+}
+#main_list #main_table #data_table ul li .data_table_first {
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+#main_list #main_table #data_table ul li .data_table_first .new_table {
+  position: relative;
+}
+#main_list #main_table #data_table ul li .data_table_first .new_table > i {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  right: -20px;
+}
+#main_list #main_table #data_table ul li .data_table_first .new_table > i::before {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "N";
+  color: #FFFFFF;
+  background: #DE3B3B;
+  font-style: normal;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 5px;
+}
+#main_list #main_table #data_table ul li#data_table_standard table {
+  color: #555555;
+  border-bottom: 2px solid #D4D4D4;
+}
+#main_list #main_table #data_table ul li#data_table_standard table thead tr {
+  box-sizing: border-box;
+  padding: 15px 0;
+}
+#main_list #main_table #data_table ul li#data_table_standard table thead tr th {
+  width: 9%;
+  white-space: nowrap;
+  font-weight: 500;
+}
+#main_list #main_table #data_table ul li#data_table_standard table thead tr th:first-of-type {
+  width: 16%;
+}
+#main_list #main_table #data_table ul li#data_table_list table tbody tr {
+  border-bottom: 1px solid #D4D4D4;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+#main_list #main_table #data_table ul li#data_table_list table tbody tr td {
+  width: 9%;
+}
+#main_list #main_table #data_table ul li#data_table_list table tbody tr td img {
+  width: 13px;
+  padding: 5px;
+}
+#main_list #main_table #data_table ul li#data_table_list table tbody tr td:first-of-type {
+  width: 16%;
+}
+#main_list #main_table #data_table ul li#data_table_list table tbody tr td:first-of-type > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+#main_list #main_table #data_table ul li#data_table_list table tbody tr td:first-of-type > div p {
+  word-break: keep-all;
+}
+#main_list #main_table #data_table ul li#data_table_list table tbody tr td:first-of-type > div > img {
+  width: 25px;
+  height: 20px;
+  padding: 0;
+  margin-left: 10px;
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {
+  #main_list #main_box #data_box > ul > li {
+    width: 33%;
+  }
+  #main_list #main_table #data_table {
+    width: 100%;
+  }
+  #main_list #main_table #data_table ul {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-x: scroll;
+  }
+}
+@media (max-width: 1280px) {
+  #main_list #main_box #data_box > h1 {
+    font-size: 50px;
+  }
+  #main_list #main_box #data_box > ul > li ul li:first-child > div > b,
+  #main_list #main_table #data_table > h2 {
+    font-size: 28px;
+  }
+  #main_list #main_box #data_box > ul > li ul li:last-child,
+  #main_list #main_table #data_table > h2 span,
+  #main_list #main_table #data_table ul li th,
+  #main_list #main_table #data_table ul li td {
+    font-size: 20px;
+  }
+  #data_graph_health text,
+  #data_graph_exercise text,
+  #data_graph_calories text {
+    font-size: 14px !important;
+  }
+  #main_list #main_box {
+    padding: 120px 0 20px;
+  }
+  #main_list #main_box #data_box > ul > li ul li:last-child {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 1000px) {
+  #main_list #main_box #data_box > ul {
+    justify-content: flex-start;
+  }
+  #main_list #main_box #data_box > ul > li {
+    margin: 0;
+  }
+  #main_list #main_box #data_box > ul > li ul li:last-child {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 780px) {
+  #main_list #main_box #data_box > ul > li ul li:last-child,
+  #main_list #main_table #data_table > h2 span,
+  #main_list #main_table #data_table ul li th,
+  #main_list #main_table #data_table ul li td {
+    font-size: 18px;
+  }
+  #main_list #main_table #data_table ul li#data_table_list table tbody tr {
+    padding: 6px 0;
+  }
+}
+@media (max-width: 480px) {
+  #main_list #main_box #data_box > h1 {
+    font-size: 36px;
+  }
+  #main_list #main_box #data_box > h1 > span {
+    font-size: 16px;
+  }
+  #main_list article aside {
+    padding: 0 20px;
+  }
+  #main_list #main_box #data_box > h1 {
+    margin-bottom: 60px;
+  }
+  #main_list #main_box #data_box > ul > li ul li:last-child span > img {
+    width: 14px;
+  }
+  #main_list #main_table #data_table ul li {
+    width: 1100px;
+  }
+  #main_list #main_table #data_table ul li table {
+    width: 100%;
+  }
+  #main_list #main_table #data_table ul li th {
+    padding: 0;
+  }
+}/*# sourceMappingURL=index.css.map */

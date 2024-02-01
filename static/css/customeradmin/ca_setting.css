@@ -1,0 +1,153 @@
+@charset "UTF-8";
+/* --- SASS 변수 정리 --- */
+/* --- SASS 함수 정리 --- */
+/* --- 관리 (그룹 관리) --- */
+#group_management article:nth-of-type(2) {
+  grid-template-columns: 1fr;
+}
+
+#group_number span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: rgba(24, 49, 83, 0.7);
+}
+#group_number span strong {
+  color: rgb(24, 49, 83);
+}
+
+#group_manage_list {
+  font-size: 18px;
+}
+#group_manage_list thead tr th:nth-child(1) {
+  width: 10%;
+}
+#group_manage_list thead tr th:nth-child(2) {
+  width: 20%;
+}
+#group_manage_list thead tr th:nth-child(3) {
+  width: 50%;
+}
+#group_manage_list thead tr th:nth-child(4) {
+  width: 20%;
+}
+#group_manage_list tbody tr {
+  padding: 8px 0;
+}
+#group_manage_list tbody tr td:nth-child(1) {
+  width: 10%;
+}
+#group_manage_list tbody tr td:nth-child(2) {
+  width: 20%;
+}
+#group_manage_list tbody tr td:nth-child(3) {
+  width: 50%;
+}
+#group_manage_list tbody tr td:nth-child(4) {
+  width: 20%;
+}
+#group_manage_list tbody tr:hover {
+  background: rgba(24, 49, 83, 0.1);
+  cursor: pointer;
+}
+
+#group_manage_default {
+  display: none;
+}
+
+.checkbox > label > div > span {
+  background: rgb(255, 255, 255);
+}
+
+#group_detail_view > div > ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#group_detail_view > div > ul > li {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 10% 1fr;
+  gap: 0;
+  box-sizing: border-box;
+  padding: 16px;
+  place-items: end;
+  gap: 16px;
+}
+#group_detail_view > div > ul > li > ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+#group_detail_view > div > ul > li > ul > li {
+  width: 100%;
+}
+#group_detail_view > div > ul > li > ul > li:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+#group_detail_view > div > ul > li > ul > li:nth-of-type(2) > div {
+  width: 100%;
+}
+#group_detail_view > div > ul > li > ul > li:nth-of-type(2) > div:first-child {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+}
+#group_detail_view > div > ul > li > ul > li:nth-of-type(2) > div:first-child input {
+  width: 100%;
+  background: rgb(240, 241, 243);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 9px 12px;
+}
+#group_detail_view > div > ul > li > ul > li:nth-of-type(2) > div:first-child select {
+  background: rgb(240, 241, 243);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 8px 8px;
+}
+#group_detail_view > div > ul > li > ul > li:nth-of-type(2) > div:last-child {
+  min-height: 400px;
+  background: rgb(240, 241, 243);
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 16px;
+}
+#group_detail_view > div > ul > li > ul > li:nth-of-type(2) > div:last-child table td:nth-child(1), #group_detail_view > div > ul > li > ul > li:nth-of-type(2) > div:last-child table th:nth-child(1) {
+  width: 10%;
+}
+#group_detail_view > div > ul > li > ul > li:nth-of-type(2) > div:last-child table td:nth-child(2), #group_detail_view > div > ul > li > ul > li:nth-of-type(2) > div:last-child table th:nth-child(2) {
+  width: 45%;
+}
+#group_detail_view > div > ul > li > ul > li:nth-of-type(2) > div:last-child table td:nth-child(3), #group_detail_view > div > ul > li > ul > li:nth-of-type(2) > div:last-child table th:nth-child(3) {
+  width: 45%;
+}
+#group_detail_view > div > ul > li > ul:nth-of-type(2) {
+  place-self: center;
+}
+#group_detail_view > div > div:last-of-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 16px;
+  gap: 8px;
+}
+#group_detail_view > div > div:last-of-type button.off {
+  display: none;
+}/*# sourceMappingURL=ca_setting.css.map */

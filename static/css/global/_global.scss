@@ -1,0 +1,208 @@
+@charset "utf-8";
+
+/* --- SASS 변수 정리 --- */
+// 색깔 관련
+$blue: #329EFF;
+$blue_gradation: #7ABEFB;
+$blue_gradation2: #F5FAFF;
+$blue_gradation3: #F0F8FF;
+$gradation: linear-gradient(to right, $blue, $blue_gradation);
+$light_blue: #D0E9FF;
+$crazy_blue: #0058DE;
+$dark_blue: #1a2d59;
+$orange: #EC7F00;
+$yellow: #F5CF13;
+$red: #DE3B3B;
+$red_gradation: #FDF4F4;
+$text: #404040;
+$bg1: #FFFFFF;
+$bg2: #F9F9F9;
+$bg3: #F5F5F5;
+$default1: #C4C4C4;
+$default2: #B3B3B3;
+$default3: #D4D4D4;
+$default4: #EDEDED;
+$default5: #E5E5E5;
+$default6: #666666;
+$box_shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.1);
+$text_shadow: 3px 3px 10px rgba(30, 30, 30, 0.2);
+$blur: rgba(23, 23, 23, 0.6);
+$blue_blur: rgba(50, 158, 255, 0.8);
+$opacity: rgba(255, 255, 255, 0.9);
+
+
+// 텍스트 관련
+// 1920px ~ 1280px
+$section_title_normal: 60px;
+$section_subtitle_normal: 30px;
+$contents_title_normal: 40px;
+$contents_text_normal: 22px;
+
+// 1280px ~ 780px
+$section_title_small: 50px;
+$section_subtitle_small: 26px;
+$contents_title_small: 28px;
+$contents_text_small: 20px;
+
+// 780px ~ 480px
+$section_title_smaller: 36px;
+$section_subtitle_smaller: 22px;
+$contents_title_smaller: 24px;
+$contents_text_smaller: 18px;
+
+// 480px 이하
+$section_title_smallest: 24px;
+$section_subtitle_smallest: 20px;
+$contents_title_smallest: 20px;
+$contents_text_smallest: 16px;
+
+// 공간 관련
+$header_height: 60px;
+$section_height: 550px + $header_height;
+$section_height_change: 125vw;
+
+
+/* --- SASS 함수 정리 --- */
+// flex box 세팅
+@mixin flex_box($direction, $justify, $items) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $items;
+}
+
+// grid box 세팅
+@mixin grid_box($template, $gap) {
+    display: grid;
+    grid-template-columns: $template;
+    gap: $gap;
+}
+
+// UI 기본 세팅
+@mixin ui_setting($background, $radius) {
+    background: $background;
+    border-radius: $radius;
+    box-shadow: $box_shadow;
+}
+
+// 텍스트 기본 세팅
+@mixin text_setting($color, $size, $weight) {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+// 박스 여백 세팅
+@mixin padding_setting($padding) {
+    box-sizing: border-box;
+    padding: $padding
+}
+
+// 배경 넣기 세팅
+@mixin background_setting($height, $url) {
+    height: $height;
+    background: url($url);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@mixin gradation() {
+    color: transparent;
+    background: $gradation;
+    -webkit-background-clip: text;
+}
+
+// 벡터 에셋 세팅
+@mixin svg($position) {
+    width: 100%;
+    position: absolute;
+
+    @if $position == 'top' {
+        top: 0;
+    } @else if ($position == 'bottom') {
+        bottom: 0;
+    }
+}
+
+// 가상 요소 기본 설정
+@mixin pseudo($width, $height) {
+    width: $width; height: $height;
+    content: "";
+    position: absolute;
+}
+
+@mixin backdrop_filter($blur, $saturate) {
+    filter: blur($blur) saturate($saturate);
+    -webkit-backdrop-filter: blur($blur) saturate($saturate);
+    backdrop-filter: blur($blur) saturate($saturate);
+}
+
+// 멀티라인 말줄임 표시
+@mixin ellipsis($height, $line) {
+    height: $height;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+// 섹션 텍스트 전용
+@mixin section_title() {
+    position: relative;
+    font-size: $section_title_normal;
+    word-break: keep-all;
+    transition: all 0.3s;
+}
+
+@mixin section_bar() {
+    width: 100px; height: 5px;
+    display: block;
+    position: relative;
+    background: $gradation;
+    border-radius: 5px;
+    margin: 10px 0;
+    transition: all 0.3s;
+    animation-delay: 0.1s;
+}
+
+@mixin section_subtitle() {
+    position: relative;
+    font-size: $section_subtitle_normal;
+    font-weight: 300;
+    word-break: keep-all;
+    transition: all 0.3s;
+    animation-delay: 0.2s;
+}
+
+// 텍스트 박스 전용
+@mixin input_label {
+    position: absolute; top: 0;
+    font-size: $contents_text_normal;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+@mixin input_focus {
+    top: -20px; left: 0;
+    @include text_setting($text, 16px, 700);
+    transition: all 0.3s;
+}
+
+@mixin input {
+    width: 100%;
+    @include text_setting($text, $contents_text_normal, 700);
+    background: transparent;
+    border-bottom: 2px solid $default1;
+    padding: 5px 0;
+    transition: all 0.3s;
+}
+
+@mixin input_border {
+    @include pseudo(0, 2px);
+    top: 37px; left: 0;
+    background: $text;
+    transition: all 0.3s;
+}

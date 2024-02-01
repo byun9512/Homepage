@@ -1,0 +1,318 @@
+@charset "utf-8";
+@import "../global/_global.scss";
+
+/* --- 어플 소개 (전체) --- */
+section {position: relative;
+    & article {
+        width: 100%;
+        @include flex_box(column, center, center);
+        @include padding_setting(80px 0);
+        margin: 0 auto;
+
+        &>aside {
+            width: 1280px;
+            z-index: 1;
+
+            &:first-child {@include padding_setting(0 40px);
+                &>h1 {@include section_title();}
+                &>b {@include section_bar();}
+                &>div {@include section_subtitle();
+                    & br {display: none;}
+                }
+            }
+
+            &:last-child {@include padding_setting(40px 40px 0);}
+        }
+    }
+}
+
+/* --- 어플 소개 (이용 순서) --- */
+#app_process {
+    width: 100%;
+    @include flex_box(column, center, center);
+    @include padding_setting(100px 0 0);
+    color: $bg1;
+
+    &::before {
+        @include pseudo(110%, 110%);
+        top: 0; left: 0;
+        background: url(/static/img/app_intro/bg_app_intro.jpg) no-repeat;
+        background-size: cover;
+        background-position: 50%;
+        z-index: 0;
+    }
+
+    &::after {
+        @include pseudo(110%, 110%);
+        top: 0; left: 0;
+        background: $blur;
+        z-index: 0;
+    }
+
+    
+    & article aside:first-child {
+        & h1 {
+            width: 100%;
+            @include flex_box(row, space-between, flex-end);
+
+            &>div {@include flex_box(row, flex-start, center);
+                & a {
+                    display: inline-block;
+                    transition: all 0.5s;
+    
+                    & img {transition: all 0.3s;}
+                    &:hover img {transform: scale(1.1);}
+                    &:first-of-type img {width: 220px;}
+                    &:last-of-type img {width: 180px;}
+                }
+            }
+        }
+    }
+
+    #app_process_contents {
+        @include flex_box(column, center, center);
+        margin-top: 20px;
+
+        &>img {
+            width: 100%;
+            display: none;
+            animation-delay: 0.6s;
+        }
+
+        &>div {@include flex_box(column, flex-start, flex-start);
+            & p {font-size: $contents_title_normal;}
+            & img {width: 100%;}
+            &:first-of-type {
+                animation-delay: 0.4s;
+                margin-bottom: 40px;
+            }
+            &:not(:first-of-type) {animation-delay: 0.5s;}
+        }
+    }
+}
+
+/* --- 어플 소개 (기록 연동) --- */
+#app_record {
+    & article {
+        background: $bg3;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        padding: 0;
+    }
+    & aside {
+        position: relative;
+        @include flex_box(row, space-between, center);
+        padding-top: 40px;
+
+        & ul {
+            width: 100%;
+            @include flex_box(column, flex-start, flex-start);
+
+            & img {
+                width: 120px; height: 120px;
+                background: $bg1;
+                border-radius: 120px;
+                @include padding_setting(10px);
+                margin-right: 15px;
+            }
+
+            & li {
+                width: 100%;
+                position: relative;
+                @include flex_box(row, flex-start, flex-start);
+                word-break: keep-all;
+                z-index: 10;
+                @include padding_setting(30px 20px);
+
+                & h1 {
+                    font-size: $contents_title_normal;
+                    white-space: nowrap;
+                }
+                & b {@include section_bar();}
+                & div {
+                    width: 100%;
+                    font-size: $contents_text_normal;
+                    line-height: $contents_text_normal + 5px;
+                }
+
+                &:nth-child(1) {animation-delay: 0.2s;}
+                &:nth-child(2) {animation-delay: 0.3s;}
+            }
+        }
+        
+        &>video {
+            width: 60%;
+            animation-delay: 0.4s;
+        }
+    }
+}
+
+/* --- 어플 소개 (회원 가입) --- */
+#app_membership {
+    #app_membership_contents {@include flex_box(row, center, center);
+        & img {
+            width: 600px;
+            animation-delay: 0.3s;
+        }
+
+        & div {
+            width: 100%;
+            @include flex_box(column, flex-start, flex-start);
+            word-break: keep-all;
+
+            & h2 {
+                font-size: $contents_title_normal;
+                margin-bottom: 20px;
+                animation-delay: 0.3s;
+            }
+            & p {
+                font-size: $contents_text_normal;
+                line-height: $contents_text_normal + 5px;
+                margin-bottom: 30px;
+                animation-delay: 0.4s;
+
+                & b {color: $blue;}
+            }
+            & a {
+                color: $bg1;
+                animation-delay: 0.5s;
+            }
+        }
+    }
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {section article > aside {width: 100%;}}
+@media (max-width: 1280px) {
+    // 섹션 텍스트
+    section article > aside:first-child > h1 {font-size: $section_title_small;}
+    section article > aside:first-child > div {font-size: $section_subtitle_small;}
+
+    // 컨텐츠 타이틀 텍스트
+    #app_process #app_process_contents > div p,
+    #app_record aside ul li h1,
+    #app_membership #app_membership_contents div h2
+    {font-size: $contents_title_small;}
+
+    // 컨텐츠 세부 텍스트
+    #app_record aside ul li div,
+    #app_membership #app_membership_contents div p,
+    #app_membership #app_membership_contents div a
+    {font-size: $contents_text_small;}
+
+    #app_record aside ul li div,
+    #app_membership #app_membership_contents div p
+    {line-height: $contents_text_small + 5px;}
+    
+    // 기타
+    #app_record aside {
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    #app_record aside > video {width: 80%;}
+    #app_record aside ul {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    #app_record aside ul img {
+        width: 80px; height: 80px;
+        margin: 0;
+    }
+    #app_record aside ul li {
+        width: 50%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    #app_record aside ul li h1 {margin-top: 10px;}
+    #app_record aside ul li div {@include flex_box(column, center, center);}
+
+    #app_membership #app_membership_contents img {width: 42%;}
+}
+
+@media (max-width: 780px) {
+    // 컨텐츠 타이틀 텍스트
+    #app_process #app_process_contents > div p,
+    #app_record aside ul li h1,
+    #app_membership #app_membership_contents div h2
+    {font-size: $contents_title_smaller;}
+
+    // 컨텐츠 세부 텍스트
+    #app_record aside ul li div,
+    #app_membership #app_membership_contents div p,
+    #app_membership #app_membership_contents div a
+    {font-size: $contents_text_smaller;}
+
+    #app_record aside ul li div,
+    #app_membership #app_membership_contents div p
+    {line-height: $contents_text_smaller + 5px;}
+
+    // 기타
+    #app_process article aside:first-child h1>div {flex-direction: column;}
+    #app_process article aside:first-child h1>div a:first-of-type img {width: 160px;}
+    #app_process article aside:first-child h1>div a:last-of-type img {width: 140px;}
+    #app_process #app_process_contents {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #app_process #app_process_contents > img {display: block;}
+    #app_process #app_process_contents > div {width: 50%;}
+    #app_process #app_process_contents > div:first-child {margin-bottom: 0;}
+    #app_process #app_process_contents > div p {
+        width: 100%;
+        text-align: center;
+    }
+    #app_process #app_process_contents > div img {display: none;}
+
+    #app_record aside > video {width: 100%;}
+    #app_record aside ul li {padding: 0 5px;}
+
+    #app_membership #app_membership_contents {flex-direction: column-reverse;}
+    #app_membership #app_membership_contents img {width: 424px;}
+    #app_membership #app_membership_contents div {
+        width: 100%;
+        margin: 0;
+    }
+    #app_membership #app_membership_contents div h2 {margin-bottom: 10px;}
+}
+
+@media (max-width: 480px) {
+    // 섹션 텍스트
+    section article > aside:first-child > h1 {font-size: $section_title_smaller;}
+    section article > aside:first-child > div {font-size: $section_subtitle_smaller;}
+
+    // 컨텐츠 타이틀 텍스트
+    #app_process #app_process_contents > div p,
+    #app_record aside ul li h1,
+    #app_membership #app_membership_contents div h2
+    {font-size: $contents_title_smallest;}
+
+    // 컨텐츠 세부 텍스트
+    #app_record aside ul li div,
+    #app_membership #app_membership_contents div p,
+    #app_membership #app_membership_contents div a
+    {font-size: $contents_text_smallest;}
+
+    #app_record aside ul li div,
+    #app_membership #app_membership_contents div p
+    {line-height: $contents_text_smallest + 5px;}
+
+    // 기타
+    section article {padding: 60px 20px 40px;}
+    section article > aside:first-child {padding: 0;}
+    section article > aside:first-child > b {margin: 10px 0;}
+    section article > aside:first-child > div br {display: block;}
+    section article > aside:last-child {padding: 30px 0;}
+
+    #app_process {padding: 100px 0 0;}
+
+    #app_record article {padding: 50px 0 0;}
+    #app_record aside {padding: 0 20px;}
+    #app_record aside ul img {width: 80px; height: 80px;}
+    #app_record aside ul li h1 {margin: 10px 0 0;}
+    #app_record aside ul li b {margin: 10px 0;}
+    #app_record aside ul li div {text-align: center;}
+}

@@ -1,0 +1,360 @@
+@charset "utf-8";
+@import "../global/_global.scss";
+
+/* --- 메인 (리스트) --- */
+#main_list {position: relative;
+    & article {
+        width: 100%;
+        @include flex_box(column, center, center);
+
+        & aside {
+            width: 1280px;
+            position: relative;
+            @include padding_setting(0 30px);
+        }
+    }
+
+    #main_box {
+        background: $blue_gradation3;
+        @include padding_setting(120px 0 20px);
+
+        &::before {
+            @include pseudo(100%, 55%);
+            top: 0; left: 0;
+            background: url(/static/img/bg_main.jpg) no-repeat;
+            background-size: cover;
+            z-index: 0;
+        }
+
+        &::after {
+            @include pseudo(100%, 100%);
+            top: 0; left: 0;
+            background: $blur;
+            z-index: 0;
+        }
+
+        #data_box {
+            width: 100%;
+            z-index: 50;
+
+            &>h1 {
+                position: relative;
+                color: $bg1;
+                font-size: $section_title_normal;
+                text-align: center;
+                word-break: keep-all;
+                margin-bottom: 80px;
+    
+                &>span {
+                    font-size: $contents_text_normal;
+                    font-weight: 500;
+                    white-space: nowrap;
+                }
+                & b {@include gradation();}
+            }
+
+            &>ul {
+                @include flex_box(row, center, center);
+                @include padding_setting(20px 0);
+
+                &::-webkit-scrollbar { // 스크롤바 전체 영역
+                    width: 10px; height: 10px;
+                }
+                &::-webkit-scrollbar-thumb {  // 스크롤
+                    background: $blue;
+                    border-radius: 10px;
+                }
+                &::-webkit-scrollbar-track { // 스크롤이 움직이는 영역
+                    background: $default4;
+                    box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.05) inset;
+                    border-radius: 10px;
+                }
+                &::-webkit-scrollbar-button:start:decrement, 
+                &::-webkit-scrollbar-button:end:increment {display: none;}
+
+                &>li {
+                    width: 450px;
+                    position: relative;
+                    @include ui_setting($bg1, 10px);
+                    margin: 0 10px;
+
+                    & ul {
+                        @include flex_box(column, center, center);
+                        word-break: keep-all;
+
+                        & li {width: 100%;}
+                        & li:first-child {
+                            @include flex_box(row, center, center);
+                            @include padding_setting(45px 30px 0);
+
+                            &>img {position: absolute; top: -60px;}
+                            &>div {
+                                width: 100%;
+                                @include flex_box(column, center, center);
+                                
+                                &>span {
+                                    position: absolute; top: -10px; left: 0px;
+                                    background: $bg1;
+                                    border-radius: 20px;
+                                    font-size: $contents_text_smaller;
+                                    font-weight: 700;
+                                    padding: 5px 15px;
+                                }
+                                &>b {
+                                    font-size: $contents_title_normal;
+                                    white-space: nowrap;
+                                }
+                            }
+                            &::before {
+                                @include pseudo(40px, 40px);
+                                top: 0; left: 55%;
+                                z-index: 100;
+                                transform: rotate(10deg) scale(1.1);
+                            }
+                        }
+
+                        & li:last-child {
+                            width: 90%;
+                            @include flex_box(row, space-between, flex-start);
+                            @include padding_setting(10px 20px);
+                            font-size: $contents_text_normal;
+                            background: $bg2;
+                            border-radius: 10px;
+                            margin: 0 0 10px;
+                            
+                            & p {font-weight: 700;}
+                            & span {@include flex_box(row, flex-start, center);
+                                & strong {
+                                    color: $red;
+                                    margin: 0 5px;
+                                }
+
+                                &>img {width: 18px;}
+                            }
+                        }
+                    }
+
+                    &>div {@include padding_setting(10px 0);
+                        .highcharts-container {width: 100% !important;}
+                    }
+
+                    &:nth-child(1) ul li::before {background: url(/static/img/ic_top_health_crown.svg) no-repeat;}
+                    &:nth-child(2) ul li::before {background: url(/static/img/ic_top_strength_crown.svg) no-repeat;}
+                    &:nth-child(3) ul li::before {background: url(/static/img/ic_top_calories_crown.svg) no-repeat;}
+                }
+            }
+        }
+    }
+
+    #main_table {
+        position: relative;
+        background: $bg1;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        @include padding_setting(40px 0);
+        z-index: 1;
+
+        #data_table {width: 1400px;
+            &>h2 {
+                @include flex_box(column, center, center);
+                font-size: $contents_title_normal;
+                margin-bottom: 15px;
+
+                & span {
+                    font-size: $contents_text_normal;
+                    font-weight: 300;
+                }
+            }
+
+            & ul {
+                @include flex_box(column, flex-start, flex-start);
+                @include padding_setting(0 0 15px);
+                
+                &::-webkit-scrollbar { // 스크롤바 전체 영역
+                    width: 10px; height: 10px;
+                }
+                &::-webkit-scrollbar-thumb {  // 스크롤
+                    background: $gradation;
+                    border-radius: 10px;
+                }
+                &::-webkit-scrollbar-track { // 스크롤이 움직이는 영역
+                    background: $default4;
+                    box-shadow: 2px 4px 10px 0px rgba(0, 0, 0, 0.05) inset;
+                    border-radius: 10px;
+                }
+                &::-webkit-scrollbar-button:start:decrement, 
+                &::-webkit-scrollbar-button:end:increment {display: none;}
+
+                & li {width: 1400px;
+                    table, thead, tbody, tr, th, td {vertical-align: middle;}
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                    }
+
+                    tr {@include flex_box(row, flex-start, center);}
+                    th {
+                        @include flex_box(row, center, center);
+                        @include padding_setting(0 0 0 15px);
+                    }
+                    td {@include flex_box(row, flex-end, flex-start);}
+                    th, td {font-size: $contents_text_normal;}
+
+                    .data_table_first {
+                        justify-content: flex-start;
+                        margin-left: 20px;
+        
+                        .new_table {position: relative;
+                            &>i {
+                                width: 14px; height: 14px;
+                                position: absolute; right: -20px;
+        
+                                &::before {
+                                    width: 100%;
+                                    position: absolute; top: 0; left: 0;
+                                    content: "N";
+                                    color: $bg1;
+                                    background: $red;
+                                    font-style: normal;
+                                    font-size: 12px;
+                                    text-align: center;
+                                    border-radius: 5px;
+                                }
+                            }
+                        }
+                    }
+
+                    &#data_table_standard {
+                        & table {
+                            color: #555555;
+                            border-bottom: 2px solid $default3;
+            
+                            & thead {
+                                & tr {@include padding_setting(15px 0);
+                                    & th {
+                                        width: 9%;
+                                        white-space: nowrap;
+                                        font-weight: 500;
+
+                                        &:first-of-type {width: 16%;}
+                                    }
+                                }
+                            }
+                        }
+                    }
+            
+                    &#data_table_list {
+                        & table {
+                            & tbody {
+                                & tr {
+                                    border-bottom: 1px solid $default3;
+                                    @include padding_setting(10px 0);
+            
+                                    & td {width: 9%;
+                                        & img {
+                                            width: 13px;
+                                            padding: 5px;
+                                        }
+                                        
+                                        &:first-of-type {width: 16%;
+                                            &>div {@include flex_box(row, flex-start, center);
+                                                & p {word-break: keep-all;}
+                                                &>img {
+                                                    width: 25px; height: 20px;
+                                                    padding: 0;
+                                                    margin-left: 10px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* --- 미디어 쿼리 --- */
+@media (max-width: 1400px) {
+    #main_list #main_box #data_box > ul > li {width: 33%;}
+    #main_list #main_table #data_table {width: 100%;}
+    #main_list #main_table #data_table ul {
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow-x: scroll;
+    }
+}
+
+@media (max-width: 1280px) {
+    // 섹션 타이틀 텍스트
+    #main_list #main_box #data_box > h1
+    {font-size: $section_title_small;}
+
+    // 컨텐츠 타이틀 텍스트
+    #main_list #main_box #data_box > ul > li ul li:first-child > div > b,
+    #main_list #main_table #data_table > h2
+    {font-size: $contents_title_small;}
+
+    // 컨텐츠 세부 텍스트
+    #main_list #main_box #data_box > ul > li ul li:last-child,
+    #main_list #main_table #data_table > h2 span,
+    #main_list #main_table #data_table ul li th, 
+    #main_list #main_table #data_table ul li td
+    {font-size: $contents_text_small;}
+
+    #data_graph_health text,
+    #data_graph_exercise text,
+    #data_graph_calories text {font-size: $contents_text_smallest - 2px !important;}
+
+    // 기타
+    #main_list #main_box {padding: 120px 0 20px;}
+    #main_list #main_box #data_box > ul > li ul li:last-child {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1000px) {
+    #main_list #main_box #data_box > ul {justify-content: flex-start;}
+    #main_list #main_box #data_box > ul > li {margin: 0;}
+    #main_list #main_box #data_box > ul > li ul li:last-child {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 780px) {
+    // 컨텐츠 세부 텍스트
+    #main_list #main_box #data_box > ul > li ul li:last-child, 
+    #main_list #main_table #data_table > h2 span, 
+    #main_list #main_table #data_table ul li th, 
+    #main_list #main_table #data_table ul li td
+    {font-size: $contents_text_smaller;}
+
+    // 기타
+    #main_list #main_table #data_table ul li#data_table_list table tbody tr {padding: 6px 0;}
+}
+
+@media (max-width: 480px) {
+    // 섹션 타이틀 텍스트
+    #main_list #main_box #data_box > h1
+    {font-size: $section_title_smaller;}
+
+    // 컨텐츠 타이틀 텍스트
+    #main_list #main_box #data_box > h1 > span
+    {font-size: $contents_text_smallest;}
+
+    // 기타
+    #main_list article aside {padding: 0 20px;}
+    #main_list #main_box #data_box > h1 {margin-bottom: 60px;}
+    #main_list #main_box #data_box > ul > li ul li:last-child span > img {width: 14px;}
+    #main_list #main_table #data_table ul li {width: 1100px;}
+    #main_list #main_table #data_table ul li table {width: 100%;}
+    #main_list #main_table #data_table ul li th {padding: 0;}
+}
